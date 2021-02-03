@@ -1,45 +1,80 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Tutti Frutti
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
 
-## Gitpod Reminders
+This is a colourful memory card game with an Italian fruity theme . 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
 
-A blue button should appear to click: *Make Public*,
+## UX
 
-Another blue button should appear to click: *Open Browser*.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Scope
 
-A blue button should appear to click: *Make Public*,
+The site will be three pages .  Its targeted at users of all ages and types. 
 
-Another blue button should appear to click: *Open Browser*.
+#### User stories
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+1. As a visitor to this game site , i want to be able to play a fun game and test my memory.
+2. As a visitor to the game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes. 
+3. As a visitor to the game site ,  I want the ability to select a difficulty level that suits me best .
+4. As a visitor to the game site , I want to be able to see my highest score history.
+5. As a visitor to the game site , I want to see the names of fruit in Italian.
+6. As a visitor to the site , 
 
-## Updates Since The Instructional Video
+### Structure
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+This site will be put together with HTML, using the bootstrap framework along with CSS. The game part will made using JavaScript and jQuery . An API may be required also . 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Skeleton
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Page 1 - Homepage - Game title , theme and difficulty settings , Start button
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Page 2 - Game page - Card game page with timer and progress gauge
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Page 3 - How to play / Top Scores - Top scores on display and some info on how the game works .
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+8 card pairs (maximum)  Fruit emojis choosen are only ones that are currently grown in Italy and not green in colour.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+1 Strawberry
+2 Orange
+3 Cherry
+4 Banana 
+5 Apple
+6 Lemon
+7 Grapes
+8 Pear
 
---------
+Wireframe 
 
-Happy coding!
+### Surface 
+
+**Colours**
+
+Colours vibrant fun by default, no green allowed . Three colour theme options.
+
+1. Colourful theme (default). 
+2. Light theme - Light background , Dark text
+3. Dark theme - Dark background, Light text
+
+
+## Features
+
+- There will be more then one difficulty level 
+- There will be three theme options 
+- The game stores your scores in your browser 
+
+## Credits
+
+### Content
+
+Some images are created by Graphic Designer Rudy de Souza
+
+### Media
+
+Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoji)
+
+### Acknowledgements
+
+Game layout is inspired by [PROXX](https://www.proxx.app/)
