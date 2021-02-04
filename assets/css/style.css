@@ -58,7 +58,7 @@
 }
 
 @keyframes dance {
-    0%. 100% {
+    0%, 100% {
         transform: rotate(0);
     }
     25% {
