@@ -1,4 +1,3 @@
-
 class MixOrMatch {
     constructor(totalTime, cards){
         this.cardsArray = cards;
@@ -110,7 +109,7 @@ class MixOrMatch {
     } // Fisher and Yates shuffle  method
 
     canFlipCard(card){
-       return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck)
+       return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
     }  // all these statements have to be false in order for it to be true, and user can flip the next card
 
 }
