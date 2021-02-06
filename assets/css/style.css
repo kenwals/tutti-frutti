@@ -6,6 +6,7 @@
   background-color: black;
   font-family: 'Courier New', Courier, monospace;
   color: white;
+  font-size: 1em;
 }
 
 
@@ -14,9 +15,9 @@
     display: flex;
     justify-content: space-between;
 }
-.game-info{
-    font-size: 4em;
-}
+/* .game-info{
+    font-size: 1em;
+} */
 
 .game-container{
     margin: 50px auto;
@@ -74,7 +75,7 @@
 
 
 .card-back{
-    background-color: rgb(20, 220, 160);
+    background-color: rgb(220, 43, 20);
     border-color: cyan;
     transform: rotateY(0); 
 }
@@ -142,6 +143,15 @@
     }
   }
 
-  .fas{
-    font-size: 3rem;
-  }
+.game-header, .help-header {
+  height: 3em;
+}
+
+
+.game-footer, .home-footer {
+   height: 60px;
+ }
+
+ .fas {
+   font-size: 3em;
+ }
