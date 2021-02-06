@@ -15,48 +15,49 @@
 	<div class="container-fluid collapse" id="page-home">
 		<div class="row">
 			<div class="col-12">
+            <h1 class="text-center">TUTTI FRUTTI</h1>
 
-
-
+                <button type="button" class="btn btn-light btn-lg btn-block align-bottom">START</button>
             </div>    
         </div>
+
+        <div class="home-footer row border-top fixed-bottom ml-1 mr-1 py-2">
+            <div class="col-12">
+                <i class="fas fa-info float-left"></i>
+            </div>
+        </div>
+
     </div>
 
-	<div class="container-fluid " id="page-game">
-        <div class="game-header row border-bottom">
+	<div class="container-fluid collapse" id="page-game">
+        <div class="game-header row border-bottom ml-1 mr-1 py-2">
             <div class="col-12">
-                <i class="fas fa-coins float-left"></i>
-          <!--      <h1 class="text-center inline">Tutti Frutti</h1> -->
-                <i class="fas fa-stopwatch float-right"></i>
-           
+                <div class="game-info float-left">
+                    <i class="fas fa-coins"></i>
+                        <span id="flips">0</span>
+                </div>
+               
+                <div class="game-info float-right">
+                    <span id="time-remaining">100</span>
+                    <i class="fas fa-stopwatch "></i>
+                </div>
+
 
             </div>
         </div>
 
 
 		<div class="row">
-			<div class="col-12">
-
-                 
-                <div class="overlay-text"> Click to start </div>
+			<div class="col-12">     
+                <div class="overlay-text">Click to start</div>
                 <div id="game-over-text" class="overlay-text"> 
                     GAME OVER 
-                    <span class="overlay-text-small"> Click to restart</span>
+                    <span class="overlay-text-small"> Click here to restart</span>
                 </div>
                 <div id="victory-text" class="overlay-text"> 
-                    Congratulations! 
-                    <span class="overlay-text-small"> Click to restart</span>
+                    You win! 
+                    <span class="overlay-text-small"> Click here to restart</span>
                 </div>
-
-                <div class="game-info-container">
-                    <div class="game-info">
-                        Time <span id="time-remaining">100</span>
-                    </div>
-                    <div class="game-info">
-                        Flips <span id="flips">0</span>
-                    </div>
-                </div> 
-
 
                 <div class="game-container">
                     <div class="card">
@@ -179,7 +180,7 @@
  
             </div>       
         </div>
-        <div class="game-footer row border-top">
+        <div class="game-footer row border-top fixed-bottom ml-1 mr-1 py-2">
             <div class="col-12">
 
                 <i class="fas fa-fast-backward float-left"></i>
@@ -189,12 +190,20 @@
     </div>
 
 
-	<div class="container-fluid collapse" id="page-help">
-		<div class="row">
-			<div class="col-12">
-
-            </div>    
-        </div>
+	<div class="container-fluid" id="page-help">
+        <div class="help-header row border-bottom ml-1 mr-1 py-2">
+            <div class="col-12">
+                <i class="fas fa-window-close float-right"></i>
+            </div>
+        </div>   
+         <div class="row">       
+			<div class="col-12 col-lg-6">
+                <h2>leader board</h2>
+            </div>   
+            <div class="col-12 col-lg-6">
+                <h2>how to play</h2>
+            </div>
+        </div>     
     </div>
 
 
