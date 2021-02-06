@@ -119,6 +119,35 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new MixOrMatch(50, cards);
 
+    $("#btn-start").click(function(){
+        console.log("you clicked the start button");
+        $("#page-home").addClass("collapse");
+        $("#page-game").removeClass("collapse");
+         console.log("game page open , home page is collapsed");
+         game.startGame();
+    });
+
+    $("#btn-back").click(function(){
+        console.log("you clicked go back button");
+        $("#page-game").addClass("collapse");
+        $("#page-home").removeClass("collapse");
+         console.log("game page collapsed , home page is open");
+    });
+
+    $("#btn-info").click(function(){
+        console.log("you clicked the info button");
+        $("#page-home").addClass("collapse");
+        $("#page-help").removeClass("collapse");
+         console.log("home page collapsed , help page is open");
+    });
+
+    $("#btn-exit").click(function(){
+        console.log("you clicked the exit button");
+        $("#page-help").addClass("collapse");
+        $("#page-home").removeClass("collapse");
+         console.log("help page collapsed , home page is open");
+    });
+
     overlays.forEach(overLay => {
         overLay.addEventListener("click", () => {
             overLay.classList.remove("visible");
