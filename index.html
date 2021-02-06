@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <title>Tutti Frutti</title>
 </head>
-<body>
+<body class="theme-dark">
 
 	<div class="container-fluid collapse" id="page-home">
 		<div class="row">
@@ -23,11 +23,22 @@
     </div>
 
 	<div class="container-fluid " id="page-game">
+        <div class="game-header row border-bottom">
+            <div class="col-12">
+                <i class="fas fa-coins float-left"></i>
+          <!--      <h1 class="text-center inline">Tutti Frutti</h1> -->
+                <i class="fas fa-stopwatch float-right"></i>
+           
+
+            </div>
+        </div>
+
+
 		<div class="row">
 			<div class="col-12">
 
-                <h1 class="page-title">Tutti Frutti</h1>
-                <div class="overlay-text visible"> Click to start </div>
+                 
+                <div class="overlay-text"> Click to start </div>
                 <div id="game-over-text" class="overlay-text"> 
                     GAME OVER 
                     <span class="overlay-text-small"> Click to restart</span>
@@ -36,16 +47,18 @@
                     Congratulations! 
                     <span class="overlay-text-small"> Click to restart</span>
                 </div>
-                <div class="game-container">
-                    <div class="game-info-container">
-                        <div class="game-info">
-                            Time <span id="time-remaining">100</span>
-                        </div>
-                        <div class="game-info">
-                            Flips <span id="flips">0</span>
-                        </div>
-                    </div>
 
+                <div class="game-info-container">
+                    <div class="game-info">
+                        Time <span id="time-remaining">100</span>
+                    </div>
+                    <div class="game-info">
+                        Flips <span id="flips">0</span>
+                    </div>
+                </div> 
+
+
+                <div class="game-container">
                     <div class="card">
                         <div class="card-back card-face">
                             <img class="spider" src="assets/images/mosaic.jpg" alt="">
@@ -163,8 +176,15 @@
 
 
                 </div>
+ 
+            </div>       
+        </div>
+        <div class="game-footer row border-top">
+            <div class="col-12">
 
-            </div>    
+                <i class="fas fa-fast-backward float-left"></i>
+                <i class="fas fa-expand float-right"></i>
+            </div>
         </div>
     </div>
 
