@@ -1,6 +1,6 @@
-/* {
+* {
     box-sizing: border-box; 
-} */
+} 
 
 .theme-dark {
   background-color: black;
@@ -132,7 +132,7 @@
     }
   }
 
-/*
+
   @media (max-width: 600px) {
     .game-container {
       grid-template-columns: repeat(2, auto)
@@ -142,7 +142,7 @@
       flex-direction: column;
       align-items: center;
     }
-  } */
+  } 
 
 .game-header, .help-header {
   height: 3rem;
