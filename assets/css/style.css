@@ -1,6 +1,6 @@
-* {
+/* {
     box-sizing: border-box; 
-}
+} */
 
 .theme-dark {
   background-color: black;
@@ -9,6 +9,9 @@
   font-size: 1rem;
 }
 
+#form-homePage{
+  max-width: 33rem;
+}
 
 .game-info-container{
     grid-column: 1 /-1;
