@@ -6,7 +6,7 @@
   background-color: black;
   font-family: 'Courier New', Courier, monospace;
   color: white;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 
@@ -15,9 +15,6 @@
     display: flex;
     justify-content: space-between;
 }
-/* .game-info{
-    font-size: 1em;
-} */
 
 .game-container{
     margin: 50px auto;
@@ -27,10 +24,11 @@
     justify-content: center;
     perspective: 500px;
 }
+
 .card {
     position: relative;
-    height: 175px;
-    width: 125px;
+    height: 175px;   /* originally 175 px   1/2  is 87.5 */
+    width: 125px;  /* 125 px  1/2 is 62.5 */
 }
 
 .card-face {
@@ -131,7 +129,7 @@
     }
   }
 
-
+/*
   @media (max-width: 600px) {
     .game-container {
       grid-template-columns: repeat(2, auto)
@@ -141,10 +139,10 @@
       flex-direction: column;
       align-items: center;
     }
-  }
+  } */
 
 .game-header, .help-header {
-  height: 3em;
+  height: 3rem;
 }
 
 
@@ -153,5 +151,5 @@
  }
 
  .fas {
-   font-size: 3em;
+   font-size: 2rem;
  }
