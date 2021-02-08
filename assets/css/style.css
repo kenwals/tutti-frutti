@@ -40,9 +40,10 @@
 
 .card {
     position: relative;
-    height: 175px;   /* originally 175 px   1/2  is 87.5 */
-    width: 125px;  /* 125 px  1/2 is 62.5 */
+    height: 87.5px;   /* originally 175 px   1/2  is 87.5 */
+    width: 62.5px;  /* 125 px  1/2 is 62.5 */
 }
+
 
 .card-face {
     position: absolute;
@@ -95,6 +96,7 @@
     position: relative;
     transition: transform 100ms ease-in-out;
     transform: scale(.9);
+    width: 100% ;
   }
   
   .card-front:hover .card-value {
@@ -143,15 +145,12 @@
   }
 
 
-  @media (max-width: 600px) {
-    .game-container {
-      grid-template-columns: repeat(2, auto)
-    }
-  
-    .game-info-container {
-      flex-direction: column;
-      align-items: center;
-    }
+  @media (min-width: 600px) {
+    .card {
+      position: relative;
+      height: 175px;   /* originally 175 px   1/2  is 87.5 */
+      width: 125px;  /* 125 px  1/2 is 62.5 */
+  }
   } 
 
 .game-header, .help-header {
