@@ -17,12 +17,18 @@
 			<div class="col-12">
             <h1 class="text-center my-5">TUTTI FRUTTI</h1>
             <form id="form-homePage" class="mx-auto mt-5">
+            <label for="theme">Select a theme:</label>
             <select class="custom-select custom-select-lg mb-3" id="theme">
-                <option selected>Select a Theme</option>
-                <option value="tutti">Tutti</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
+                <option value="tutti">Colourful mode</option>
+                <option value="light">Light mode</option>
+                <option value="dark" selected>Dark mode</option>
               </select>
+            <label for="level">Select a difficulty level:</label>
+              <select class="custom-select custom-select-lg mb-3" id="level">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard" selected>Hard</option>
+                </select>
             <button type="button" id="btn-start" class="btn btn-light btn-lg btn-block">START</button>
             </form>
             </div>    
