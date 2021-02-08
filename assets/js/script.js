@@ -1,5 +1,5 @@
 class MixOrMatch {
-    constructor(totalTime, cards){
+    constructor(totalTime, cards) {
         this.cardsArray = cards;
         this.totalTime = totalTime;
         this.timeRemaining = totalTime;
@@ -16,7 +16,7 @@ class MixOrMatch {
         this.matchedCards = [];
         this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
 
-        setTimeout( () => {
+        setTimeout(() => {
             this.shuffleCards();
             this.countDown = this.startCountDown();
             this.busy = false;
@@ -24,7 +24,7 @@ class MixOrMatch {
         this.hideCards();
         this.timer.innerText = this.timeRemaining;
         this.ticker.innerText = this.totalClicks;
-    
+
     }
 
     hideCards() {
@@ -35,20 +35,20 @@ class MixOrMatch {
     }
 
     flipCard(card) {
-        if(this.canFlipCard(card)) {
+        if (this.canFlipCard(card)) {
             this.totalClicks++;
             this.ticker.innerText = this.totalClicks;
             card.classList.add("visible");
 
-            if(this.cardToCheck)
+            if (this.cardToCheck)
                 this.checkForCardMatch(card);
-             else 
-                this.cardToCheck = card ;
+            else
+                this.cardToCheck = card;
         }
-    }   
+    }
 
     checkForCardMatch(card) {
-        if(this.getCardType(card) === this.getCardType(this.cardToCheck))
+        if (this.getCardType(card) === this.getCardType(this.cardToCheck))
             this.cardMatch(card, this.cardToCheck);
         else
             this.cardMisMatch(card, this.cardToCheck);
@@ -62,12 +62,12 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        if(this.matchedCards.length === this.cardsArray.length)
+        if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
     }
     cardMisMatch(card1, card2) {
         this.busy = true;
-        setTimeout( () => {
+        setTimeout(() => {
             card1.classList.remove("visible");
             card2.classList.remove("visible");
             this.busy = false;
@@ -79,10 +79,10 @@ class MixOrMatch {
     }
 
     startCountDown() {
-        return setInterval( ()=> {
+        return setInterval(() => {
             this.timeRemaining--;
             this.timer.innerText = this.timeRemaining;
-            if(this.timeRemaining === 0)
+            if (this.timeRemaining === 0)
                 this.gameOver();
         }, 1000);
     }
@@ -100,22 +100,22 @@ class MixOrMatch {
 
     victory() {
         clearInterval(this.countDown);
-        document.getElementById("victory-text").classList.add("visible");  
+        document.getElementById("victory-text").classList.add("visible");
         this.hideCards();
     }
 
     shuffleCards() {
-        for(let i = this.cardsArray.length - 1; i > 0; i--) {
-            let randomIndex = Math.floor(Math.random() * (i+1));
+        for (let i = this.cardsArray.length - 1; i > 0; i--) {
+            let randomIndex = Math.floor(Math.random() * (i + 1));
             this.cardsArray[randomIndex].style.order = i;
             this.cardsArray[i].style.order = randomIndex;
         }
 
     } // Fisher and Yates shuffle  method
 
-    canFlipCard(card){
-       return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
-    }  // all these statements have to be false in order for it to be true, and user can flip the next card
+    canFlipCard(card) {
+        return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
+    } // all these statements have to be false in order for it to be true, and user can flip the next card
 
 }
 
@@ -124,7 +124,46 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new MixOrMatch(50, cards);
 
-    $("#btn-start").click(function(){
+    if (!localStorage.getItem('theme')) {
+        populateStorage();
+    } else {
+        setValues();
+    }
+
+    function populateStorage() {
+        localStorage.setItem('theme', document.getElementById('theme').value);
+        localStorage.setItem('level', document.getElementById('level').value);
+        localStorage.setItem('topScore', "010");
+
+        setValues();
+    }
+
+    function setValues() {
+        let currentTheme = localStorage.getItem('theme');
+        let currentLevel = localStorage.getItem('level');
+        let currentTopScore = localStorage.getItem('topScore');
+       
+       document.getElementById('theme').value = currentTheme;
+       document.getElementById('level').value = currentLevel;
+       
+       if (currentTheme === "dark") {
+       $("body").removeClass("theme-colour").removeClass("theme-light").addClass("theme-dark");
+       } else if (currentTheme === "light") {
+       $("body").removeClass("theme-colour").removeClass("theme-dark").addClass("theme-colour");
+       } else {
+       $("body").removeClass("theme-dark").removeClass("theme-light").addClass("theme-colour");
+       }
+    }
+    /*    event listeners section     */ 
+    $( "#theme" ).change(function() {
+        populateStorage()
+   });
+   
+   $( "#level" ).change(function() {
+        populateStorage()
+   });
+
+    $("#btn-start").click(function () {
         console.log("you clicked the start button");
         $("#page-home").addClass("collapse");
         $("#page-game").removeClass("collapse");
@@ -132,7 +171,7 @@ function ready() {
         game.startGame();
     });
 
-    $("#btn-back").click(function(){
+    $("#btn-back").click(function () {
         console.log("you clicked go back button");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -140,14 +179,14 @@ function ready() {
         console.log("game page collapsed , home page is open");
     });
 
-    $("#btn-info").click(function(){
+    $("#btn-info").click(function () {
         console.log("you clicked the info button");
         $("#page-home").addClass("collapse");
         $("#page-help").removeClass("collapse");
         console.log("home page collapsed , help page is open");
     });
 
-    $("#btn-exit").click(function(){
+    $("#btn-exit").click(function () {
         console.log("you clicked the exit button");
         $("#page-help").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -161,7 +200,7 @@ function ready() {
         });
     });
 
-    cards.forEach(card=> {
+    cards.forEach(card => {
         card.addEventListener("click", () => {
             game.flipCard(card);
         });
@@ -169,7 +208,7 @@ function ready() {
 }
 
 
-if(document.readyState === "loading") {
+if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", ready());
 } else {
     ready();
