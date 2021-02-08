@@ -40,8 +40,8 @@
 
 .card {
     position: relative;
-    height: 87.5px;   /* originally 175 px   1/2  is 87.5 */
-    width: 62.5px;  /* 125 px  1/2 is 62.5 */
+    height: 87.5px;   /* originally 175 px   1/2  is 87.5 needed for small screen */
+    width: 62.5px;  /* 125 px  1/2 is 62.5 needed for small screen */
 }
 
 
@@ -96,7 +96,7 @@
     position: relative;
     transition: transform 100ms ease-in-out;
     transform: scale(.9);
-    width: 100% ;
+    width: 100% ;  /* this value ensures the card image resizes properly on smaller screens */
   }
   
   .card-front:hover .card-value {
