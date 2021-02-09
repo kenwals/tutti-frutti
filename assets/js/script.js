@@ -149,7 +149,7 @@ function ready() {
        if (currentTheme === "dark") {
        $("body").removeClass("theme-colour").removeClass("theme-light").addClass("theme-dark");
        } else if (currentTheme === "light") {
-       $("body").removeClass("theme-colour").removeClass("theme-dark").addClass("theme-colour");
+       $("body").removeClass("theme-colour").removeClass("theme-dark").addClass("theme-light");
        } else {
        $("body").removeClass("theme-dark").removeClass("theme-light").addClass("theme-colour");
        }
