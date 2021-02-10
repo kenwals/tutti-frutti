@@ -5,12 +5,14 @@ class MixOrMatch {
         this.timeRemaining = totalTime;
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
+        this.scorePanel =  document.getElementById("score");
     }
 
 
     startGame() {
         this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
         this.totalClicks = 0;
+        this.totalScore = 0;
         console.log("game started");
         this.timeRemaining = this.totalTime;
         this.matchedCards = [];
@@ -62,6 +64,10 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
+        this.totalScore =+ 50 ;
+        console.log("your score is now :", this.totalScore )
+        localStorage.setItem('Current Score', this.totalScore);
+        this.scorePanel.innerText = this.totalScore;
         if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
     }
