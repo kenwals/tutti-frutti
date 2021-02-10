@@ -26,6 +26,7 @@ class MixOrMatch {
         this.hideCards();
         this.timer.innerText = this.timeRemaining;
         this.ticker.innerText = this.totalClicks;
+        this.scorePanel.innerText = this.totalScore;
 
     }
 
@@ -64,10 +65,10 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        this.totalScore =+ 50 ;
-        console.log("your score is now :", this.totalScore )
-        localStorage.setItem('Current Score', this.totalScore);
+        this.totalScore = this.totalScore + 50 ;
         this.scorePanel.innerText = this.totalScore;
+        console.log("Your score is now :", this.totalScore );
+        localStorage.setItem('Current Score', this.totalScore);
         if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
     }
