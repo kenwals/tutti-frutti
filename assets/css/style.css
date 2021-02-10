@@ -128,7 +128,7 @@ body {
 }
 
 .overlay-text-small {
-    font-size: .3em;
+    font-size: .3rem;
   }
   
   .overlay-text.visible {
@@ -143,7 +143,7 @@ body {
     }
     to {
       background-color: rgba(0, 0, 0, .8);
-      font-size: 1rem;
+      font-size: 2rem;
     }
   }
 
