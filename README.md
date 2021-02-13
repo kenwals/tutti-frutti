@@ -1,10 +1,6 @@
 # Tutti Frutti
 
-
-
 This is a colourful memory card game with an Italian fruity theme . 
-
-
 
 ## UX
 
@@ -28,20 +24,21 @@ This site will be put together with HTML, using the bootstrap framework along wi
 
 ### Skeleton
 
-Page 1 - Homepage - Game title , theme and difficulty settings , Start button
+The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed.
 
-Page 2 - Game page - Card game page with timer and progress gauge
+Page 1 - Homepage - Game title , theme and difficulty settings , Start button.
+
+Page 2 - Game page - Card game page with timer , score and flips gauge
 
 Page 3 - How to play / Top Scores - Top scores on display and some info on how the game works .
 
-8 card pairs (maximum)  Fruit emojis choosen are only ones that are currently grown in Italy and not green in colour.
-
+8 card pairs (maximum)  Fruit emojis chosen are only ones that are currently grown in Italy.
 
 1 Strawberry
-2 Orange
-3 Cherry
+2 Tangerine
+3 Cherrie
 4 Banana 
-5 Apple
+5 Red Apple
 6 Lemon
 7 Grapes
 8 Pear
@@ -52,7 +49,7 @@ Wireframe
 
 **Colours**
 
-Colours vibrant fun by default, no green allowed . Three colour theme options.
+Colours vibrant fun by default . Three colour theme options.
 
 1. Colourful theme (default). 
 2. Light theme - Light background , Dark text
@@ -61,20 +58,24 @@ Colours vibrant fun by default, no green allowed . Three colour theme options.
 
 ## Features
 
-- There will be more then one difficulty level 
-- There will be three theme options 
-- The game stores your scores in your browser 
+- There are three difficulty levels 
+- There are three theme options 
+- The game stores your highest scores in your browser 
+- There is top 3 leaderboard of highest scores
+- You can have your score emailed to you
 
 ## Credits
 
 ### Content
 
-Some images are created by Graphic Designer Rudy de Souza
+Some of the code used for the card game is derived from a two part YouTube video called "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  & [PortEXE](https://youtu.be/3uuQ3g92oPQ) .
 
 ### Media
+
+Graphics used are created by Graphic Designer [Rudy de Souza](https://rudydesouza.com/)
 
 Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoji)
 
 ### Acknowledgements
 
-Game layout is inspired by [PROXX](https://www.proxx.app/)
+Game layout/structure is inspired by [PROXX ](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
