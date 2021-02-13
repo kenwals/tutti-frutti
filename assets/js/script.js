@@ -1,8 +1,6 @@
 class MixOrMatch {
-    constructor(totalTime, cards) {
+    constructor(cards) {
         this.cardsArray = cards;
-        this.totalTime = totalTime;
-        this.timeRemaining = totalTime;
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
@@ -10,10 +8,13 @@ class MixOrMatch {
 
 
     startGame() {
+        this.currentLevel = document.getElementById('level').value;
         this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
         this.totalClicks = 0;
         this.totalScore = 0;
         console.log("game started");
+        this.totalTime = this.getDifficultyLevel();
+        console.log(" level is :" + this.currentLevel + " time left is: " + this.totalTime + " unit of score is: " + this.scoreUnit);
         this.timeRemaining = this.totalTime;
         this.matchedCards = [];
         this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
@@ -27,6 +28,20 @@ class MixOrMatch {
         this.timer.innerText = this.timeRemaining;
         this.ticker.innerText = this.totalClicks;
         this.scorePanel.innerText = this.totalScore;
+
+    }
+
+    getDifficultyLevel(){
+        if (this.currentLevel === "easy"){
+            this.scoreUnit = 10;
+            return 50;
+        } else if ( this.currentLevel === "medium"){
+            this.scoreUnit = 20;
+            return 40;
+        } else if ( this.currentLevel === "hard"){
+            this.scoreUnit = 30;
+            return 30;          
+        }
 
     }
 
@@ -65,7 +80,7 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        this.totalScore = this.totalScore + 50 ;
+        this.totalScore = this.totalScore + this.scoreUnit ;
         this.scorePanel.innerText = this.totalScore;
         console.log("Your score is now :", this.totalScore );
         localStorage.setItem('Current Score', this.totalScore);
@@ -129,7 +144,7 @@ class MixOrMatch {
 function ready() {
     let overlays = Array.from(document.getElementsByClassName("overlay-text"));
     let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new MixOrMatch(50, cards);
+    let game = new MixOrMatch(cards);
 
     if (!localStorage.getItem('theme')) {
         populateStorage();
@@ -141,7 +156,6 @@ function ready() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
         localStorage.setItem('topScore', "010");
-
         setValues();
     }
 
