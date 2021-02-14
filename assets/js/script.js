@@ -116,13 +116,15 @@ class MixOrMatch {
 
     gameOver() {
         clearInterval(this.countDown);
-        document.getElementById("game-over-text").classList.add("visible");
+        //document.getElementById("game-over-text").classList.add("visible");
+        $("#modal-game-over").modal("show");
         this.hideCards();
     }
 
     victory() {
         clearInterval(this.countDown);
-        document.getElementById("victory-text").classList.add("visible");
+        //document.getElementById("victory-text").classList.add("visible");
+        $("#modal-you-win").modal("show");
         this.hideCards();
     }
 
@@ -213,6 +215,14 @@ function ready() {
         $("#page-home").removeClass("collapse");
         console.log("help page collapsed , home page is open");
     });
+
+    $(".btn-restart").click(function () {
+        console.log("you clicked the restart button in one of the modals");
+        $(".modal").modal("hide");
+        game.startGame();
+    });
+
+
 
     overlays.forEach(overLay => {
         overLay.addEventListener("click", () => {
