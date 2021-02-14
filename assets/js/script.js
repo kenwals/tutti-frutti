@@ -116,14 +116,13 @@ class MixOrMatch {
 
     gameOver() {
         clearInterval(this.countDown);
-        //document.getElementById("game-over-text").classList.add("visible");
         $("#modal-game-over").modal("show");
         this.hideCards();
     }
 
     victory() {
         clearInterval(this.countDown);
-        //document.getElementById("victory-text").classList.add("visible");
+        // check if your Personal best score has been beaten? 
         $("#modal-you-win").modal("show");
         this.hideCards();
     }
@@ -157,14 +156,14 @@ function ready() {
     function populateStorage() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
-        localStorage.setItem('topScore', "010");
+        localStorage.setItem('topScore', "001");
         setValues();
     }
 
     function setValues() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
-        let currentTopScore = localStorage.getItem('topScore');
+        let currentTopScore = localStorage.getItem('topScore');   // move to class! 
        
        document.getElementById('theme').value = currentTheme;
        document.getElementById('level').value = currentLevel;
