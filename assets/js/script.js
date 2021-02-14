@@ -194,7 +194,7 @@ function ready() {
         game.startGame();
     });
 
-    $("#btn-back").click(function () {
+    $(".btn-back").click(function () {
         console.log("you clicked go back button");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -220,15 +220,6 @@ function ready() {
         console.log("you clicked the restart button in one of the modals");
         $(".modal").modal("hide");
         game.startGame();
-    });
-
-
-
-    overlays.forEach(overLay => {
-        overLay.addEventListener("click", () => {
-            overLay.classList.remove("visible");
-            game.startGame();
-        });
     });
 
     cards.forEach(card => {
