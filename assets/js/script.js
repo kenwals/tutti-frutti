@@ -143,7 +143,6 @@ class MixOrMatch {
 }
 
 function ready() {
-    let overlays = Array.from(document.getElementsByClassName("overlay-text"));
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new MixOrMatch(cards);
 
