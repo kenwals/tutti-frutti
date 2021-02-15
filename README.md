@@ -120,6 +120,30 @@ On slow connections, another font may be visible while the site is loading.
 
 ## Testing
 
+I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes.
+
+### Performance Testing
+
+### Known issues
+
+### Project barriers and solutions
+
+### Version control
+
+### Functionality Testing
+
+### CSS3 validator 
+
+### HTML5 validator
+
+### Usability Testing
+
+### Compatibility Testing
+
+### Testing User Stories
+
+
+
 ## Deployment
 
 
