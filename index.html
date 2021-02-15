@@ -65,11 +65,11 @@
 
   
   <!-- Modal Game over -->
-  <div class="modal fade" id="modal-game-over" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-game-over" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Game Over</h5>
+          <h5 class="modal-title" id="staticBackdropLabel1">Game Over</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -87,17 +87,17 @@
             
   
 <!-- Modal You win!  -->
-<div class="modal fade" id="modal-you-win" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-you-win" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">You Win!</h5>
+              <h5 class="modal-title" id="staticBackdropLabel2">You Win!</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-            Well done, you scored  <span class="finalScore">000</span>.
+            Well done!. 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Exit</button>
@@ -109,17 +109,17 @@
 
 
  <!-- Modal - you win and leaderboard score submission  -->
-<div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Wow, you did it! </h5>
+          <h5 class="modal-title" id="staticBackdropLabel3">Wow, you did it! </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            Well done, you just scored  <span class="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
+            Well done, you just scored  <span id="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
             <form>
                 <div class="form-row">
                   <div class="col">
@@ -130,7 +130,7 @@
                     <button type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Exit</button>
                     <button type="submit" class="btn btn-primary" id="leaderBoardSubmit">Register</button>
                   </div>
-              </form>
+            </form>
         </div>
       </div>
     </div>
