@@ -4,6 +4,7 @@ class MixOrMatch {
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
+        this.finalScore = document.getElementById("finalScore");
     }
 
 
@@ -116,13 +117,15 @@ class MixOrMatch {
 
     gameOver() {
         clearInterval(this.countDown);
-        document.getElementById("game-over-text").classList.add("visible");
+        $("#modal-game-over").modal("show");
         this.hideCards();
     }
 
     victory() {
         clearInterval(this.countDown);
-        document.getElementById("victory-text").classList.add("visible");
+        // check if your Personal best score has been beaten? 
+        this.finalScore.innerText = this.totalScore;
+        $("#modal-you-win").modal("show");
         this.hideCards();
     }
 
@@ -142,11 +145,10 @@ class MixOrMatch {
 }
 
 function ready() {
-    let overlays = Array.from(document.getElementsByClassName("overlay-text"));
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new MixOrMatch(cards);
 
-    if (!localStorage.getItem('theme')) {
+    if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
     } else {
         setValues();
@@ -155,14 +157,14 @@ function ready() {
     function populateStorage() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
-        localStorage.setItem('topScore', "010");
+        //  localStorage.setItem('topScore', "001");
         setValues();
     }
 
     function setValues() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
-        let currentTopScore = localStorage.getItem('topScore');
+        // let currentTopScore = localStorage.getItem('topScore');   // move to class! 
        
        document.getElementById('theme').value = currentTheme;
        document.getElementById('level').value = currentLevel;
@@ -175,12 +177,14 @@ function ready() {
        $("body").removeClass("theme-dark").removeClass("theme-light").addClass("theme-colour");
        }
     }
-    /*    event listeners section     */ 
-    $( "#theme" ).change(function() {
+
+       /*                           event listeners section                          */ 
+
+    $("#theme").change(function() {
         populateStorage()
    });
    
-   $( "#level" ).change(function() {
+   $("#level").change(function() {
         populateStorage()
    });
 
@@ -192,7 +196,7 @@ function ready() {
         game.startGame();
     });
 
-    $("#btn-back").click(function () {
+    $(".btn-back").click(function () {
         console.log("you clicked go back button");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -214,11 +218,10 @@ function ready() {
         console.log("help page collapsed , home page is open");
     });
 
-    overlays.forEach(overLay => {
-        overLay.addEventListener("click", () => {
-            overLay.classList.remove("visible");
-            game.startGame();
-        });
+    $(".btn-restart").click(function () {
+        console.log("you clicked the restart button in one of the modals");
+        $(".modal").modal("hide");
+        game.startGame();
     });
 
     cards.forEach(card => {
