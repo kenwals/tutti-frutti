@@ -128,6 +128,8 @@ I tested the site as I went along, manually testing or using automated online te
 
 ### Project barriers and solutions
 
+modal setup mistake with ids 
+
 ### Version control
 
 ### Functionality Testing
