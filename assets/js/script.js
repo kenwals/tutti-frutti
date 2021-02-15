@@ -146,7 +146,7 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new MixOrMatch(cards);
 
-    if (!localStorage.getItem('theme')) {
+    if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
     } else {
         setValues();
@@ -155,14 +155,14 @@ function ready() {
     function populateStorage() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
-        localStorage.setItem('topScore', "001");
+        //  localStorage.setItem('topScore', "001");
         setValues();
     }
 
     function setValues() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
-        let currentTopScore = localStorage.getItem('topScore');   // move to class! 
+        // let currentTopScore = localStorage.getItem('topScore');   // move to class! 
        
        document.getElementById('theme').value = currentTheme;
        document.getElementById('level').value = currentLevel;
@@ -175,12 +175,14 @@ function ready() {
        $("body").removeClass("theme-dark").removeClass("theme-light").addClass("theme-colour");
        }
     }
-    /*    event listeners section     */ 
-    $( "#theme" ).change(function() {
+
+       /*                           event listeners section                          */ 
+
+    $("#theme").change(function() {
         populateStorage()
    });
    
-   $( "#level" ).change(function() {
+   $("#level").change(function() {
         populateStorage()
    });
 
