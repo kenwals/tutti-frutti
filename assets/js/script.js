@@ -4,7 +4,7 @@ class MixOrMatch {
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
-        this.finalScore = document.getElementsByClassName("finalScore");
+        this.finalScore = document.getElementsByid("finalScore"); // try using a class again! 
     }
 
 
