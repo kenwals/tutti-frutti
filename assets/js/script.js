@@ -4,6 +4,7 @@ class MixOrMatch {
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
+        this.finalScore = document.getElementById("finalScore");
     }
 
 
@@ -123,6 +124,7 @@ class MixOrMatch {
     victory() {
         clearInterval(this.countDown);
         // check if your Personal best score has been beaten? 
+        this.finalScore.innerText = this.totalScore;
         $("#modal-you-win").modal("show");
         this.hideCards();
     }
