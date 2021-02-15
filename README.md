@@ -70,6 +70,8 @@ Colours vibrant fun by default . Three colour theme options.
 
 Some of the code used for the card game is derived from a two part YouTube video called "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  & [PortEXE](https://youtu.be/3uuQ3g92oPQ) .
 
+Local storage api handling was influenced by [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+
 ### Media
 
 Graphics used are created by Graphic Designer [Rudy de Souza](https://rudydesouza.com/)
