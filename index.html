@@ -106,6 +106,35 @@
           </div>
         </div>
       </div>
+
+
+ <!-- Modal - you win and leaderboard score submission  -->
+<div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Wow, you did it! </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Well done, you just scored  <span id="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
+            <form>
+                <div class="form-row">
+                  <div class="col">
+                    <input type="text" id="name" class="form-control" placeholder="Name" required="">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Exit</button>
+                    <button type="submit" class="btn btn-primary" id="leaderBoardSubmit">Register</button>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>     
                
 
                 <div class="game-container">
