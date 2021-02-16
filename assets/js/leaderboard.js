@@ -28,7 +28,7 @@ function submitform(e){
     // save message
     console.log(name, score);
     saveTopScore(name, score);
-
+    $("#modal-you-win-leaderboard").modal("hide");
 }
 
 
