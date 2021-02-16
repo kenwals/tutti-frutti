@@ -4,7 +4,7 @@ class MixOrMatch {
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
-        this.finalScore = document.getElementById("finalScore");
+        this.finalScore = document.getElementById("finalScore"); 
     }
 
 
@@ -123,10 +123,27 @@ class MixOrMatch {
 
     victory() {
         clearInterval(this.countDown);
-        // check if your Personal best score has been beaten? 
         this.finalScore.innerText = this.totalScore;
-        $("#modal-you-win").modal("show");
+        // check if your Personal best score has been beaten?
+        if(this.recordBreaker()) {
+            $("#modal-you-win-leaderboard").modal("show");
+        } else {
+            $("#modal-you-win").modal("show");
+        } 
         this.hideCards();
+    }
+
+    recordBreaker(){
+        if(!localStorage.getItem('topScore')){
+            localStorage.setItem('topScore', this.totalScore);
+            return true;
+        } else if (localStorage.getItem('topScore')< this.totalScore ){
+            localStorage.setItem('topScore', this.totalScore);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     shuffleCards() {
@@ -157,7 +174,6 @@ function ready() {
     function populateStorage() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
-        //  localStorage.setItem('topScore', "001");
         setValues();
     }
 
@@ -181,11 +197,11 @@ function ready() {
        /*                           event listeners section                          */ 
 
     $("#theme").change(function() {
-        populateStorage()
+        populateStorage();
    });
    
    $("#level").change(function() {
-        populateStorage()
+        populateStorage();
    });
 
     $("#btn-start").click(function () {
