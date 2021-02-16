@@ -28,7 +28,18 @@ function submitform(e){
     // save message
     console.log(name, score);
     saveTopScore(name, score);
+    // Clear form
+    document.getElementById("form-leaderBoard").reset();
+    
+      // TODO alert that info was sent
+      
     $("#modal-you-win-leaderboard").modal("hide");
+
+    setTimeout(function(){
+        $("#page-game").addClass("collapse");
+        $("#page-home").removeClass("collapse");
+    }, 3000); // closes page after 3 seconds
+  
 }
 
 
