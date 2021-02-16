@@ -31,14 +31,13 @@ function submitform(e){
     // Clear form
     document.getElementById("form-leaderBoard").reset();
     // TODO alert that info was sent
-    document.querySelector("alert").getElementsByClassName.display= "block";
+    document.querySelector(".alert").style.display= "block";
     setTimeout(function(){   
         $("#modal-you-win-leaderboard").modal("hide");
-        document.querySelector("alert").getElementsByClassName.display= "none";
+        document.querySelector(".alert").style.display= "none";
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
     }, 3000); // closes page after 3 seconds
-  
 }
 
 
