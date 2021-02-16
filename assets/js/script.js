@@ -4,12 +4,12 @@ class MixOrMatch {
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
-        this.finalScore = document.getElementsByid("finalScore"); // try using a class again! 
+        this.finalScore = document.getElementById("finalScore"); 
+        this.currentLevel = document.getElementById('level').value;
     }
 
 
     startGame() {
-        this.currentLevel = document.getElementById('level').value;
         this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
         this.totalClicks = 0;
         this.totalScore = 0;
