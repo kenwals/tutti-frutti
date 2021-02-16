@@ -28,6 +28,16 @@ h1, h2, h3 {
   max-width: 33rem;
 }
 
+
+.alert{
+  text-align: center;
+  background-attachment: #79c879;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: none;
+}
+
 .game-info-container{
     grid-column: 1 /-1;
     display: flex;

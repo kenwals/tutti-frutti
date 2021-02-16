@@ -30,12 +30,11 @@ function submitform(e){
     saveTopScore(name, score);
     // Clear form
     document.getElementById("form-leaderBoard").reset();
-    
-      // TODO alert that info was sent
-      
-    $("#modal-you-win-leaderboard").modal("hide");
-
-    setTimeout(function(){
+    // TODO alert that info was sent
+    document.querySelector("alert").getElementsByClassName.display= "block";
+    setTimeout(function(){   
+        $("#modal-you-win-leaderboard").modal("hide");
+        document.querySelector("alert").getElementsByClassName.display= "none";
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
     }, 3000); // closes page after 3 seconds
