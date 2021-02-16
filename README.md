@@ -156,6 +156,8 @@ modal setup mistake with ids
 
 Some of the code used for the card game is derived from a two part YouTube video called "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  & [PortEXE](https://youtu.be/3uuQ3g92oPQ) .
 
+Firebase code was based on  https://youtu.be/PP4Tr0l08NE 
+
 
 ### Resources
 
