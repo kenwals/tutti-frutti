@@ -5,11 +5,11 @@ class MixOrMatch {
         this.ticker = document.getElementById("flips");
         this.scorePanel =  document.getElementById("score");
         this.finalScore = document.getElementById("finalScore"); 
-        this.currentLevel = document.getElementById('level').value;
     }
 
 
     startGame() {
+        this.currentLevel = document.getElementById('level').value;
         this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
         this.totalClicks = 0;
         this.totalScore = 0;
@@ -197,11 +197,11 @@ function ready() {
        /*                           event listeners section                          */ 
 
     $("#theme").change(function() {
-        populateStorage()
+        populateStorage();
    });
    
    $("#level").change(function() {
-        populateStorage()
+        populateStorage();
    });
 
     $("#btn-start").click(function () {
