@@ -95,8 +95,8 @@ h1, h2, h3 {
 
 
 .card-back{
-    background-color: rgb(220, 43, 20);
-    border-color: cyan;
+    /*background-color: rgb(220, 43, 20);
+    border-color: cyan; */
     transform: rotateY(0); 
 }
 
@@ -115,8 +115,8 @@ h1, h2, h3 {
   }
   
   .card-front {
-    background-color: white;
-    border-color: #333;
+    /*background-color: white;
+    border-color: #333;*/
     transform: rotateY(180deg);
   }
 
