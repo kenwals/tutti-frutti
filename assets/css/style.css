@@ -11,6 +11,10 @@ h1, h2, h3 {
   font-family: 'Jockey One', sans-serif;
 }
 
+.home-menu{
+  height: 85vh;
+}
+
 .theme-dark {
   background-color: black;
   color: white;
@@ -20,8 +24,8 @@ h1, h2, h3 {
   color: black;
 }
 .theme-colour {
-  background-color: rgb(187, 253, 33);
-  color: rgb(72, 11, 240);
+  background-color: rgb(167, 255, 0);
+  color: rgb(85, 15, 229);
 }
 
 #form-homePage{
@@ -52,7 +56,6 @@ h1, h2, h3 {
     height: 87.5px;   /* originally 175 px   1/2  is 87.5 needed for small screen */
     width: 62.5px;  /* 125 px  1/2 is 62.5 needed for small screen */
 }
-
 
 .card-face {
     position: absolute;
@@ -96,11 +99,14 @@ h1, h2, h3 {
 
 
 .card-back{
-    background-color: rgb(220, 43, 20);
-    border-color: cyan;
+    /*background-color: rgb(220, 43, 20);
+    border-color: cyan; */
     transform: rotateY(0); 
 }
 
+.cardback_img{
+  width: 100% ;  /* this value ensures the card image resizes properly on smaller screens */
+}
 .card-value {
     position: relative;
     transition: transform 100ms ease-in-out;
@@ -113,8 +119,8 @@ h1, h2, h3 {
   }
   
   .card-front {
-    background-color: white;
-    border-color: #333;
+    /*background-color: white;
+    border-color: #333;*/
     transform: rotateY(180deg);
   }
 
@@ -160,7 +166,13 @@ h1, h2, h3 {
       height: 175px;   /* originally 175 px   1/2  is 87.5 */
       width: 125px;  /* 125 px  1/2 is 62.5 */
   }
-  } 
+
+  #logo-home{
+    max-width: 33rem; 
+  }
+
+
+  } /* end of media query*/
 
 .game-header, .help-header {
   height: 3rem;

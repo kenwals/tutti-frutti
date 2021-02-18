@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Tutti Frutti</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Tutti Frutti</title>
 </head>
+
 <body class="theme-colour">
-<!-- home page -->
-	<div class="container-fluid" id="page-home">
-		<div class="row">
-			<div class="col-12">
-            <h1 class="text-center my-5">TUTTI FRUTTI</h1>
-            <form id="form-homePage" class="mx-auto mt-5">
-            <label for="theme">Select a theme:</label>
-            <select class="custom-select custom-select-lg mb-3" id="theme">
-                <option value="colour" selected>Colourful mode</option>
-                <option value="light">Light mode</option>
-                <option value="dark">Dark mode</option>
-              </select>
-            <label for="level">Select a difficulty level:</label>
-              <select class="custom-select custom-select-lg mb-3" id="level">
-                  <option value="easy" selected>Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>
-            <button type="button" id="btn-start" class="btn btn-light btn-lg btn-block">START</button>
-            </form>
-            </div>    
+    <!-- home page -->
+    <div class="container-fluid" id="page-home">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex flex-column justify-content-between home-menu">
+
+                    <img src="assets/images/logo_purple_plain.png" alt="" class="m-auto d-block img-fluid"
+                        id="logo-home">
+
+                    <form id="form-homePage" class="mx-auto mt-5">
+                        <label for="theme">Select a theme:</label>
+                        <select class="custom-select custom-select-lg mb-3" id="theme">
+                            <option value="colour" selected>Colourful mode</option>
+                            <option value="light">Light mode</option>
+                            <option value="dark">Dark mode</option>
+                        </select>
+                        <label for="level">Select a difficulty level:</label>
+                        <select class="custom-select custom-select-lg mb-3" id="level">
+                            <option value="easy" selected>Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                        <button type="button" id="btn-start" class="btn btn-light btn-lg btn-block">START</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="home-footer row border-top fixed-bottom ml-1 mr-1 py-2">
@@ -43,219 +50,237 @@
         </div>
 
     </div> <!-- end of home page -->
-<!-- game page -->
-	<div class="container-fluid collapse" id="page-game">
+    <!-- game page -->
+    <div class="container-fluid collapse" id="page-game">
         <div class="game-header row border-bottom mx-3 py-2">
             <div class="col-12">
-                <div class="game-info float-left">
+                <div class="d-flex justify-content-between">
+                <div>
                     <i class="fas fa-medal"></i>
                     <span id="score">100</span>
                 </div>
-               
-                <div class="game-info float-right">
+
+                <h2 class="text-center d-sm-inline-block d-none mx-auto">Tutti Frutti</h2>
+
+                <div>
                     <span id="time-remaining">100</span>
                     <i class="fas fa-stopwatch "></i>
                 </div>
-
+            </div>
 
             </div>
         </div>
-		<div class="row">
-			<div class="col-12">  
-
-  
-  <!-- Modal Game over -->
-  <div class="modal fade" id="modal-game-over" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel1">Game Over</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-         Hard luck , your time has run out. 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Exit</button>
-          <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
-        </div>
-      </div>
-    </div>
-  </div>
-            
-  
-<!-- Modal You win!  -->
-<div class="modal fade" id="modal-you-win" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel2">You Win!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            Well done!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Exit</button>
-              <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="row">
+            <div class="col-12">
 
 
- <!-- Modal - you win and leaderboard score submission  -->
-<div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel3">Wow, you did it! </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            Well done, you just scored  <span id="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
-            <div class="alert">Your score has been sent now.</div>
-            <form id="form-leaderBoard">
-                <div class="form-row">
-                  <div class="col">
-                    <input type="text" id="name" class="form-control" placeholder="Name" required="">
-                  </div>
+                <!-- Modal Game over -->
+                <div class="modal fade" id="modal-game-over" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel1">Game Over</h5>
+                            </div>
+                            <div class="modal-body">
+                                Hard luck , your time has run out.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-back"
+                                    data-dismiss="modal">Exit</button>
+                                <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Exit</button>
-                    <button type="submit" class="btn btn-primary" id="btn-leaderBoardSubmit">Submit</button>
-                  </div>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>     
+
+
+                <!-- Modal You win!  -->
+                <div class="modal fade" id="modal-you-win" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel2">You Win!</h5>
+                            </div>
+                            <div class="modal-body">
+                                Well done!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-back"
+                                    data-dismiss="modal">Exit</button>
+                                <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal - you win and leaderboard score submission  -->
+                <div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel3">Wow, you did it! </h5>
+                            </div>
+                            <div class="modal-body">
+                                Well done, you just scored <span id="finalScore">000</span>. This is your personal best,
+                                if you would like to appear on the leaderboard , please enter your name below to
+                                Register.
+                                <div class="alert">Your score has been sent now.</div>
+                                <form id="form-leaderBoard">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <input type="text" id="name" class="form-control" placeholder="Name"
+                                                required="">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-back"
+                                            data-dismiss="modal">Exit</button>
+                                        <button type="submit" class="btn btn-primary"
+                                            id="btn-leaderBoardSubmit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="game-container">
                     <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/banana.png" alt="">
+                            <img class="card-value" src="assets/images/banana_icon.png" alt="">
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/banana.png" alt="">
+                            <img class="card-value" src="assets/images/banana_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/cherries.png" alt="">
+                            <img class="card-value" src="assets/images/cherry_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/cherries.png" alt="">
+                            <img class="card-value" src="assets/images/cherry_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/grapes.png" alt="">
+                            <img class="card-value" src="assets/images/peach_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/grapes.png" alt="">
+                            <img class="card-value" src="assets/images/peach_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/lemon.png" alt="">
+                            <img class="card-value" src="assets/images/lemon_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/lemon.png" alt="">
+                            <img class="card-value" src="assets/images/lemon_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/pear.png" alt="">
+                            <img class="card-value" src="assets/images/pear_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/pear.png" alt="">
+                            <img class="card-value" src="assets/images/pear_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/red-apple.png" alt="">
+                            <img class="card-value" src="assets/images/apple_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/red-apple.png" alt="">
+                            <img class="card-value" src="assets/images/apple_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/strawberry.png" alt="">
+                            <img class="card-value" src="assets/images/strawberry_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/strawberry.png" alt="">
+                            <img class="card-value" src="assets/images/strawberry_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/tangerine.png" alt="">
+                            <img class="card-value" src="assets/images/orange_icon.png" alt="">
                         </div>
-                    </div>                    <div class="card">
+                    </div>
+                    <div class="card">
                         <div class="card-back card-face">
-                            <img class="spider" src="assets/images/mosaic.jpg" alt="">
+                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
                         </div>
                         <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/tangerine.png" alt="">
+                            <img class="card-value" src="assets/images/orange_icon.png" alt="">
                         </div>
                     </div>
 
 
                 </div>
- 
-            </div>       
+
+            </div>
         </div>
         <div class="game-footer row border-top fixed-bottom mx-3 py-2">
             <div class="col-12">
@@ -263,25 +288,26 @@
                 <div class="float-right">
                     <span id="flips">0</span>
                     <i class="fas fa-coins"></i>
-                </div>  
+                </div>
             </div>
         </div>
-    </div>  <!-- end of game page -->
+    </div> <!-- end of game page -->
 
-<!-- help info page -->
-	<div class="container-fluid collapse" id="page-help">
+    <!-- help info page -->
+    <div class="container-fluid collapse" id="page-help">
         <div class="help-header row ml-1 mr-1 py-2">
             <div class="col-12">
                 <i id="btn-exit" class="fas fa-window-close float-right"></i>
             </div>
-        </div>   
-         <div class="row">       
-   
+        </div>
+        <div class="row">
+
             <div class="col-12 col-lg-6">
                 <h2 class="border-top border-bottom text-center">How to play</h2>
                 <ul>
                     <li>Choose difficulty level (easy/medium/hard) and press START button</li>
-                    <li>Game is to cick on playing cards and match as many pairs as quick as possible with least number of flips</li>
+                    <li>Game is to cick on playing cards and match as many pairs as quick as possible with least number
+                        of flips</li>
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                     <li>Nunc maximus lectus a erat scelerisque consectetur.</li>
                 </ul>
@@ -293,21 +319,22 @@
                 <ol class="text-center">
                     <li> Ruuuudy - 101</li>
                     <li> Mario - 90</li>
-                    <li> Luigi  - 50</li>
+                    <li> Luigi - 50</li>
                 </ol>
             </div><br><br>
 
-        </div>     
+        </div>
     </div> <!-- end of help info page -->
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-<script src="assets/js/script.js"></script> 
-<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
-<script src="assets/js/leaderboard.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+    <script src="assets/js/leaderboard.js"></script>
 </body>
+
 </html>
