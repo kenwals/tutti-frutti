@@ -11,6 +11,10 @@ h1, h2, h3 {
   font-family: 'Jockey One', sans-serif;
 }
 
+.home-menu{
+  height: 85vh;
+}
+
 .theme-dark {
   background-color: black;
   color: white;
