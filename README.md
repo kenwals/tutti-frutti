@@ -1,6 +1,6 @@
 # Tutti Frutti
 
-This is a colourful memory card game with an Italian fruity theme . 
+This is a colourful memory card game with an Italian fruity theme .
 
 ## UX
 
