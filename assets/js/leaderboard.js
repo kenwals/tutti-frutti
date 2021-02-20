@@ -18,7 +18,10 @@
 const leaderBoardRef = firebase.database().ref("leaderBoard");
 
 // this line grabs data from server
-leaderBoardRef.on("value", gotData, errData);
+const query = leaderBoardRef.orderByChild("score");
+//const query = leaderBoardRef;
+
+query.on("value", gotData, errData);
 
 
 document.getElementById("form-leaderBoard").addEventListener("submit", submitform);
