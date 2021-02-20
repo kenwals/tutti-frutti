@@ -15,7 +15,7 @@
   firebase.analytics();
 
 // referance leaderboard collection
-var leaderBoardRef = firebase.database().ref("leaderBoard");
+const leaderBoardRef = firebase.database().ref("leaderBoard");
 
 // this line grabs data from server
 leaderBoardRef.on("value", gotData, errData);
@@ -63,8 +63,8 @@ function saveTopScore(name, score){
 function gotData(data) {
     //console.log(data.val());
     let scores = data.val();
-    var keys = Object.keys(scores);
-    console.log(keys);
+    let keys = Object.keys(scores);
+   // console.log(keys);
     for (let i = 0; i < keys.length; i++){
         let k = keys[i];
         let name = scores[k].name;
