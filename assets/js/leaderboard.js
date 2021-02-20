@@ -74,23 +74,29 @@ function saveTopScore(name, score){
     });
 }
 
+function compare(a,b) {
+    return b.score - a.score;
+   }
 
 function gotData(data) {
-    //console.log(data.val());
+    // console.log(data.val());
     let scores = data.val();
- //   let scoreBoard = {};
+    //scores.sort(compare);
+    //console.log(scores);
+    let scoreBoard = [];
     let keys = Object.keys(scores);
    // console.log(keys);
    for (let i = 0; i < keys.length; i++){
         let k = keys[i];
         let name = scores[k].name;
         let score = scores[k].score;
-        console.log(name, score);
-      //  scoreBoard.push(name, score);
+        //console.log(scores[k]);
+        scoreBoard.push(scores[k]);
         //let li = createElement("li", name + ": " + score);
         //li.parent("scorelist");
     }
- //   console.log(scoreBoard);
+ scoreBoard.sort(compare);
+ console.log(scoreBoard);
 }
 
 function errData(err) {
