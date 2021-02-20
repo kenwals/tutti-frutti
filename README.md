@@ -130,6 +130,12 @@ I tested the site as I went along, manually testing or using automated online te
 
 modal setup mistake with ids 
 
+firebase orderbychild not working as expected
+
+passing scores as strings
+
+Javascript syntax changes 
+
 ### Version control
 
 ### Functionality Testing
