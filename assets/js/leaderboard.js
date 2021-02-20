@@ -15,26 +15,15 @@
   firebase.analytics();
 
 // referance leaderboard collection
-//const leaderBoardRef = firebase.database().ref("leaderBoard").orderByChild("score");
 
 const database = firebase.database();
-
 const leaderBoardRef = database.ref("leaderBoard");
 
-//console.log(JSON.parse(leaderBoardRef));
 
 // this line grabs data from server
 const query = leaderBoardRef.orderByChild("score").limitToLast(10);
-//const query = leaderBoardRef;
-//console.log(JSON.parse(query));
 
-
-query.on("value", gotData, errData);
-
-/* leaderBoardRef.orderByChild("score").limitToLast(10).once("value", function(snapshot){
-    console.log(snapshot.val());
-}); */
-
+query.on("value", gotData, errData); 
 
 document.getElementById("form-leaderBoard").addEventListener("submit", submitform);
 
@@ -83,8 +72,14 @@ function gotData(data) {
         let k = keys[i];
         scoreBoard.push(scores[k]);
     }
- scoreBoard.sort((a,b) => b.score - a.score); // this sorts the array by player scores with by comparing scores
- console.log(scoreBoard);
+    scoreBoard.sort((a,b) => b.score - a.score); // this sorts the array by player scores by comparing scores
+  //  console.log(scoreBoard);
+    let leaderBoardOrderedList = "";
+    for (let i = 0; i < scoreBoard.length; i++){
+    leaderBoardOrderedList += ("<li>" + scoreBoard[i].name + ": " + scoreBoard[i].score +"</li>");
+    }
+    console.log(leaderBoardOrderedList);
+    $("#scoreList").html(leaderBoardOrderedList);
 }
 
 function errData(err) {
