@@ -74,28 +74,16 @@ function saveTopScore(name, score){
     });
 }
 
-function compare(a,b) {
-    return b.score - a.score;
-   }
-
 function gotData(data) {
-    // console.log(data.val());
     let scores = data.val();
-    //scores.sort(compare);
-    //console.log(scores);
     let scoreBoard = [];
     let keys = Object.keys(scores);
-   // console.log(keys);
+
    for (let i = 0; i < keys.length; i++){
         let k = keys[i];
-        let name = scores[k].name;
-        let score = scores[k].score;
-        //console.log(scores[k]);
         scoreBoard.push(scores[k]);
-        //let li = createElement("li", name + ": " + score);
-        //li.parent("scorelist");
     }
- scoreBoard.sort(compare);
+ scoreBoard.sort((a,b) => b.score - a.score); // this sorts the array by player scores with by comparing scores
  console.log(scoreBoard);
 }
 
