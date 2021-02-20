@@ -15,13 +15,25 @@
   firebase.analytics();
 
 // referance leaderboard collection
-const leaderBoardRef = firebase.database().ref("leaderBoard");
+//const leaderBoardRef = firebase.database().ref("leaderBoard").orderByChild("score");
+
+const database = firebase.database();
+
+const leaderBoardRef = database.ref("leaderBoard");
+
+//console.log(JSON.parse(leaderBoardRef));
 
 // this line grabs data from server
-const query = leaderBoardRef.orderByChild("score");
+const query = leaderBoardRef.orderByChild("score").limitToLast(10);
 //const query = leaderBoardRef;
+//console.log(JSON.parse(query));
+
 
 query.on("value", gotData, errData);
+
+/* leaderBoardRef.orderByChild("score").limitToLast(10).once("value", function(snapshot){
+    console.log(snapshot.val());
+}); */
 
 
 document.getElementById("form-leaderBoard").addEventListener("submit", submitform);
@@ -31,7 +43,7 @@ function submitform(e){
     e.preventDefault();
     // get values
     let name= getInputVal("name");
-    let score = localStorage.getItem("topScore");
+    let score = parseInt(localStorage.getItem("topScore"));
     // save message
     console.log(name, score);
     saveTopScore(name, score);
@@ -66,16 +78,19 @@ function saveTopScore(name, score){
 function gotData(data) {
     //console.log(data.val());
     let scores = data.val();
+ //   let scoreBoard = {};
     let keys = Object.keys(scores);
    // console.log(keys);
-    for (let i = 0; i < keys.length; i++){
+   for (let i = 0; i < keys.length; i++){
         let k = keys[i];
         let name = scores[k].name;
         let score = scores[k].score;
         console.log(name, score);
+      //  scoreBoard.push(name, score);
         //let li = createElement("li", name + ": " + score);
         //li.parent("scorelist");
     }
+ //   console.log(scoreBoard);
 }
 
 function errData(err) {
