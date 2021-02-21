@@ -15,11 +15,10 @@ The site will be three pages .  Its targeted at users of all ages and types.
 3. As a visitor to the game site ,  I want the ability to select a difficulty level that suits me best .
 4. As a visitor to the game site , I want to be able to see my highest score history.
 5. As a visitor to the game site , I want to see the names of fruit in Italian.
-6. As a visitor to the site , 
 
 ### Structure
 
-This site will be put together with HTML, using the bootstrap framework along with CSS. The game part will made using JavaScript and jQuery . An API may be required also . 
+This site will be put together with HTML, using the bootstrap framework along with CSS. The game part will made using JavaScript and jQuery . An API may be required also.
 
 ### Skeleton
 
@@ -46,7 +45,7 @@ Wireframe
 
 ### Surface
 
-**Colours**
+#### Colours
 
 Colours vibrant fun by default . Three colour theme options.
 
@@ -54,11 +53,11 @@ Colours vibrant fun by default . Three colour theme options.
 2. Light theme - Light background , Dark text
 3. Dark theme - Dark background, Light text
 
-**Icons**
+#### Icons
 
-**Images**
+#### Images
 
-**Fonts** 
+#### Fonts
 
 - **"Jockey One"** was used for Header (h1,h2 and h3) text elements
 - **"VT323"** was used for all other text.
