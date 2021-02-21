@@ -74,6 +74,8 @@ Page 3 - How to play / Top Scores - Top scores on display and some info on how t
 
 Wireframe
 
+![wireframe image](assets\wireframe\tutti_trutti_wireframe.png)
+
 ### Surface
 
 #### Colours
