@@ -164,6 +164,25 @@ Some of the code used for the card game is derived from a two part YouTube video
 
 Firebase code was based on  https://youtu.be/PP4Tr0l08NE 
 
+16.9: Array Functions: sort() - Topics of JavaScript/ES6
+https://youtu.be/MWD-iKzR2c8	(Channel : The coding Train)
+
+9.3: Firebase: Retrieving Data - Programming with Text
+https://youtu.be/NcewaPfFR6Y	(Channel : The coding Train)
+
+9.2: Firebase: Saving Data - Programming with Text
+https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)
+
+
+Firebase Database Querying 101 - The Firebase Database For SQL Developers #3
+https://youtu.be/3WTQZV5-roY	(Channel : FIREBASE )
+
+Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4
+https://youtu.be/sKFLI5FOOHs	(Channel : FIREBASE )
+	
+Connecting Firebase to a Contact Form
+https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
+
 
 ### Resources
 
