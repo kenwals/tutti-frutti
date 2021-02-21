@@ -84,7 +84,7 @@ class MixOrMatch {
         this.totalScore = this.totalScore + this.scoreUnit ;
         this.scorePanel.innerText = this.totalScore;
         console.log("Your score is now :", this.totalScore );
-        localStorage.setItem('Current Score', this.totalScore);
+        localStorage.setItem('currentScore', this.totalScore);
         if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
     }

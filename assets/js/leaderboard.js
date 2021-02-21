@@ -25,7 +25,7 @@ const query = leaderBoardRef.orderByChild("score").limitToLast(10);
 
 /* 
 
-Based on partial content from :
+Based on partial content from the following :
 
 9.2: Firebase: Saving Data - Programming with Text
 https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)
@@ -51,23 +51,22 @@ function submitform(e){
     e.preventDefault();
     // get values
     let name= getInputVal("name");
-    // TODO change this to current score 
-    let score = parseInt(localStorage.getItem("topScore"));
+    let score = parseInt(localStorage.getItem("currentScore"));
     // save message
-    //console.log(name, score);
     saveTopScore(name, score);
-    // Clear form
+    // Clear form - # defensive design
     document.getElementById("form-leaderBoard").reset();
     // clear current score value
+    localStorage.removeItem("currentScore");  
     // alert user that info was sent
-    document.querySelector(".alert").style.display= "block";
+    document.querySelector(".alert").style.display= "block";     
     setTimeout(function(){   
         $("#modal-you-win-leaderboard").modal("hide");
         document.querySelector(".alert").style.display= "none";
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
-    }, 3000); // closes page after 3 seconds
-}  // partially based on "Connecting Firebase to a Contact Form"    https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
+    }, 3000); // closes page , alert and modal after 3 seconds
+}  // partially based on code featured in "Connecting Firebase to a Contact Form"    https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
 
 
 // function to get form values
@@ -97,9 +96,9 @@ function gotData(data) {
   //  console.log(scoreBoard);
     let leaderBoardOrderedList = ""; // empty string needed for outputing data to the webpage later
     for (let i = 0; i < scoreBoard.length; i++){
-    leaderBoardOrderedList += ("<li>" + scoreBoard[i].name + " - " + scoreBoard[i].score +"</li>");
+    leaderBoardOrderedList += ("<li>  " + scoreBoard[i].name + " - " + scoreBoard[i].score +"  </li>");
     }
-    console.log(leaderBoardOrderedList);
+    // console.log(leaderBoardOrderedList);
     $("#scoreList").html(leaderBoardOrderedList); // this outputs the ordered list body to the webpage
 }
 
