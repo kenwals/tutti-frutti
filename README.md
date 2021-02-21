@@ -1,6 +1,6 @@
 # Tutti Frutti
 
-![Tutti Frutti logo](assets\images\logo_red_3d.png)
+![Tutti Frutti logo](assets/images/logo_red_3d.png)
 
 This is a colourful memory card game with an Italian fruity emoji theme .
 
@@ -76,7 +76,7 @@ Page 3 - How to play / Top Scores - Top scores on display and some info on how t
 
 Wireframe
 
-![wireframe image](assets\wireframe\tutti_trutti_wireframe.png)
+![wireframe image](assets/wireframe/tutti_trutti_wireframe.png)
 
 ### Surface
 
