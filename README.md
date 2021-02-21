@@ -4,15 +4,14 @@ This is a colourful memory card game with an Italian fruity theme .
 
 ## UX
 
-
 ### Scope
 
-The site will be three pages .  Its targeted at users of all ages and types. 
+The site will be three pages .  Its targeted at users of all ages and types.
 
 #### User stories
 
 1. As a visitor to this game site , i want to be able to play a fun game and test my memory.
-2. As a visitor to the game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes. 
+2. As a visitor to the game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
 3. As a visitor to the game site ,  I want the ability to select a difficulty level that suits me best .
 4. As a visitor to the game site , I want to be able to see my highest score history.
 5. As a visitor to the game site , I want to see the names of fruit in Italian.
@@ -37,15 +36,15 @@ Page 3 - How to play / Top Scores - Top scores on display and some info on how t
 1 Strawberry
 2 Tangerine
 3 Cherrie
-4 Banana 
+4 Banana
 5 Red Apple
 6 Lemon
 7 Grapes
 8 Pear
 
-Wireframe 
+Wireframe
 
-### Surface 
+### Surface
 
 **Colours**
 
