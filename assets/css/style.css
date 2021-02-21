@@ -12,7 +12,7 @@ h1, h2, h3 {
 }
 
 .home-menu{
-  height: 85vh;
+  height: 80vh;
 }
 
 .theme-dark {
@@ -36,6 +36,8 @@ h1, h2, h3 {
   display: none;
 }
 
+/*  Some style components here are taken from the YouTube video "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  */
+
 .game-info-container{
     grid-column: 1 /-1;
     display: flex;
@@ -43,7 +45,7 @@ h1, h2, h3 {
 }
 
 .game-container{
-    margin: 50px auto;
+    margin: 50px auto;  /* TODO should this margin value to be changed ?  */
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
@@ -124,29 +126,6 @@ h1, h2, h3 {
     transform: rotateY(180deg);
   }
 
-.overlay-text{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    display: none;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #FF6D00;
-    transition: background-color 500ms, font-size 500ms;
-}
-
-.overlay-text-small {
-    font-size: .3rem;
-  }
-  
-  .overlay-text.visible {
-    display: flex;
-    animation: overlay-grow 500ms forwards;
-  }
 
   @keyframes overlay-grow {
     from {
@@ -172,7 +151,7 @@ h1, h2, h3 {
   }
 
 
-  } /* end of media query*/
+  } /*              end of media query                         */
 
 .game-header, .help-header {
   height: 3rem;
