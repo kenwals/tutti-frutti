@@ -36,7 +36,7 @@ h1, h2, h3 {
   display: none;
 }
 
-/*  Some style components here are taken from the YouTube video "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)*/
+/*  Some style components here are taken from the YouTube video "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  */
 
 .game-info-container{
     grid-column: 1 /-1;
