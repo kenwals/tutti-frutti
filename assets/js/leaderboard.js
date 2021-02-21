@@ -20,11 +20,30 @@ const database = firebase.database();
 const leaderBoardRef = database.ref("leaderBoard");
 
 
-// this line grabs data from server
+// these lines grabs data from firebase realtime database server
 const query = leaderBoardRef.orderByChild("score").limitToLast(10);
+
+/* 
+
+Based on partial content from :
+
+9.2: Firebase: Saving Data - Programming with Text
+https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)
+
+Firebase Database Querying 101 - The Firebase Database For SQL Developers #3
+https://youtu.be/3WTQZV5-roY	(Channel : FIREBASE )
+
+Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4
+https://youtu.be/sKFLI5FOOHs	(Channel : FIREBASE )
+
+9.3: Firebase: Retrieving Data - Programming with Text
+https://youtu.be/NcewaPfFR6Y	(Channel : The coding Train)
+
+*/
 
 query.on("value", gotData, errData); 
 
+// event listener on submit button
 document.getElementById("form-leaderBoard").addEventListener("submit", submitform);
 
 // submit form
@@ -32,13 +51,15 @@ function submitform(e){
     e.preventDefault();
     // get values
     let name= getInputVal("name");
+    // TODO change this to current score 
     let score = parseInt(localStorage.getItem("topScore"));
     // save message
-    console.log(name, score);
+    //console.log(name, score);
     saveTopScore(name, score);
     // Clear form
     document.getElementById("form-leaderBoard").reset();
-    // TODO alert that info was sent
+    // clear current score value
+    // alert user that info was sent
     document.querySelector(".alert").style.display= "block";
     setTimeout(function(){   
         $("#modal-you-win-leaderboard").modal("hide");
@@ -46,7 +67,7 @@ function submitform(e){
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
     }, 3000); // closes page after 3 seconds
-}
+}  // partially based on "Connecting Firebase to a Contact Form"    https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
 
 
 // function to get form values
@@ -54,7 +75,7 @@ function getInputVal(id){
     return document.getElementById(id).value;
 }
 
-
+// saves scores to firebase realtime database 
 function saveTopScore(name, score){
     let newLeaderBoardRef = leaderBoardRef.push();
     newLeaderBoardRef.set({
@@ -64,23 +85,24 @@ function saveTopScore(name, score){
 }
 
 function gotData(data) {
-    let scores = data.val();
-    let scoreBoard = [];
-    let keys = Object.keys(scores);
+    let scores = data.val(); // json object of the database snapshot
+    let scoreBoard = []; // empty array for sorting the scores in descending order later
+    let keys = Object.keys(scores); // makes an array of keys from the database
 
    for (let i = 0; i < keys.length; i++){
         let k = keys[i];
-        scoreBoard.push(scores[k]);
-    }
+        scoreBoard.push(scores[k]); // adds the score results to an array 
+    }  // partially based on 16.9: Array Functions: sort() - Topics of JavaScript/ES6  https://youtu.be/MWD-iKzR2c8	(Channel : The coding Train)
     scoreBoard.sort((a,b) => b.score - a.score); // this sorts the array by player scores by comparing scores
   //  console.log(scoreBoard);
-    let leaderBoardOrderedList = "";
+    let leaderBoardOrderedList = ""; // empty string needed for outputing data to the webpage later
     for (let i = 0; i < scoreBoard.length; i++){
-    leaderBoardOrderedList += ("<li>" + scoreBoard[i].name + ": " + scoreBoard[i].score +"</li>");
+    leaderBoardOrderedList += ("<li>" + scoreBoard[i].name + " - " + scoreBoard[i].score +"</li>");
     }
     console.log(leaderBoardOrderedList);
-    $("#scoreList").html(leaderBoardOrderedList);
+    $("#scoreList").html(leaderBoardOrderedList); // this outputs the ordered list body to the webpage
 }
+
 
 function errData(err) {
     console.log("Error!");
