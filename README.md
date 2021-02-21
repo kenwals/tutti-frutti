@@ -61,15 +61,15 @@ Colours vibrant fun by default . Three colour theme options.
 **Fonts** 
 
 - **"Jockey One"** was used for Header (h1,h2 and h3) text elements
-- **"VT323"** was used for all other text. 
+- **"VT323"** was used for all other text.
 
 On slow connections, another font may be visible while the site is loading.
 
 ## Features
 
-- There are three difficulty levels 
-- There are three theme options 
-- The game stores your highest scores in your browser 
+- There are three difficulty levels
+- There are three theme options
+- The game stores your highest scores in your browser
 - There is top 3 leaderboard of highest scores
 - You can have your score emailed to you
 
@@ -127,19 +127,19 @@ I tested the site as I went along, manually testing or using automated online te
 
 ### Project barriers and solutions
 
-modal setup mistake with ids 
+modal setup mistake with ids
 
 firebase orderbychild not working as expected
 
 passing scores as strings
 
-Javascript syntax changes 
+Javascript syntax changes
 
 ### Version control
 
 ### Functionality Testing
 
-### CSS3 validator 
+### CSS3 validator
 
 ### HTML5 validator
 
@@ -149,11 +149,7 @@ Javascript syntax changes
 
 ### Testing User Stories
 
-
-
 ## Deployment
-
-
 
 ## Credits
 
@@ -172,7 +168,6 @@ https://youtu.be/NcewaPfFR6Y	(Channel : The coding Train)
 9.2: Firebase: Saving Data - Programming with Text
 https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)
 
-
 Firebase Database Querying 101 - The Firebase Database For SQL Developers #3
 https://youtu.be/3WTQZV5-roY	(Channel : FIREBASE )
 
@@ -182,9 +177,7 @@ https://youtu.be/sKFLI5FOOHs	(Channel : FIREBASE )
 Connecting Firebase to a Contact Form
 https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
 
-
 ### Resources
-
 
 Local storage api handling was influenced by [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 
