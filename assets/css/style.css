@@ -170,3 +170,10 @@ h1, h2, h3 {
  .fas {
    font-size: 2rem;
  }
+
+
+ /* Info page - leader board*/
+
+ .info-panel {
+  max-width: 33rem;
+ }
