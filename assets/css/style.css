@@ -50,7 +50,7 @@ h1, h2, h3 {
 }
 
 .game-container{
-    margin: 30px auto;  /* TODO should this margin value to be changed ?  */
+    margin: 30px auto;  
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
