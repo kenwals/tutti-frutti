@@ -81,9 +81,10 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        this.totalScore = this.totalScore + this.scoreUnit ;
+        // score includes bonus given based on time remaining
+        this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
         this.scorePanel.innerText = this.totalScore;
-        console.log("Your score is now :", this.totalScore );
+        console.log("Your score is now :", this.totalScore , "time left :", this.timeRemaining);
         localStorage.setItem('currentScore', this.totalScore);
         if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
