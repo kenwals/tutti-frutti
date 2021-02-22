@@ -35,13 +35,13 @@ class MixOrMatch {
     getDifficultyLevel(){
         if (this.currentLevel === "easy"){
             this.scoreUnit = 10;
-            return 50;
+            return 60;
         } else if ( this.currentLevel === "medium"){
             this.scoreUnit = 20;
-            return 40;
+            return 50;
         } else if ( this.currentLevel === "hard"){
             this.scoreUnit = 30;
-            return 30;          
+            return 40;          
         }
 
     }
@@ -81,9 +81,10 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        this.totalScore = this.totalScore + this.scoreUnit ;
+        // score includes bonus given based on time remaining
+        this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
         this.scorePanel.innerText = this.totalScore;
-        console.log("Your score is now :", this.totalScore );
+        console.log("Your score is now :", this.totalScore , "time left :", this.timeRemaining);
         localStorage.setItem('currentScore', this.totalScore);
         if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
@@ -123,6 +124,9 @@ class MixOrMatch {
 
     victory() {
         clearInterval(this.countDown);
+        console.log(" total score is :", this.totalScore , " - total clicks ", this.totalClicks, " = ");
+        this.totalScore = this.totalScore - this.totalClicks;
+        console.log(this.totalScore);
         this.finalScore.innerText = this.totalScore;
         // check if your Personal best score has been beaten?
         if(this.recordBreaker()) {
