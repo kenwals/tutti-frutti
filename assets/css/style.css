@@ -32,6 +32,11 @@ h1, h2, h3 {
   max-width: 33rem;
 }
 
+/*            Game page              */
+
+.modal{
+  color : #007BFF ;
+}
 .alert{
   display: none;
 }
