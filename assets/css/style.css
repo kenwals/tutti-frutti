@@ -97,6 +97,7 @@ display: none;
   height: 87.5px;   /* originally 175 px   1/2  is 87.5 needed for small screen */
   width: 62.5px;  /* 125 px  1/2 is 62.5 needed for small screen */
   background-color: transparent;
+  cursor: pointer;
 }
 
 .card-face {
