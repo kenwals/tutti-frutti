@@ -96,6 +96,7 @@ display: none;
   position: relative;
   height: 87.5px;   /* originally 175 px   1/2  is 87.5 needed for small screen */
   width: 62.5px;  /* 125 px  1/2 is 62.5 needed for small screen */
+  background-color: transparent;
 }
 
 .card-face {
@@ -111,9 +112,6 @@ display: none;
           align-items: center;
   width: 100%;
   height: 100%;
-  /*border-radius: 12px;*/
-  border-width: 1px;
-  /*border-style: solid;*/
   overflow: hidden;
   -webkit-transition: -webkit-transform 500ms ease-in-out;
   transition: -webkit-transform 500ms ease-in-out;
@@ -173,8 +171,6 @@ display: none;
 
 
 .card-back{
-  /*background-color: rgb(220, 43, 20);
-  border-color: cyan; */
   -webkit-transform: rotateY(0);
           transform: rotateY(0); 
 }
@@ -202,8 +198,6 @@ width: 100% ;  /* this value ensures the card image resizes properly on smaller 
 }
 
 .card-front {
-  /*background-color: white;
-  border-color: #333;*/
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
