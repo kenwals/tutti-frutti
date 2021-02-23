@@ -50,7 +50,9 @@ animation: bg-animation 20s infinite alternate;
   100% {background-position: right;}
 }
 
-
+#btn-exit, #btn-back, #btn-info {
+  cursor: pointer;
+}
 #form-homePage{
 max-width: 33rem;
 }
