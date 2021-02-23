@@ -43,7 +43,7 @@ background-image: linear-gradient(
 );
 background-size: 400%;
 animation: bg-animation 20s infinite alternate;
-} code inspired by https://youtu.be/f3mwKLXpOLk
+} /* code inspired by https://youtu.be/f3mwKLXpOLk */
 
 @keyframes bg-animation {
   0% {background-position: left}
