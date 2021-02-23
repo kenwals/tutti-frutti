@@ -32,9 +32,24 @@ background-color: white;
 color: black;
 }
 .theme-colour {
-background-color: rgb(167, 255, 0);
 color: rgb(85, 15, 229);
+min-height: 100vh;
+background-image: linear-gradient( 
+  45deg,
+  #8213FF,
+  #A7FF00,
+  #FF41AB,
+  #FF1725
+);
+background-size: 400%;
+animation: bg-animation 20s infinite alternate;
+} code inspired by https://youtu.be/f3mwKLXpOLk
+
+@keyframes bg-animation {
+  0% {background-position: left}
+  100% {background-position: right;}
 }
+
 
 #form-homePage{
 max-width: 33rem;
