@@ -203,4 +203,6 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 
 Game layout/structure is inspired by [PROXX](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
 
+My mentor Maranatha Ilesanmi.
+
 Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
