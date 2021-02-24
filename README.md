@@ -144,6 +144,8 @@ I tested the site as I went along, manually testing or using automated online te
 
 On local desktop , the dropdown menu button become unresponsive . this bug could be limited to the Python http server.
 
+In the firefox browers some error appear in the developer console
+
 ### Project barriers and solutions
 
 modal setup mistake with ids
