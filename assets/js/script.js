@@ -3,8 +3,8 @@ class MixOrMatch {
         this.cardsArray = cards;
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
-        this.scorePanel =  document.getElementById("score");
-        this.finalScore = document.getElementById("finalScore"); 
+        this.scorePanel = document.getElementById("score");
+        this.finalScore = document.getElementById("finalScore");
     } // some code on this script is taken from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
 
 
@@ -32,16 +32,16 @@ class MixOrMatch {
 
     }
 
-    getDifficultyLevel(){
-        if (this.currentLevel === "easy"){
+    getDifficultyLevel() {
+        if (this.currentLevel === "easy") {
             this.scoreUnit = 10;
             return 60;
-        } else if ( this.currentLevel === "medium"){
+        } else if (this.currentLevel === "medium") {
             this.scoreUnit = 20;
             return 50;
-        } else if ( this.currentLevel === "hard"){
+        } else if (this.currentLevel === "hard") {
             this.scoreUnit = 30;
-            return 40;          
+            return 40;
         }
 
     }
@@ -81,11 +81,11 @@ class MixOrMatch {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        console.log("card matched is ",card1.getElementsByClassName("card-value")[0].src);
+        console.log("card matched is ", card1.getElementsByClassName("card-value")[0].src);
         // score includes bonus given based on time remaining
         this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
         this.scorePanel.innerText = this.totalScore;
-        console.log("Your score is now :", this.totalScore , "time left :", this.timeRemaining);
+        console.log("Your score is now :", this.totalScore, "time left :", this.timeRemaining);
         localStorage.setItem('currentScore', this.totalScore);
         if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
@@ -125,24 +125,24 @@ class MixOrMatch {
 
     victory() {
         clearInterval(this.countDown);
-        console.log(" total score is :", this.totalScore , " - total clicks ", this.totalClicks, " = ");
+        console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
         this.totalScore = this.totalScore - this.totalClicks;
         console.log(this.totalScore);
         this.finalScore.innerText = this.totalScore;
         // check if your Personal best score has been beaten?
-        if(this.recordBreaker()) {
+        if (this.recordBreaker()) {
             $("#modal-you-win-leaderboard").modal("show");
         } else {
             $("#modal-you-win").modal("show");
-        } 
+        }
         this.hideCards();
     }
 
-    recordBreaker(){
-        if(!localStorage.getItem('topScore')){
+    recordBreaker() {
+        if (!localStorage.getItem('topScore')) {
             localStorage.setItem('topScore', this.totalScore);
             return true;
-        } else if (localStorage.getItem('topScore')< this.totalScore ){
+        } else if (localStorage.getItem('topScore') < this.totalScore) {
             localStorage.setItem('topScore', this.totalScore);
             return true;
         } else {
@@ -186,28 +186,28 @@ function ready() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
         // let currentTopScore = localStorage.getItem('topScore');   // move to class! 
-       
-       document.getElementById('theme').value = currentTheme;
-       document.getElementById('level').value = currentLevel;
-       
-       if (currentTheme === "dark") {
-       $("body").removeClass("theme-colour").removeClass("theme-light").addClass("theme-dark");
-       } else if (currentTheme === "light") {
-       $("body").removeClass("theme-colour").removeClass("theme-dark").addClass("theme-light");
-       } else {
-       $("body").removeClass("theme-dark").removeClass("theme-light").addClass("theme-colour");
-       }
+
+        document.getElementById('theme').value = currentTheme;
+        document.getElementById('level').value = currentLevel;
+
+        if (currentTheme === "dark") {
+            $("body").removeClass("theme-colour").removeClass("theme-light").addClass("theme-dark");
+        } else if (currentTheme === "light") {
+            $("body").removeClass("theme-colour").removeClass("theme-dark").addClass("theme-light");
+        } else {
+            $("body").removeClass("theme-dark").removeClass("theme-light").addClass("theme-colour");
+        }
     }
 
-       /*                           event listeners section                          */ 
+    /*                           event listeners section                          */
 
-    $("#theme").change(function() {
+    $("#theme").change(function () {
         populateStorage();
-   });
-   
-   $("#level").change(function() {
+    });
+
+    $("#level").change(function () {
         populateStorage();
-   });
+    });
 
     $("#btn-start").click(function () {
         console.log("you clicked the start button");
