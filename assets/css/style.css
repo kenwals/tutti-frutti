@@ -37,12 +37,15 @@ min-height: 100vh;
 background-image: linear-gradient( 
   45deg,
   #8213FF,
-  #A7FF00,
   #FF41AB,
-  #FF1725
+  #F82131,
+  #CFDE0A,
+  #FC8440,
+  #FF9300,	
+  #449C00	
 );
 background-size: 400%;
-animation: bg-animation 20s infinite alternate;
+animation: bg-animation 60s infinite alternate;
 } /* code inspired by https://youtu.be/f3mwKLXpOLk */
 
 @keyframes bg-animation {
