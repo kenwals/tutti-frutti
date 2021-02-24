@@ -2,7 +2,7 @@
 
 ![Tutti Frutti logo](assets/images/logo_red_3d.png)
 
-This is a colourful memory card game with an Italian fruity emoji theme .
+This is a colourful memory card game with an fruity emoji theme .
 
 - [Tutti Frutti](#tutti-frutti)
   - [UX](#ux)
@@ -47,7 +47,6 @@ The site is three pages, it containes a menu page , a game page and an info page
 2. As a visitor to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
 3. As a visitor to this game site , I want the ability to select a difficulty level that suits me best .
 4. As a visitor to this game site , I want to be able to submit my high score to the leaderboard.
-5. As a visitor to this game site , I want to see the names of fruit in Italian.
 
 ### Structure
 
@@ -144,6 +143,8 @@ I tested the site as I went along, manually testing or using automated online te
 
 On local desktop , the dropdown menu button become unresponsive . this bug could be limited to the Python http server.
 
+In the firefox browers some error appear in the developer console
+
 ### Project barriers and solutions
 
 modal setup mistake with ids
@@ -202,5 +203,7 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 ### Acknowledgements
 
 Game layout/structure is inspired by [PROXX](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
+
+My mentor Maranatha Ilesanmi.
 
 Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
