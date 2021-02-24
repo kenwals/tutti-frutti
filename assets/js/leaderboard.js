@@ -19,10 +19,8 @@
 const database = firebase.database();
 const leaderBoardRef = database.ref("leaderBoard");
 
-
 // these lines grabs data from firebase realtime database server
 const query = leaderBoardRef.orderByChild("score").limitToLast(10);
-
 /* 
 
 Based on partial content from the following :
@@ -40,7 +38,6 @@ https://youtu.be/sKFLI5FOOHs	(Channel : FIREBASE )
 https://youtu.be/NcewaPfFR6Y	(Channel : The coding Train)
 
 */
-
 query.on("value", gotData, errData); 
 
 // event listener on submit button
@@ -67,7 +64,6 @@ function submitform(e){
         $("#page-home").removeClass("collapse");
     }, 3000); // closes page , alert and modal after 3 seconds
 }  // partially based on code featured in "Connecting Firebase to a Contact Form"    https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
-
 
 // function to get form values
 function getInputVal(id){
@@ -101,7 +97,6 @@ function gotData(data) {
     // console.log(leaderBoardOrderedList);
     $("#scoreList").html(leaderBoardOrderedList); // this outputs the ordered list body to the webpage
 }
-
 
 function errData(err) {
     console.log("Error!");
