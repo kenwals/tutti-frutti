@@ -7,7 +7,6 @@ class MixOrMatch {
         this.finalScore = document.getElementById("finalScore");
     } // some code on this script is taken from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
 
-
     startGame() {
         this.currentLevel = document.getElementById('level').value;
         this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
@@ -19,7 +18,6 @@ class MixOrMatch {
         this.timeRemaining = this.totalTime;
         this.matchedCards = [];
         this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
-
         setTimeout(() => {
             this.shuffleCards();
             this.countDown = this.startCountDown();
@@ -29,7 +27,6 @@ class MixOrMatch {
         this.timer.innerText = this.timeRemaining;
         this.ticker.innerText = this.totalClicks;
         this.scorePanel.innerText = this.totalScore;
-
     }
 
     getDifficultyLevel() {
@@ -43,7 +40,6 @@ class MixOrMatch {
             this.scoreUnit = 30;
             return 40;
         }
-
     }
 
     hideCards() {
@@ -58,7 +54,6 @@ class MixOrMatch {
             this.totalClicks++;
             this.ticker.innerText = this.totalClicks;
             card.classList.add("visible");
-
             if (this.cardToCheck)
                 this.checkForCardMatch(card);
             else
@@ -71,9 +66,7 @@ class MixOrMatch {
             this.cardMatch(card, this.cardToCheck);
         else
             this.cardMisMatch(card, this.cardToCheck);
-
         this.cardToCheck = null;
-
     }
 
     cardMatch(card1, card2) {
@@ -185,11 +178,8 @@ function ready() {
     function setValues() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
-        // let currentTopScore = localStorage.getItem('topScore');   // move to class! 
-
         document.getElementById('theme').value = currentTheme;
         document.getElementById('level').value = currentLevel;
-
         if (currentTheme === "dark") {
             $("body").removeClass("theme-colour").removeClass("theme-light").addClass("theme-dark");
         } else if (currentTheme === "light") {
@@ -201,15 +191,11 @@ function ready() {
 
     /*                           event listeners section                          */
 
-    $("#theme").change(function () {
-        populateStorage();
-    });
+    $("#theme").change(()=> populateStorage());
 
-    $("#level").change(function () {
-        populateStorage();
-    });
+    $("#level").change(()=> populateStorage());
 
-    $("#btn-start").click(function () {
+    $("#btn-start").click(()=> {
         console.log("you clicked the start button");
         $("#page-home").addClass("collapse");
         $("#page-game").removeClass("collapse");
@@ -217,7 +203,7 @@ function ready() {
         game.startGame();
     });
 
-    $(".btn-back").click(function () {
+    $(".btn-back").click(()=> {
         console.log("you clicked go back button");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -225,21 +211,21 @@ function ready() {
         console.log("game page collapsed , home page is open");
     });
 
-    $("#btn-info").click(function () {
+    $("#btn-info").click(()=> {
         console.log("you clicked the info button");
         $("#page-home").addClass("collapse");
         $("#page-help").removeClass("collapse");
         console.log("home page collapsed , help page is open");
     });
 
-    $("#btn-exit").click(function () {
+    $("#btn-exit").click(()=> {
         console.log("you clicked the exit button");
         $("#page-help").addClass("collapse");
         $("#page-home").removeClass("collapse");
         console.log("help page collapsed , home page is open");
     });
 
-    $(".btn-restart").click(function () {
+    $(".btn-restart").click(()=> {
         console.log("you clicked the restart button in one of the modals");
         $(".modal").modal("hide");
         game.startGame();
