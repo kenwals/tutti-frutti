@@ -83,11 +83,8 @@
      let scores = data.val(); // json object of the database snapshot
      let scoreBoard = []; // empty array for sorting the scores in descending order later
      let keys = Object.keys(scores); // makes an array of keys from the database
-
-     for (let i = 0; i < keys.length; i++) {
-         let k = keys[i];
-         scoreBoard.push(scores[k]); // adds the score results to an array 
-     } // partially based on 16.9: Array Functions: sort() - Topics of JavaScript/ES6  https://youtu.be/MWD-iKzR2c8	(Channel : The coding Train)
+     keys.forEach( k => scoreBoard.push(scores[k])); // adds the score results to an array 
+     // partially based on 16.9: Array Functions: sort() - Topics of JavaScript/ES6  https://youtu.be/MWD-iKzR2c8	(Channel : The coding Train)
      scoreBoard.sort((a, b) => b.score - a.score); // this sorts the array by player scores by comparing scores
      //  console.log(scoreBoard);
      let leaderBoardOrderedList = ""; // empty string needed for outputing data to the webpage later
