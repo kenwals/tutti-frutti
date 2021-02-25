@@ -108,6 +108,8 @@ On slow connections, another font may be visible while the site is loading.
 - There are three theme options
 - The game stores your current highest score in your browser, when you beat that score you can submit your new score to the leaderboard.
 - There is top 10 leaderboard of highest scores by all users
+- local storage Api
+- firebase realtime database api
 
 ## Technologies Used
 
@@ -143,7 +145,7 @@ I tested the site as I went along, manually testing or using automated online te
 
 On local desktop , the dropdown menu button become unresponsive . this bug could be limited to the Python http server.
 
-In the firefox browers some error appear in the developer console
+In the firefox browers some error appear in the developer console in relation to mime / javascript
 
 ### Project barriers and solutions
 
