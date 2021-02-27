@@ -241,6 +241,12 @@ width: 100% ;  /* this value ensures the card image resizes properly on smaller 
   max-width: 33rem; 
 }
 
+/* Info page - leader board*/
+
+.info-panel {
+  max-width: 33rem;
+  }
+
 
 } /*              end of media query                         */
 
@@ -258,8 +264,3 @@ height: 3rem;
 }
 
 
-/* Info page - leader board*/
-
-.info-panel {
-max-width: 33rem;
-}
