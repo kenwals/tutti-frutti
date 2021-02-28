@@ -2,44 +2,51 @@
 
 ![Tutti Frutti logo](assets/images/logo_red_3d.png)
 
-This is a colourful memory card game with an fruity emoji theme .
+This is a colourful and interactive memory card game featuring fruit emojis
 
-- [Tutti Frutti](#tutti-frutti)
-  - [UX](#ux)
-    - [Scope](#scope)
-      - [User stories](#user-stories)
-    - [Structure](#structure)
-    - [Skeleton](#skeleton)
-    - [Surface](#surface)
-      - [Colours](#colours)
-      - [Icons](#icons)
-      - [Images](#images)
-      - [Fonts](#fonts)
-  - [Features](#features)
-  - [Technologies Used](#technologies-used)
-  - [Testing](#testing)
-    - [Performance Testing](#performance-testing)
-    - [Known issues](#known-issues)
-    - [Project barriers and solutions](#project-barriers-and-solutions)
-    - [Version control](#version-control)
-    - [Functionality Testing](#functionality-testing)
-    - [CSS3 validator](#css3-validator)
-    - [HTML5 validator](#html5-validator)
-    - [Usability Testing](#usability-testing)
-    - [Compatibility Testing](#compatibility-testing)
-    - [Testing User Stories](#testing-user-stories)
-  - [Deployment](#deployment)
-  - [Credits](#credits)
-    - [Content](#content)
-    - [Resources](#resources)
-    - [Media](#media)
-    - [Acknowledgements](#acknowledgements)
+:lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
+
+---
+
+## Table of contents
+
+- [UX](#ux)
+  - [Scope](#scope)
+    - [User stories](#user-stories)
+  - [Structure](#structure)
+  - [Skeleton](#skeleton)
+  - [Surface](#surface)
+    - [Colours](#colours)
+    - [Icons](#icons)
+    - [Images](#images)
+    - [Fonts](#fonts)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+  - [Performance Testing](#performance-testing)
+  - [Known issues](#known-issues)
+  - [Project barriers and solutions](#project-barriers-and-solutions)
+  - [Version control](#version-control)
+  - [Functionality Testing](#functionality-testing)
+  - [CSS3 validator](#css3-validator)
+  - [HTML5 validator](#html5-validator)
+  - [Usability Testing](#usability-testing)
+  - [Compatibility Testing](#compatibility-testing)
+  - [Testing User Stories](#testing-user-stories)
+- [Deployment](#deployment)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Resources](#resources)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
+
+---
 
 ## UX
 
 ### Scope
 
-The site is three pages, it containes a menu page , a game page and an info page .  Its targeted at users of all ages and types.
+The site is three pages, it contains a menu page , a game page and an info page.  Its targeted at users of all ages and types.
 
 #### User stories
 
@@ -50,28 +57,19 @@ The site is three pages, it containes a menu page , a game page and an info page
 
 ### Structure
 
-This site will be put together with HTML, using the bootstrap framework along with CSS. The game part will made using JavaScript and jQuery . An the Top Scores Leaderboard is connected to a Firebase realtime Database.
+This site will be put together with HTML, using the bootstrap framework along with CSS. The game, interactive elements and leaderboard are done using JavaScript and jQuery . The Leaderboard is connected to a Firebase realtime Database.
 
 ### Skeleton
 
-The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed.
+The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed using bootstraps collapse component.
 
-Page 1 - Homepage or Main Menu - Game title , theme and difficulty settings , Start button.
+Page 1 - Homepage or Main Menu - Game title, Theme and Difficulty settings , Start button.
 
-Page 2 - Game page - Card game page with timer , score and flips gauge
+Page 2 - Game page - Card game page with timer, score ,flips gauge and modals.
 
-Page 3 - How to play / Top Scores - Top scores on display and some info on how the game works .
+Page 3 - How to play / Top Scores - Top scores on are display here .There some info on how to play the game and on how the score is calculated.
 
-8 card pairs - Fruit emojis chosen are only ones that are currently grown in Italy.
-
-1 Strawberry
-2 Orange
-3 Cherrie
-4 Banana
-5 Red Apple
-6 Lemon
-7 Peach
-8 Pear
+8 card pairs - Fruit emojis used  are :lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
 
 Wireframe
 
@@ -83,17 +81,17 @@ Wireframe
 
 Colours vibrant fun by default . Three colour theme options.
 
-1. Colourful theme (default).
+1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours used on the fuit emojis .
 2. Light theme - Light background , Dark text
 3. Dark theme - Dark background, Light text
 
 #### Icons
 
-Font awesome !
+Font awesome or Bootstrap is used for icons.
 
 #### Images
 
-Graphics used are created by [Rudy de Souza](https://rudydesouza.com/)
+Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https://rudydesouza.com/) , emojis used are from joypixels.com
 
 #### Fonts
 
@@ -102,14 +100,17 @@ Graphics used are created by [Rudy de Souza](https://rudydesouza.com/)
 
 On slow connections, another font may be visible while the site is loading.
 
+back to [contents](#table-of-contents)
+
+---
+
 ## Features
 
 - There are three difficulty levels
 - There are three theme options
 - The game stores your current highest score in your browser, when you beat that score you can submit your new score to the leaderboard.
-- There is top 10 leaderboard of highest scores by all users
-- local storage Api
-- firebase realtime database api
+- There is top 10 leaderboard of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this nosql database, scoreboard is updated on the site in realtime.
+- Local Storage API is used for storing and remembering the difficulty level and theme setting when the user returns to the game.
 
 ## Technologies Used
 
@@ -126,7 +127,6 @@ On slow connections, another font may be visible while the site is loading.
 - File renaming utility : PowerRename from [PowerToys on Windows 10](https://www.windowscentral.com/how-bulk-rename-your-files-windows-10-powertoys)
 - Pomodoro timer : [Tomato Clock](https://chrome.google.com/webstore/detail/tomato-clock/enemipdanmallpjakiehedcgjmibjihj)
 - Overflow rescue tool : [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) was used for when a scroll left to right appeared on my site on smaller screens.
-- HEX to RGB converter : [RapidTables](https://www.rapidtables.com/convert/color/hex-to-rgb.html) and [webfx](https://www.webfx.com/web-design/hex-to-rgb/)
 - Colour contrast checking for Accessibility refinements : [WebAIM](https://webaim.org/resources/contrastchecker/) was used for when trying to decide what colours to use for text against which background colour.
 - Favicon creator : [favicon.io](https://favicon.io/favicon-generator/)
 - Autoprefixer CSS : [Autoprefixer](https://autoprefixer.github.io/)
@@ -135,17 +135,34 @@ On slow connections, another font may be visible while the site is loading.
 - markdown linter
 - linters!
 
+back to [contents](#table-of-contents)
+
+---
+
 ## Testing
 
-I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier version of the code console.log was used extensively to monitor is the JavaScript was working correctly.
+I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier version of the code console.log was used extensively to monitor is the JavaScript/JQuery was working correctly.
+
+I used JQuery commands in developer tools console to give myself some shortcuts while testing the game.
+
+```javascript
+$(".card").addClass("visible")  // this turns over all the playing cards
+$("#modal-game-over").modal("show")  // this triggers a game over modal to pop up
+$("#modal-you-win").modal("show")  // this triggers a you win modal to pop up
+$("#modal-you-win-leaderboard").modal("show") // this triggers a high score modal to pop up
+$("#modal-game-over").modal("hide")
+$("#modal-you-win").modal("hide")
+$("#modal-you-win-leaderboard").modal("hide")
+localStorage.clear()
+```
 
 ### Performance Testing
 
 ### Known issues
 
-On local desktop , the dropdown menu button become unresponsive . this bug could be limited to the Python http server.
+On local desktop, the dropdown menu button become unresponsive. This bug could be limited to the Python http server. I have not seen this happen on the deployed version.
 
-In the firefox browers some error appear in the developer console in relation to mime / javascript
+In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
 
 ### Project barriers and solutions
 
@@ -155,9 +172,11 @@ Firebase orderByChild not working as expected
 
 passing scores as strings
 
-Javascript syntax changes
+JavaScript syntax changes
 
 ### Version control
+
+For version control I used the UI on Gitpod for making commits, and command line for branches, Merging was done on the GitHub site. I used branches when I was working on new features.
 
 ### Functionality Testing
 
@@ -171,7 +190,67 @@ Javascript syntax changes
 
 ### Testing User Stories
 
+back to [contents](#table-of-contents)
+
+---
+
 ## Deployment
+
+For easy deployment on GitHub pages you will need a GitHub user account and a possibly a Gitpod user account. If you wish to make changes to this repository, please follow the GitHub steps first.
+
+### GitHub
+
+GitHub is a code hosting platform for version control and collaboration. It's free to enrol for a user account and I would recommend you have one if you wish to deploy this repository and make changes.
+
+When you have a GitHub account you can simple click on the Fork button on the top right corner. This is clone the Shinrin-Yoku repository for your GitHub account, then you can make any changes you like.
+
+### Gitpod
+
+The site can be edited easily on a Gitpod online workspace, you first register a free user account on <http://gitpod.io/>, then download the Gitpod extension on your preferred internet browser. On signing up you will be expected to  have a GitHub user account.
+
+Once you have the extension on your browser, a green Gitpod button will appear beside this repository in GitHub. For best results fork the repository in your personal account before you open it in Gitpod.
+
+### GitHub Pages
+
+Once you have the completed site in your own repository, you can deploy to GitHub pages by the following steps.
+
+1. On GitHub, go to the completed sites repository.
+2. Click on settings, on the settings page scroll down the the GitHub Pages section.
+3. Under GitHub pages, Select the appropriate branch or folder the index.html is in.
+4. Click on save. A message should then appear advising the URL of your deployed site.
+
+### Cloning
+
+If you prefer working on the repository locally, you can clone the repository to your desktop by the following steps.
+
+1. Go to [the Shinrin-Yoku github page](https://github.com/kenwals/shinrin-yoku).
+2. Above the list of files, click on the code button.
+3. To clone the repository using HTTPS, under "Clone with HTTPS", click the paste icon.
+   To clone the repository using an SSH key, click Use SSH, then click the paste icon.
+   To clone a repository using GitHub CLI, click Use GitHub CLI, then click the paste icon.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type 'git clone', then paste the URL you copied earlier above.
+7. Press Enter to create your local clone.
+
+more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+### Forking
+
+You may wish to contribute to this website and have your contribution published, if so, you are welcome to follow these steps below.
+
+1. Go to the GitHub website and log in.
+2. Open <https://github.com/kenwals/shinrin-yoku>
+3. In the top right-hand corner you will see a fork button, click on this fork button .
+4. This will create a copy the Shinrin-Yoku repository in your github account.
+5. Once you're finished making changes you can locate the 'New Pull Request' button just above the file listing in the original repository(<https://github.com/kenwals/shinrin-yoku>).
+6. If your pull request is approved, it will be merged into the master version of the Shinrin-Yoku repository at a future date.
+
+more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+
+back to [contents](#table-of-contents)
+
+---
 
 ## Credits
 
