@@ -141,19 +141,19 @@ back to [contents](#table-of-contents)
 
 ## Testing
 
-I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier version of the code console.log was used extensively to monitor is the JavaScript/JQuery was working correctly.
+I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier version of the command console.log was used extensively to monitor is the JavaScript/JQuery was working correctly.
 
-I used JQuery commands in developer tools console to give myself some shortcuts while testing the game.
+I used JQuery commands below in developer tools console to give myself some shortcuts while testing the game.
 
 ```javascript
 $(".card").addClass("visible")  // this turns over all the playing cards
 $("#modal-game-over").modal("show")  // this triggers a game over modal to pop up
 $("#modal-you-win").modal("show")  // this triggers a you win modal to pop up
 $("#modal-you-win-leaderboard").modal("show") // this triggers a high score modal to pop up
-$("#modal-game-over").modal("hide")
-$("#modal-you-win").modal("hide")
-$("#modal-you-win-leaderboard").modal("hide")
-localStorage.clear()
+$("#modal-game-over").modal("hide") // this hides the game over modal 
+$("#modal-you-win").modal("hide")  // this hides the you win modal 
+$("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderboard modal 
+localStorage.clear() // this clears the local storage completely
 ```
 
 ### Performance Testing
