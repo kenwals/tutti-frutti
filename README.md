@@ -202,7 +202,7 @@ For easy deployment on GitHub pages you will need a GitHub user account and a po
 
 GitHub is a code hosting platform for version control and collaboration. It's free to enrol for a user account and I would recommend you have one if you wish to deploy this repository and make changes.
 
-When you have a GitHub account you can simple click on the Fork button on the top right corner. This is clone the Shinrin-Yoku repository for your GitHub account, then you can make any changes you like.
+When you have a GitHub account you can simple click on the Fork button on the top right corner. This is clone the Tutti-Frutti repository for your GitHub account, then you can make any changes you like.
 
 ### Gitpod
 
@@ -242,9 +242,9 @@ You may wish to contribute to this website and have your contribution published,
 1. Go to the GitHub website and log in.
 2. Open <https://github.com/kenwals/tutti-frutti>
 3. In the top right-hand corner you will see a fork button, click on this fork button .
-4. This will create a copy the Shinrin-Yoku repository in your github account.
+4. This will create a copy the Tutti-Frutti repository in your github account.
 5. Once you're finished making changes you can locate the 'New Pull Request' button just above the file listing in the original repository(<https://github.com/kenwals/tutti-frutti>).
-6. If your pull request is approved, it will be merged into the master version of the Shinrin-Yoku repository at a future date.
+6. If your pull request is approved, it will be merged into the master version of the Tutti-Frutti repository at a future date.
 
 more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
 
