@@ -59,18 +59,18 @@
         <div class="game-header row border-bottom mx-3 py-2">
             <div class="col-12">
                 <div class="d-flex justify-content-between">
-                <div>
-                    <i class="fas fa-medal"></i>
-                    <span id="score">100</span>
-                </div>
+                    <div>
+                        <i class="fas fa-medal"></i>
+                        <span id="score">100</span>
+                    </div>
 
-                <h2 class="text-center d-sm-inline-block d-none mx-auto">Tutti Frutti</h2>
+                    <h2 class="text-center d-sm-inline-block d-none mx-auto">Tutti Frutti</h2>
 
-                <div>
-                    <span id="time-remaining">100</span>
-                    <i class="fas fa-stopwatch "></i>
+                    <div>
+                        <span id="time-remaining">100</span>
+                        <i class="fas fa-stopwatch "></i>
+                    </div>
                 </div>
-            </div>
 
             </div>
         </div>
@@ -93,6 +93,27 @@
                                 <button type="button" class="btn btn-secondary btn-back"
                                     data-dismiss="modal">Exit</button>
                                 <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal Are you sure you want to leave ? -->
+                <div class="modal fade" id="modal-leave-warning" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel1">Tutti Frutti</h5>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to EXIT this game?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-back"
+                                    data-dismiss="modal">Exit</button>
+                                <button type="button" class="btn btn-primary btn-continue">Continue</button>
                             </div>
                         </div>
                     </div>
@@ -309,10 +330,15 @@
             <div class="col-12 col-lg-6">
                 <h2 class="border-top border-bottom text-center">How to play</h2>
                 <ul class="info-panel">
-                    <li>Choose difficulty level (easy/medium/hard) and press START button. Click on the cards and match as many pairs in quickest amount of time with least number of flips</li>
-                    <li>For EASY, time limit is 60 seconds, you score a minimum of 10 points each pair. For MEDIUM, time : 50 seconds, points: 20. For HARD, time : 40 seconds, points: 30.</li>
-                    <li>BONUS points is given based on the amount of time that is currently remaining, so the quicker you pair up the cards the higher that BONUS is. For Example, if on the EASY level, you have just matched a pair while there is 50 seconds left, then you will score 10+(10*50) = 510 points </li>
-                    <li>WIN by matching all the cards before the clock runs out, your final score is deducted by the number of times you flipped cards over.</li>
+                    <li>Choose difficulty level (easy/medium/hard) and press START button. Click on the cards and match
+                        as many pairs in quickest amount of time with least number of flips</li>
+                    <li>For EASY, time limit is 60 seconds, you score a minimum of 10 points each pair. For MEDIUM, time
+                        : 50 seconds, points: 20. For HARD, time : 40 seconds, points: 30.</li>
+                    <li>BONUS points is given based on the amount of time that is currently remaining, so the quicker
+                        you pair up the cards the higher that BONUS is. For Example, if on the EASY level, you have just
+                        matched a pair while there is 50 seconds left, then you will score 10+(10*50) = 510 points </li>
+                    <li>WIN by matching all the cards before the clock runs out, your final score is deducted by the
+                        number of times you flipped cards over.</li>
                 </ul>
             </div><br><br>
 
