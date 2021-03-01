@@ -50,14 +50,20 @@ The site is three pages, it contains a menu page , a game page and an info page.
 
 #### User stories
 
-1. As a visitor to this game site , I want to be able to play a fun game and test my memory.
-2. As a visitor to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
-3. As a visitor to this game site , I want the ability to select a difficulty level that suits me best .
-4. As a visitor to this game site , I want to be able to submit my high score to the leaderboard.
+##### Visitor goals
+
+  1. As a visitor to this game site , I want to be able to play a fun game and test my memory.
+  2. As a visitor to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
+  3. As a visitor to this game site , I want the ability to select a difficulty level that suits me best .
+  4. As a visitor to this game site , I want to be able to submit my high score to the leaderboard.
+
+##### Owner goals
+
+  1. As the site owner, I want to be able to play a fun game and test my memory.
 
 ### Structure
 
-This site will be put together with HTML, using the bootstrap framework along with CSS. The game, interactive elements and leaderboard are done using JavaScript and jQuery . The Leaderboard is connected to a Firebase realtime Database.
+This site will be put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leaderboard is connected to a Firebase realtime Database.
 
 ### Skeleton
 
@@ -79,19 +85,19 @@ Wireframe
 
 #### Colours
 
-Colours vibrant fun by default . Three colour theme options.
+Colours are vibrant and fun by default . Three colour theme options.
 
-1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours used on the fuit emojis .
+1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours used on the fuit emojis.
 2. Light theme - Light background , Dark text
 3. Dark theme - Dark background, Light text
 
 #### Icons
 
-Font awesome or Bootstrap is used for icons.
+Font awesome is used for icons.
 
 #### Images
 
-Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https://rudydesouza.com/) , emojis used are from joypixels.com
+Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https://rudydesouza.com/), emojis used are from joypixels.com
 
 #### Fonts
 
@@ -108,9 +114,9 @@ back to [contents](#table-of-contents)
 
 - There are three difficulty levels
 - There are three theme options
-- The game stores your current highest score in your browser, when you beat that score you can submit your new score to the leaderboard.
-- There is top 10 leaderboard of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this nosql database, scoreboard is updated on the site in realtime.
-- Local Storage API is used for storing and remembering the difficulty level and theme setting when the user returns to the game.
+- The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leaderboard.
+- There is top 10 leaderboard of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in realtime.
+- Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
 
 ## Technologies Used
 
@@ -119,7 +125,7 @@ back to [contents](#table-of-contents)
 - IDE: Visual Studio code.
 - Version control: Git on VS code terminal , [Github](https://github.com/) Desktop app and at repository web page.
 - Wireframe: [Balsamiq](https://balsamiq.com/)
-- Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.loging everything.
+- Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.logging everything.
 - Kanban planner : [Github projects](https://github.com/kenwals/tutti-frutti/projects/1).
 - Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, Gitpod editor was used for minor updates.
 - Fonts : [Google Fonts](https://fonts.google.com/)
@@ -141,7 +147,7 @@ back to [contents](#table-of-contents)
 
 ## Testing
 
-I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier version of the command console.log was used extensively to monitor is the JavaScript/JQuery was working correctly.
+I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly.
 
 I used JQuery commands below in developer tools console to give myself some shortcuts while testing the game.
 
@@ -154,13 +160,14 @@ $("#modal-game-over").modal("hide") // this hides the game over modal
 $("#modal-you-win").modal("hide")  // this hides the you win modal 
 $("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderboard modal 
 localStorage.clear() // this clears the local storage completely
+localStorage.setItem("topScore" , 0); // this just treset your topScore 
 ```
 
 ### Performance Testing
 
 ### Known issues
 
-On local desktop, the dropdown menu button become unresponsive. This bug could be limited to the Python http server. I have not seen this happen on the deployed version.
+On local desktop, the dropdown menu button can become unresponsive. This bug could be limited to the Python http server when running a long time . I have not seen this happen on the deployed version.
 
 In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
 
@@ -172,7 +179,7 @@ Firebase orderByChild not working as expected
 
 passing scores as strings
 
-JavaScript syntax changes
+JavaScript syntax differances p5 JS verses node JS veses vanilla JS
 
 ### Version control
 
@@ -256,7 +263,7 @@ back to [contents](#table-of-contents)
 
 ### Content
 
-Some of the code used for the card game on script.js and style.css is derived from a two part YouTube video called "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  & [PortEXE](https://youtu.be/3uuQ3g92oPQ) . click on the links for the videos.
+Some of the customised code used for the card game in script.js and style.css is derived from a two part YouTube video called "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  & [PortEXE](https://youtu.be/3uuQ3g92oPQ) . Click on the links for the videos.
 
 Graphics used are created by Artist and Graphic Designer [Rudy de Souza](https://rudydesouza.com/)
 
@@ -264,7 +271,7 @@ Graphics used are created by Artist and Graphic Designer [Rudy de Souza](https:/
 
 Local storage API handling was influenced by [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 
-Firebase realtime database code used for the Leaderboard.js script was based on code used in the following YouTube videos
+Firebase realtime database code used for the Leaderboard.js script was based on (and later customised)code used in the following YouTube videos
 
 - [16.9: Array Functions: sort() - Topics of JavaScript/ES6](https://youtu.be/MWD-iKzR2c8)  (Channel : The coding Train)
 
