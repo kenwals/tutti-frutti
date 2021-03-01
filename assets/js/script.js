@@ -205,10 +205,20 @@ function ready() {
 
     $(".btn-back").click(()=> {
         console.log("you clicked go back button");
+        $("#modal-leave-warning").modal("show");
+    });
+
+    $(".btn-exit-game").click(()=> {
+        console.log("you clicked go the exit game button");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
         game.exitGame();
         console.log("game page collapsed , home page is open");
+    });
+
+    $(".btn-continue").click(()=> {
+        console.log("you clicked go the continue button");
+        $(".modal").modal("hide");
     });
 
     $("#btn-info").click(()=> {
