@@ -209,7 +209,7 @@ function ready() {
     });
 
     $(".btn-exit-game").click(()=> {
-        console.log("you clicked go the exit game button");
+        console.log("you clicked go the exit game button on the modal");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
         game.exitGame();
