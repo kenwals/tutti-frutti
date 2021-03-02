@@ -160,10 +160,12 @@ $("#modal-game-over").modal("hide") // this hides the game over modal
 $("#modal-you-win").modal("hide")  // this hides the you win modal 
 $("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderboard modal 
 localStorage.clear() // this clears the local storage completely
-localStorage.setItem("topScore" , 0); // this just treset your topScore 
+localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 ```
 
 ### Performance Testing
+
+![lighthouse testing](assets/readme-files/20210302_lighthouse.PNG)
 
 ### Known issues
 
@@ -189,7 +191,11 @@ For version control I used the UI on Gitpod for making commits, and command line
 
 ### CSS3 validator
 
+no errors
+
 ### HTML5 validator
+
+no errors
 
 ### Usability Testing
 
