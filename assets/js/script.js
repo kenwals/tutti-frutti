@@ -1,4 +1,4 @@
-class MixOrMatch {
+class TuttiFrutti {
     constructor(cards) {
         this.cardsArray = cards;
         this.timer = document.getElementById("time-remaining");
@@ -161,7 +161,7 @@ class MixOrMatch {
 
 function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new MixOrMatch(cards);
+    let game = new TuttiFrutti(cards);
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
