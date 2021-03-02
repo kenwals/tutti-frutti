@@ -23,7 +23,7 @@
  const query = leaderBoardRef.orderByChild("score").limitToLast(10);
  /* 
 
- Based on partial content from the following :
+ Based partially on content from the following and then customised:
 
  9.2: Firebase: Saving Data - Programming with Text
  https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)

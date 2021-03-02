@@ -1,11 +1,11 @@
-class MixOrMatch {
+class TuttiFrutti {
     constructor(cards) {
         this.cardsArray = cards;
         this.timer = document.getElementById("time-remaining");
         this.ticker = document.getElementById("flips");
         this.scorePanel = document.getElementById("score");
         this.finalScore = document.getElementById("finalScore");
-    } // some code on this script is taken from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
+    } // some code on this script is taken and customised from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
 
     startGame() {
         this.currentLevel = document.getElementById('level').value;
@@ -161,7 +161,7 @@ class MixOrMatch {
 
 function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new MixOrMatch(cards);
+    let game = new TuttiFrutti(cards);
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
@@ -205,10 +205,20 @@ function ready() {
 
     $(".btn-back").click(()=> {
         console.log("you clicked go back button");
+        $("#modal-leave-warning").modal("show");
+    });
+
+    $(".btn-exit-game").click(()=> {
+        console.log("you clicked go the exit game button on the modal");
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
         game.exitGame();
         console.log("game page collapsed , home page is open");
+    });
+
+    $(".btn-continue").click(()=> {
+        console.log("you clicked go the continue button");
+        $(".modal").modal("hide");
     });
 
     $("#btn-info").click(()=> {
