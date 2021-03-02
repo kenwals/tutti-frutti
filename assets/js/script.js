@@ -5,7 +5,7 @@ class TuttiFrutti {
         this.ticker = document.getElementById("flips");
         this.scorePanel = document.getElementById("score");
         this.finalScore = document.getElementById("finalScore");
-    } // some code on this script is taken from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
+    } // some code on this script is taken and customised from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
 
     startGame() {
         this.currentLevel = document.getElementById('level').value;
