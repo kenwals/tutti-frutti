@@ -209,31 +209,6 @@ width: 100% ;  /* this value ensures the card image resizes properly on smaller 
           transform: rotateY(180deg);
 }
 
-/*
-@-webkit-keyframes overlay-grow {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 0;
-  }
-  to {
-    background-color: rgba(0, 0, 0, .8);
-    font-size: 2rem;
-  }
-}
-
-
-@keyframes overlay-grow {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 0;
-  }
-  to {
-    background-color: rgba(0, 0, 0, .8);
-    font-size: 2rem;
-  }
-} */
-
-
 @media (min-width: 600px) {
   .card {
     position: relative;
