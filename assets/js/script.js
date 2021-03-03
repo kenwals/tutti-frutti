@@ -162,33 +162,26 @@ class TuttiFrutti {
 
 const modalContents = [ 
     { 
-        modalTitle : "title ",
-        buttonTitle : "start",
-        bodyText : "text",
+        modalTitle : "Game Over",
+        buttonTitle : "Restart Game",
+        bodyText : "Hard luck , your time has run out.",
         modalId :  "testId",
-        btnClass : "btn-class"
+        btnClass : "btn-restart"
     },   /* Modal [0]  */
     { 
-        modalTitle : "title ",
-        buttonTitle : "start",
-        bodyText : "text",
+        modalTitle : "Tutti Frutti",
+        buttonTitle : "Continue",
+        bodyText : "Are you sure you want to EXIT this game or CONTINUE playing?",
         modalId :  "idname",
-        btnClass : "btn-class"
+        btnClass : "btn-continue"
     },  /* Modal [1]  */
     { 
-        modalTitle : "title ",
-        buttonTitle : "start",
-        bodyText : "text",
+        modalTitle : "You Win!",
+        buttonTitle : "Restart Game",
+        bodyText : "Well done!",
         modalId :  "testId",
-        btnClass : "btn-class"
-    },   /* Modal [2]  */
-    { 
-        modalTitle : "title ",
-        buttonTitle : "start",
-        bodyText : "text",
-        modalId :  "idname",
-        btnClass : "btn-class"
-    }    /* Modal [3]  */
+        btnClass : "btn-restart"
+    }   /* Modal [2]  */
 ] ;
 
 function ready() {
