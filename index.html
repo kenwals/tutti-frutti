@@ -77,6 +77,23 @@
         <div class="row">
             <div class="col-12">
 
+                <!-- Generic Game over modal -->
+                <div class="modal fade" id="tutti-frutti-modal" data-backdrop="static" data-keyboard="false"
+                    tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal-title"> </h5>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-exit-game"
+                                    data-dismiss="modal">Exit</button>
+                                <button type="button" class="btn btn-primary"> </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Modal Game over -->
                 <div class="modal fade" id="modal-game-over" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -100,8 +117,8 @@
 
 
                 <!-- Modal Are you sure you want to leave ? -->
-                <div class="modal fade" id="modal-leave-warning" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                <div class="modal fade" id="modal-leave-warning" data-backdrop="static" data-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
