@@ -159,10 +159,52 @@ class TuttiFrutti {
 
 }
 
+
+const modalContents = [ 
+    { 
+        modalTitle : "title ",
+        buttonTitle : "start",
+        bodyText : "text",
+        modalId :  "testId",
+        btnClass : "btn-class"
+    },   /* Modal [0]  */
+    { 
+        modalTitle : "title ",
+        buttonTitle : "start",
+        bodyText : "text",
+        modalId :  "idname",
+        btnClass : "btn-class"
+    },  /* Modal [1]  */
+    { 
+        modalTitle : "title ",
+        buttonTitle : "start",
+        bodyText : "text",
+        modalId :  "testId",
+        btnClass : "btn-class"
+    },   /* Modal [2]  */
+    { 
+        modalTitle : "title ",
+        buttonTitle : "start",
+        bodyText : "text",
+        modalId :  "idname",
+        btnClass : "btn-class"
+    }    /* Modal [3]  */
+] ;
+
 function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new TuttiFrutti(cards);
-
+    function createModal(modalId){
+   
+    const modal = modalContents.filter((modal) => modal.modalId === modalId)[0]
+    console.log(modal , " =modal ");
+    $("#modal-title").text(modal.modalTitle);
+   /* .map(modal=>{ 
+        console.log(modal.modalTitle);
+        $("#modal-title").text(modal.modalTitle);
+    }) */ 
+    $("#tutti-frutti-modal").modal("show");
+}
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
     } else {
@@ -205,7 +247,8 @@ function ready() {
 
     $(".btn-back").click(()=> {
         console.log("you clicked go back button");
-        $("#modal-leave-warning").modal("show");
+   
+        createModal("testId");
     });
 
     $(".btn-exit-game").click(()=> {
