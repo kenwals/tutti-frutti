@@ -165,21 +165,21 @@ const modalContents = [
         modalTitle : "Game Over",
         buttonTitle : "Restart Game",
         bodyText : "Hard luck , your time has run out.",
-        modalId :  "testId",
+        modalId :  "gameOver",
         btnClass : "btn-restart"
     },   /* Modal [0]  */
     { 
         modalTitle : "Tutti Frutti",
         buttonTitle : "Continue",
         bodyText : "Are you sure you want to EXIT this game or CONTINUE playing?",
-        modalId :  "idname",
+        modalId :  "exit",
         btnClass : "btn-continue"
-    },  /* Modal [1]  */
+    },  /* Modal [1]   Modal Are you sure you want to leave ? [1] */
     { 
         modalTitle : "You Win!",
         buttonTitle : "Restart Game",
         bodyText : "Well done!",
-        modalId :  "testId",
+        modalId :  "youWin",
         btnClass : "btn-restart"
     }   /* Modal [2]  */
 ] ;
@@ -187,17 +187,19 @@ const modalContents = [
 function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new TuttiFrutti(cards);
+
     function createModal(modalId){
-   
-    const modal = modalContents.filter((modal) => modal.modalId === modalId)[0]
+    const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
     console.log(modal , " =modal ");
     $("#modal-title").text(modal.modalTitle);
-   /* .map(modal=>{ 
-        console.log(modal.modalTitle);
-        $("#modal-title").text(modal.modalTitle);
-    }) */ 
+    $("#modal-button-title").text(modal.buttonTitle);
+    $("#modal-button").addClass(modal.btnClass);
+    $("#modal-body").text(modal.bodyText);
+    modalEventListners();
     $("#tutti-frutti-modal").modal("show");
 }
+
+
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
     } else {
@@ -230,6 +232,21 @@ function ready() {
 
     $("#level").change(()=> populateStorage());
 
+    function modalEventListners(){
+        $(".btn-restart").click(()=> {
+            console.log("you clicked the restart button in one of the modal");
+            $(".modal").modal("hide");
+            game.startGame();
+        });
+
+        $(".btn-continue").click(()=> {
+            console.log("you clicked go the continue button on the modal");
+            $(".modal").modal("hide");
+        });
+    }
+
+
+
     $("#btn-start").click(()=> {
         console.log("you clicked the start button");
         $("#page-home").addClass("collapse");
@@ -240,8 +257,7 @@ function ready() {
 
     $(".btn-back").click(()=> {
         console.log("you clicked go back button");
-   
-        createModal("testId");
+        createModal("exit");
     });
 
     $(".btn-exit-game").click(()=> {
@@ -250,11 +266,6 @@ function ready() {
         $("#page-home").removeClass("collapse");
         game.exitGame();
         console.log("game page collapsed , home page is open");
-    });
-
-    $(".btn-continue").click(()=> {
-        console.log("you clicked go the continue button");
-        $(".modal").modal("hide");
     });
 
     $("#btn-info").click(()=> {
@@ -269,12 +280,6 @@ function ready() {
         $("#page-help").addClass("collapse");
         $("#page-home").removeClass("collapse");
         console.log("help page collapsed , home page is open");
-    });
-
-    $(".btn-restart").click(()=> {
-        console.log("you clicked the restart button in one of the modals");
-        $(".modal").modal("hide");
-        game.startGame();
     });
 
     cards.forEach(card => {
