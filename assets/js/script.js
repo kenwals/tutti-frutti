@@ -38,7 +38,7 @@ class TuttiFrutti {
             return 50;
         } else if (this.currentLevel === "hard") {
             this.scoreUnit = 30;
-            return 40;
+            return  6; //40;
         }
     }
 
@@ -112,7 +112,7 @@ class TuttiFrutti {
 
     gameOver() {
         clearInterval(this.countDown);
-        $("#modal-game-over").modal("show");
+        this.createModal("gameOver");
         this.hideCards();
     }
 
@@ -156,6 +156,32 @@ class TuttiFrutti {
     canFlipCard(card) {
         return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
     } // all these statements have to be false in order for it to be true, and user can flip the next card
+
+    createModal(modalId){
+        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+        console.log(modal , " =modal ");
+        $("#modal-title").text(modal.modalTitle);
+        $("#modal-button-title").text(modal.buttonTitle);
+        $("#modal-button").addClass(modal.btnClass);
+        $("#modal-body").text(modal.bodyText);
+        this.modalEventListners();
+        $("#tutti-frutti-modal").modal("show");
+    }
+
+    modalEventListners(){
+        $(".btn-restart").click(()=> {
+            console.log("you clicked the restart button in one of the modal");
+            $(".modal").modal("hide");
+            this.startGame();
+        });
+
+        $(".btn-continue").click(()=> {
+            console.log("you clicked go the continue button on the modal");
+            $(".modal").modal("hide");
+        });
+    }
+
+
 
 }
 
