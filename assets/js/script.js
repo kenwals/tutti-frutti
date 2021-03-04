@@ -38,7 +38,7 @@ class TuttiFrutti {
             return 50;
         } else if (this.currentLevel === "hard") {
             this.scoreUnit = 30;
-            return  6; //40;
+            return 40;
         }
     }
 
@@ -126,7 +126,7 @@ class TuttiFrutti {
         if (this.recordBreaker()) {
             $("#modal-you-win-leaderboard").modal("show");
         } else {
-            $("#modal-you-win").modal("show");
+            this.createModal("youWin");
         }
         this.hideCards();
     }
