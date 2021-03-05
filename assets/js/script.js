@@ -256,18 +256,13 @@ function ready() {
     $("#level").change(()=> populateStorage());
 
     function modalEventListners(){
-        $(".btn-restart").click(()=> {
-            console.log("you clicked the restart button in one of the modal");
-            $(".btn-restart").removeClass("btn-restart");
-            $(".modal").modal("hide");
-            game.startGame();
-        });
-
+ 
         $(".btn-continue").click(()=> {
             console.log("you clicked go the continue button on the modal");
             $(".btn-continue").removeClass("btn-continue");
             $(".modal").modal("hide");
         });
+        
     }
 
 
