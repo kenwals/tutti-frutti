@@ -178,8 +178,6 @@ class TuttiFrutti {
         });
     }
 
-
-
 }
 
 
@@ -190,21 +188,21 @@ const modalContents = [
         bodyText : "Hard luck , your time has run out.",
         modalId :  "gameOver",
         btnClass : "btn-restart"
-    },   /* Modal [0]  */
+    },   /* Modal [0] Game over  */
     { 
         modalTitle : "Tutti Frutti",
         buttonTitle : "Continue",
         bodyText : "Are you sure you want to EXIT this game or CONTINUE playing?",
         modalId :  "exit",
         btnClass : "btn-continue"
-    },  /* Modal [1]   Modal Are you sure you want to leave ? [1] */
+    },  /* Modal [1] Are you sure you want to leave ? [1] */
     { 
         modalTitle : "You Win!",
         buttonTitle : "Restart Game",
         bodyText : "Well done!",
         modalId :  "youWin",
         btnClass : "btn-restart"
-    }   /* Modal [2]  */
+    }   /* Modal [2]  you win  */
 ] ;
 
 function ready() {
