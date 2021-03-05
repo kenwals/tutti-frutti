@@ -173,6 +173,10 @@ On local desktop, the dropdown menu button can become unresponsive. This bug cou
 
 In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
 
+Edge case - back button is pressed and timer runs out. 
+
+DRY code conflict controversy ! 
+
 ### Project barriers and solutions
 
 modal setup mistake with ids
