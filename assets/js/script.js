@@ -105,11 +105,6 @@ class TuttiFrutti {
         }, 1000);
     }
 
-    exitGame() {
-        clearInterval(this.countDown);
-        this.hideCards();
-    }
-
     gameOver() {
         clearInterval(this.countDown);
         this.createModal("gameOver");
