@@ -105,14 +105,9 @@ class TuttiFrutti {
         }, 1000);
     }
 
-    exitGame() {
-        clearInterval(this.countDown);
-        this.hideCards();
-    }
-
     gameOver() {
         clearInterval(this.countDown);
-        $("#modal-game-over").modal("show");
+        this.createModal("gameOver");
         this.hideCards();
     }
 
@@ -126,7 +121,7 @@ class TuttiFrutti {
         if (this.recordBreaker()) {
             $("#modal-you-win-leaderboard").modal("show");
         } else {
-            $("#modal-you-win").modal("show");
+            this.createModal("youWin");
         }
         this.hideCards();
     }
@@ -157,11 +152,74 @@ class TuttiFrutti {
         return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
     } // all these statements have to be false in order for it to be true, and user can flip the next card
 
+    createModal(modalId){
+        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+        console.log(modal , " =modal ");
+        $("#modal-title").text(modal.modalTitle);
+        $("#modal-button-title").text(modal.buttonTitle);
+        $("#modal-button").addClass(modal.btnClass);
+        $("#modal-body").text(modal.bodyText);
+        this.modalEventListners();
+        $("#tutti-frutti-modal").modal("show");
+    }
+
+    modalEventListners(){
+        $(".btn-restart").click(()=> {
+            console.log("you clicked the restart button in one of the modal");
+            $(".btn-restart").removeClass("btn-restart");
+            $(".modal").modal("hide");
+            this.startGame();
+        });
+
+        $(".btn-continue").click(()=> {
+            console.log("you clicked go the continue button on the modal");
+            $(".btn-continue").removeClass("btn-continue");
+            $(".modal").modal("hide");
+        });
+    }
+
 }
+
+
+const modalContents = [ 
+    { 
+        modalTitle : "Game Over",
+        buttonTitle : "Restart Game",
+        bodyText : "Hard luck , your time has run out.",
+        modalId :  "gameOver",
+        btnClass : "btn-restart"
+    },   /* Modal [0] Game over  */
+    { 
+        modalTitle : "Tutti Frutti",
+        buttonTitle : "Continue",
+        bodyText : "Are you sure you want to EXIT this game or CONTINUE playing?",
+        modalId :  "exit",
+        btnClass : "btn-continue"
+    },  /* Modal [1] Are you sure you want to leave ? [1] */
+    { 
+        modalTitle : "You Win!",
+        buttonTitle : "Restart Game",
+        bodyText : "Well done!",
+        modalId :  "youWin",
+        btnClass : "btn-restart"
+    }   /* Modal [2]  you win  */
+] ;
 
 function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new TuttiFrutti(cards);
+
+    function createModal(modalId){
+    const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+    console.log(modal , " =modal ");
+    $("#modal-title").text(modal.modalTitle);
+    $("#modal-button-title").text(modal.buttonTitle);
+    $("#modal-button").addClass(modal.btnClass);
+    $("#modal-body").text(modal.bodyText);
+    modalEventListners();
+    $("#tutti-frutti-modal").modal("show");
+}
+
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
@@ -195,6 +253,18 @@ function ready() {
 
     $("#level").change(()=> populateStorage());
 
+    function modalEventListners(){
+ 
+        $(".btn-continue").click(()=> {
+            console.log("you clicked go the continue button on the modal");
+            $(".btn-continue").removeClass("btn-continue");
+            $(".modal").modal("hide");
+        });
+        
+    }
+
+
+
     $("#btn-start").click(()=> {
         console.log("you clicked the start button");
         $("#page-home").addClass("collapse");
@@ -205,7 +275,7 @@ function ready() {
 
     $(".btn-back").click(()=> {
         console.log("you clicked go back button");
-        $("#modal-leave-warning").modal("show");
+        createModal("exit");
     });
 
     $(".btn-exit-game").click(()=> {
@@ -214,11 +284,6 @@ function ready() {
         $("#page-home").removeClass("collapse");
         game.exitGame();
         console.log("game page collapsed , home page is open");
-    });
-
-    $(".btn-continue").click(()=> {
-        console.log("you clicked go the continue button");
-        $(".modal").modal("hide");
     });
 
     $("#btn-info").click(()=> {
@@ -233,12 +298,6 @@ function ready() {
         $("#page-help").addClass("collapse");
         $("#page-home").removeClass("collapse");
         console.log("help page collapsed , home page is open");
-    });
-
-    $(".btn-restart").click(()=> {
-        console.log("you clicked the restart button in one of the modals");
-        $(".modal").modal("hide");
-        game.startGame();
     });
 
     cards.forEach(card => {

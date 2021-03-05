@@ -77,71 +77,25 @@
         <div class="row">
             <div class="col-12">
 
-
-                <!-- Modal Game over -->
-                <div class="modal fade" id="modal-game-over" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                <!-- Generic Game over modal [x]-->
+                <div class="modal fade" id="tutti-frutti-modal" data-backdrop="static" data-keyboard="false"
+                    tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel1">Game Over</h5>
+                                <h5 class="modal-title" id="modal-title"> </h5>
                             </div>
-                            <div class="modal-body">
-                                Hard luck , your time has run out.
-                            </div>
+                            <div class="modal-body" id="modal-body"></div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btn-exit-game"
                                     data-dismiss="modal">Exit</button>
-                                <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
+                                <button type="button" class="btn btn-primary" id="modal-button"> <span id="modal-button-title"></span> </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- Modal Are you sure you want to leave ? -->
-                <div class="modal fade" id="modal-leave-warning" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel4">Tutti Frutti</h5>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure you want to EXIT this game or CONTINUE playing?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btn-exit-game"
-                                    data-dismiss="modal">Exit</button>
-                                <button type="button" class="btn btn-primary btn-continue">Continue</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Modal You win!  -->
-                <div class="modal fade" id="modal-you-win" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel2" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel2">You Win!</h5>
-                            </div>
-                            <div class="modal-body">
-                                Well done!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btn-exit-game"
-                                    data-dismiss="modal">Exit</button>
-                                <button type="button" class="btn btn-primary btn-restart">Restart Game</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Modal - you win and leaderboard score submission  -->
+                <!-- Modal - you win and leaderboard score submission  [3] -->
                 <div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
                     <div class="modal-dialog">
