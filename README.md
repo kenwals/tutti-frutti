@@ -88,6 +88,9 @@ Wireframe
 Colours are vibrant and fun by default . Three colour theme options.
 
 1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours used on the fuit emojis.
+
+  #F82131, #CFDE0A, #FC8440, #FF9300, #449C00
+  
 2. Light theme - Light background , Dark text
 3. Dark theme - Dark background, Light text
 
@@ -122,12 +125,12 @@ back to [contents](#table-of-contents)
 
 - Languages : HTML, CSS , Bootstrap framework, JavaScript , and JQuery
 - Realtime Database: [Firebase](https://firebase.google.com/)
-- IDE: Visual Studio code.
-- Version control: Git on VS code terminal , [Github](https://github.com/) Desktop app and at repository web page.
+- IDE: Visual Studio Code (VS Code).
+- Version control: Git on VS Code terminal , [Github](https://github.com/) Desktop app and at repository web page.
 - Wireframe: [Balsamiq](https://balsamiq.com/)
 - Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.logging everything.
 - Kanban planner : [Github projects](https://github.com/kenwals/tutti-frutti/projects/1).
-- Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, Gitpod editor was used for minor updates.
+- Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, VS code editor was used for minor updates.
 - Fonts : [Google Fonts](https://fonts.google.com/)
 - Icons : [Fontawesome](https://fontawesome.com/)
 - File renaming utility : PowerRename from [PowerToys on Windows 10](https://www.windowscentral.com/how-bulk-rename-your-files-windows-10-powertoys)
@@ -153,11 +156,7 @@ I used JQuery commands below in developer tools console to give myself some shor
 
 ```javascript
 $(".card").addClass("visible")  // this turns over all the playing cards
-$("#modal-game-over").modal("show")  // this triggers a game over modal to pop up
-$("#modal-you-win").modal("show")  // this triggers a you win modal to pop up
 $("#modal-you-win-leaderboard").modal("show") // this triggers a high score modal to pop up
-$("#modal-game-over").modal("hide") // this hides the game over modal 
-$("#modal-you-win").modal("hide")  // this hides the you win modal 
 $("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderboard modal 
 localStorage.clear() // this clears the local storage completely
 localStorage.setItem("topScore" , 0) // this resets your topScore to zero
@@ -173,9 +172,9 @@ On local desktop, the dropdown menu button can become unresponsive. This bug cou
 
 In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
 
-Edge case - back button is pressed and timer runs out. 
+Edge case - back button is pressed and timer runs out.
 
-DRY code conflict controversy ! 
+DRY code conflict controversy !
 
 ### Project barriers and solutions
 
@@ -185,11 +184,13 @@ Firebase orderByChild not working as expected
 
 passing scores as strings
 
-JavaScript syntax differances p5 JS verses node JS veses vanilla JS
+JavaScript syntax differances p5 JS verses node JS verses vanilla
+
+Peer review feedback
 
 ### Version control
 
-For version control I used the UI on Gitpod for making commits, and command line for branches, Merging was done on the GitHub site. I used branches when I was working on new features.
+For version control I used the UI on VS Code for making commits, and command line for branches, Merging was done on the GitHub site. I used branches when I was working on new features or bundles of changes.
 
 ### Functionality Testing
 
