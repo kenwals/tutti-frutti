@@ -33,13 +33,13 @@ class TuttiFrutti {
     getDifficultyLevel() {
         if (this.currentLevel === "easy") {
             this.scoreUnit = 10;
-            return 60;
+            return 70;
         } else if (this.currentLevel === "medium") {
             this.scoreUnit = 20;
-            return 50;
+            return 60;
         } else if (this.currentLevel === "hard") {
             this.scoreUnit = 30;
-            return 40;
+            return 50;
         }
     }
 
