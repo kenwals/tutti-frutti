@@ -20,7 +20,9 @@ class TuttiFrutti {
         this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
         setTimeout(() => {
             this.shuffleCards();
-            this.countDown = this.startCountDown();
+            if (!this.countDown) {
+                this.countDown = this.startCountDown(); // this prevents the timer duplicating instances when player restarts game 
+            } 
             this.busy = false;
         }, 500); // this is a half a second timeout 
         this.hideCards();
@@ -98,27 +100,31 @@ class TuttiFrutti {
 
     startCountDown() {
         return setInterval(() => {
-            this.timeRemaining--;
-            this.timer.innerText = this.timeRemaining;
-            if (this.timeRemaining === 0)
+            if (this.timeRemaining > 0) {
+                this.timeRemaining--;
+                this.timer.innerText = this.timeRemaining;
+            } else if (this.timeRemaining === 0){
                 this.gameOver();
+                this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , then game is over
+            }
+
         }, 1000);
     }
 
     gameOver() {
-        clearInterval(this.countDown);
+       // clearInterval(this.countDown);
         this.createModal("gameOver");
         this.hideCards();
     }
 
     exitGame() {
-        clearInterval(this.countDown);
+       // clearInterval(this.countDown);
         this.hideCards();
         console.log("exit game function has ran");
     }
 
     victory() {
-        clearInterval(this.countDown);
+        //clearInterval(this.countDown);
         console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
         this.totalScore = this.totalScore - this.totalClicks;
         console.log(this.totalScore);
