@@ -12,7 +12,6 @@ class TuttiFrutti {
         this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
         this.totalClicks = 0;
         this.totalScore = 0;
-        console.log("game started");
         this.totalTime = this.getDifficultyLevel();
         console.log(" level is :" + this.currentLevel + " time left is: " + this.totalTime + " unit of score is: " + this.scoreUnit);
         this.timeRemaining = this.totalTime;
@@ -20,7 +19,9 @@ class TuttiFrutti {
         this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
         setTimeout(() => {
             this.shuffleCards();
-            this.countDown = this.startCountDown();
+            if (!this.countDown) {
+                this.countDown = this.startCountDown(); // this prevents the timer duplicating instances when player restarts game 
+            } 
             this.busy = false;
         }, 500); // this is a half a second timeout 
         this.hideCards();
@@ -32,13 +33,13 @@ class TuttiFrutti {
     getDifficultyLevel() {
         if (this.currentLevel === "easy") {
             this.scoreUnit = 10;
-            return 60;
+            return 70;
         } else if (this.currentLevel === "medium") {
             this.scoreUnit = 20;
-            return 50;
+            return 60;
         } else if (this.currentLevel === "hard") {
             this.scoreUnit = 30;
-            return 40;
+            return 50;
         }
     }
 
@@ -74,7 +75,6 @@ class TuttiFrutti {
         this.matchedCards.push(card2);
         card1.classList.add("matched");
         card2.classList.add("matched");
-        console.log("card matched is ", card1.getElementsByClassName("card-value")[0].src);
         // score includes bonus given based on time remaining
         this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
         this.scorePanel.innerText = this.totalScore;
@@ -98,21 +98,28 @@ class TuttiFrutti {
 
     startCountDown() {
         return setInterval(() => {
-            this.timeRemaining--;
-            this.timer.innerText = this.timeRemaining;
-            if (this.timeRemaining === 0)
+            if (this.timeRemaining > 0) {
+                this.timeRemaining--;
+                this.timer.innerText = this.timeRemaining;
+            } else if (this.timeRemaining === 0){
                 this.gameOver();
+                this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , then game is over
+            }
+
         }, 1000);
     }
 
     gameOver() {
-        clearInterval(this.countDown);
         this.createModal("gameOver");
         this.hideCards();
     }
 
+    exitGame() {
+        this.hideCards();
+        console.log("exit game function has ran");
+    }
+
     victory() {
-        clearInterval(this.countDown);
         console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
         this.totalScore = this.totalScore - this.totalClicks;
         console.log(this.totalScore);
@@ -165,14 +172,15 @@ class TuttiFrutti {
 
     modalEventListners(){
         $(".btn-restart").click(()=> {
-            console.log("you clicked the restart button in one of the modal");
+            // you clicked the restart button in one of the modal
+            this.exitGame;
             $(".btn-restart").removeClass("btn-restart");
             $(".modal").modal("hide");
             this.startGame();
         });
 
         $(".btn-continue").click(()=> {
-            console.log("you clicked go the continue button on the modal");
+            // you clicked go the continue button on the modal
             $(".btn-continue").removeClass("btn-continue");
             $(".modal").modal("hide");
         });
@@ -209,18 +217,6 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new TuttiFrutti(cards);
 
-    function createModal(modalId){
-    const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
-    console.log(modal , " =modal ");
-    $("#modal-title").text(modal.modalTitle);
-    $("#modal-button-title").text(modal.buttonTitle);
-    $("#modal-button").addClass(modal.btnClass);
-    $("#modal-body").text(modal.bodyText);
-    modalEventListners();
-    $("#tutti-frutti-modal").modal("show");
-}
-
-
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
     } else {
@@ -256,48 +252,46 @@ function ready() {
     function modalEventListners(){
  
         $(".btn-continue").click(()=> {
-            console.log("you clicked go the continue button on the modal");
+            // you clicked the continue button on the modal
             $(".btn-continue").removeClass("btn-continue");
             $(".modal").modal("hide");
         });
         
     }
 
-
-
     $("#btn-start").click(()=> {
-        console.log("you clicked the start button");
+        // you clicked the start button
         $("#page-home").addClass("collapse");
         $("#page-game").removeClass("collapse");
-        console.log("game page open , home page is collapsed");
+        // game page open , home page is collapsed
         game.startGame();
     });
 
     $(".btn-back").click(()=> {
-        console.log("you clicked go back button");
-        createModal("exit");
+        // you clicked go back button on the game page
+        game.createModal("exit");
     });
 
     $(".btn-exit-game").click(()=> {
-        console.log("you clicked go the exit game button on the modal");
+        // you clicked go the exit game button on the modal
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
         game.exitGame();
-        console.log("game page collapsed , home page is open");
+        // game page collapsed , home page is open
     });
 
     $("#btn-info").click(()=> {
-        console.log("you clicked the info button");
+        // you clicked the info button on homepage
         $("#page-home").addClass("collapse");
         $("#page-help").removeClass("collapse");
-        console.log("home page collapsed , help page is open");
+        // home page collapsed , help page is open
     });
 
     $("#btn-exit").click(()=> {
-        console.log("you clicked the exit button");
+        // you clicked the exit button on the info page
         $("#page-help").addClass("collapse");
         $("#page-home").removeClass("collapse");
-        console.log("help page collapsed , home page is open");
+        // help page collapsed , home page is open
     });
 
     cards.forEach(card => {
