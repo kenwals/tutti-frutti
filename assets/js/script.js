@@ -222,18 +222,6 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new TuttiFrutti(cards);
 
-    function createModal(modalId){
-    const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
-    console.log(modal , " =modal ");
-    $("#modal-title").text(modal.modalTitle);
-    $("#modal-button-title").text(modal.buttonTitle);
-    $("#modal-button").addClass(modal.btnClass);
-    $("#modal-body").text(modal.bodyText);
-    modalEventListners();
-    $("#tutti-frutti-modal").modal("show");
-}
-
-
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
     } else {
@@ -276,8 +264,6 @@ function ready() {
         
     }
 
-
-
     $("#btn-start").click(()=> {
         console.log("you clicked the start button");
         $("#page-home").addClass("collapse");
@@ -288,7 +274,7 @@ function ready() {
 
     $(".btn-back").click(()=> {
         console.log("you clicked go back button");
-        createModal("exit");
+        game.createModal("exit");
     });
 
     $(".btn-exit-game").click(()=> {
