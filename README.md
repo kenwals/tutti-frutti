@@ -168,13 +168,13 @@ localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 
 ### Known issues
 
-On local desktop, the dropdown menu button can become unresponsive. This bug could be limited to the Python http server when running a long time . I have not seen this happen on the deployed version.
-
 In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
 
-Edge case - back button is pressed and timer runs out.
+DRY code conflict controversy , 
 
-DRY code conflict controversy !
+Edge case - continue button and restart game event listeners are being called at the same time. possible caching issue as the code is updating correctly, it's just not acting correctly! . 
+
+
 
 ### Project barriers and solutions
 
