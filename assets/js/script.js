@@ -174,14 +174,14 @@ class TuttiFrutti {
         $(".btn-restart").click(()=> {
             // you clicked the restart button in one of the modal
             this.exitGame;
-            $(".btn-restart").removeClass("btn-restart").removeClass("btn-continue");
+            $(".btn-restart").removeClass("btn-restart");
             $(".modal").modal("hide");
             this.startGame();
         });
 
         $(".btn-continue").click(()=> {
             // you clicked go the continue button on the modal
-            $(".btn-continue").removeClass("btn-continue").removeClass("btn-restart");
+            $(".btn-continue").removeClass("btn-continue");
             $(".modal").modal("hide");
         });
     }
