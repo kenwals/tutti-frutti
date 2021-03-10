@@ -209,6 +209,40 @@ width: 100% ;  /* this value ensures the card image resizes properly on smaller 
           transform: rotateY(180deg);
 }
 
+.game-header, .help-header {
+  height: 3rem;
+  }
+  
+  
+  .game-footer, .home-footer {
+   height: 3.75rem;
+  }
+  
+  .fas {
+   font-size: 2rem;
+  }
+
+/*              start of media query section                         */
+
+
+  @media (min-width: 412px) {
+    .card {
+      position: relative;
+      height: 7rem ;   /* originally 175 px   1/2  is 87.5 needed for small screen */
+      width: 5rem ;  /* 125 px  1/2 is 62.5 needed for small screen */
+  }
+  }  /* oneplus 6 mobile phone screen width*/ 
+
+  @media (min-width: 600px) {
+    .card {
+      position: relative;
+      height: 10rem ;   /* originally 175 px   1/2  is 87.5 needed for small screen */
+      width: 7rem ;  /* 125 px  1/2 is 62.5 needed for small screen */
+  }
+  }   /* Nexus 7 tablet screen width */ 
+
+
+
 @media (min-width: 992px) {
   .card {
     position: relative;
@@ -227,19 +261,6 @@ width: 100% ;  /* this value ensures the card image resizes properly on smaller 
   }
 
 
-} /*              end of media query                         */
-
-.game-header, .help-header {
-height: 3rem;
-}
-
-
-.game-footer, .home-footer {
- height: 3.75rem;
-}
-
-.fas {
- font-size: 2rem;
-}
+} /*              end of media query section                         */
 
 
