@@ -15,9 +15,7 @@ body {
   font-size: 1.1rem;
 }
 
-h1,
-h2,
-h3 {
+.heading-text {
   font-family: "Jockey One", sans-serif;
 }
 
