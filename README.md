@@ -1,6 +1,6 @@
 # Tutti Frutti
 
-![Tutti Frutti logo](assets/images/logo_red_3d.png)
+![Tutti Frutti logo](assets/images/logo_purple_3d.png)
 
 This is a colourful and interactive memory card game featuring fruit emojis
 
@@ -87,9 +87,11 @@ Wireframe
 
 Colours are vibrant and fun by default . Three colour theme options.
 
-1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours used on the fuit emojis.
+1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours below used on the fuit emojis.
 
-  #F82131, #CFDE0A, #FC8440, #FF9300, #449C00
+![Background colour gradient](\assets\readme-files\colours-used-for-background-gradient.PNG)
+
+  #F82131 (strawberry ), #CFDE0A (lemon), #FC8440 (Orange), #FF9300 (Peach), #449C00 (Pear).
   
 2. Light theme - Light background , Dark text
 3. Dark theme - Dark background, Light text
@@ -100,7 +102,7 @@ Font awesome is used for icons.
 
 #### Images
 
-Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https://rudydesouza.com/), emojis used are from joypixels.com
+Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https://rudydesouza.com/), emojis used are sourced from joypixels.com
 
 #### Fonts
 
@@ -124,7 +126,7 @@ back to [contents](#table-of-contents)
 ## Technologies Used
 
 - Languages : HTML, CSS , Bootstrap framework, JavaScript , and JQuery
-- Realtime Database: [Firebase](https://firebase.google.com/)
+- NoSQL Realtime Database: [Firebase](https://firebase.google.com/)
 - IDE: Visual Studio Code (VS Code).
 - Version control: Git on VS Code terminal , [Github](https://github.com/) Desktop app and at repository web page.
 - Wireframe: [Balsamiq](https://balsamiq.com/)
@@ -140,9 +142,9 @@ back to [contents](#table-of-contents)
 - Favicon creator : [favicon.io](https://favicon.io/favicon-generator/)
 - Autoprefixer CSS : [Autoprefixer](https://autoprefixer.github.io/)
 - Auto formatter for HTML and CSS : [dirtyMarkUp](https://www.10bestdesign.com/dirtymarkup/) and  [webformatter](https://webformatter.com/html)
-- JSlint
-- markdown linter
-- linters!
+- px to rem convertor : [nekoCalc](https://nekocalc.com/px-to-rem-converter)
+- JavaScript linter : [jshint](https://jshint.com/)
+- markdown linter : markdownlint extension on VS Code.
 
 back to [contents](#table-of-contents)
 
@@ -196,7 +198,7 @@ For version control I used the UI on VS Code for making commits, and command lin
 
 ### CSS3 validator
 
-no errors
+
 
 ### HTML5 validator
 
