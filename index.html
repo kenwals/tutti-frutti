@@ -1,322 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="colourful fruit emoji card memory game" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Tutti Frutti</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<meta content="colourful fruit emoji card memory game" name="Description">
+	<link href="assets/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="assets/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+	<link href="assets/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+	<link href="assets/favicon/site.webmanifest" rel="manifest">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.gstatic.com" rel="preconnect">
+	<link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<title>Tutti Frutti</title>
 </head>
-
 <body class="theme-colour">
-    <!-- home page -->
-    <div class="container-fluid" id="page-home">
-        <div class="row">
-            <div class="col-12">
-                <div class="d-flex flex-column justify-content-between home-menu">
-
-                    <img src="assets/images/logo_purple_plain.png" alt="" class="m-auto d-block img-fluid"
-                        id="logo-home">
-
-                    <form id="form-homePage" class="mx-auto mt-5">
-                        <label for="theme">Select a theme:</label>
-                        <select class="custom-select custom-select-lg mb-3" id="theme">
-                            <option value="colour" selected>Colourful mode</option>
-                            <option value="light">Light mode</option>
-                            <option value="dark">Dark mode</option>
-                        </select>
-                        <label for="level">Select a difficulty level:</label>
-                        <select class="custom-select custom-select-lg mb-3" id="level">
-                            <option value="easy" selected>Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                        <button type="button" id="btn-start" class="btn btn-light btn-lg btn-block">START</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="home-footer row border-top fixed-bottom ml-1 mr-1 py-2">
-            <div class="col-12">
-                <i id="btn-info" class="fas fa-info-circle float-left"></i>
-            </div>
-        </div>
-
-    </div> <!-- end of home page -->
-    <!-- game page -->
-    <div class="container-fluid collapse" id="page-game">
-        <div class="game-header row border-bottom mx-3 py-2">
-            <div class="col-12">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <i class="fas fa-medal"></i>
-                        <span id="score">100</span>
-                    </div>
-
-                    <h2 class="text-center d-sm-inline-block d-none mx-auto">Tutti Frutti</h2>
-
-                    <div>
-                        <span id="time-remaining">100</span>
-                        <i class="fas fa-stopwatch "></i>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-
-                <!-- Generic Game over modal [x]-->
-                <div class="modal fade" id="tutti-frutti-modal" data-backdrop="static" data-keyboard="false"
-                    tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modal-title"> </h5>
-                            </div>
-                            <div class="modal-body" id="modal-body"></div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btn-exit-game"
-                                    data-dismiss="modal">Exit</button>
-                                <button type="button" class="btn btn-primary" id="modal-button"> <span id="modal-button-title"></span> </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal - you win and leaderboard score submission  [3] -->
-                <div class="modal fade" id="modal-you-win-leaderboard" data-backdrop="static" data-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel3">Wow, you did it! </h5>
-                            </div>
-                            <div class="modal-body">
-                                Well done, you just scored <span id="finalScore">000</span>. This is your personal best,
-                                if you would like to appear on the leaderboard , please enter your name below to
-                                Register.
-                                <div class="alert">Your score has been sent now.</div>
-                                <form id="form-leaderBoard">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" id="name" class="form-control" placeholder="Name"
-                                                required="">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary btn-exit-game"
-                                            data-dismiss="modal">Exit</button>
-                                        <button type="submit" class="btn btn-primary"
-                                            id="btn-leaderBoardSubmit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="game-container">
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/banana_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/banana_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/cherry_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/cherry_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/peach_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/peach_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/lemon_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/lemon_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/pear_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/pear_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/apple_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/apple_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/strawberry_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/strawberry_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/orange_icon.png" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-back card-face">
-                            <img class="cardback_img" src="assets/images/cardback_01.png" alt="">
-                        </div>
-                        <div class="card-front card-face">
-                            <img class="card-value" src="assets/images/orange_icon.png" alt="">
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-        <div class="game-footer row border-top fixed-bottom mx-3 py-2">
-            <div class="col-12">
-                <i id="btn-back" class="fas fa-arrow-left float-left btn-back"></i>
-                <div class="float-right">
-                    <span id="flips">0</span>
-                    <i class="fas fa-coins"></i>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end of game page -->
-
-    <!-- help info page -->
-    <div class="container-fluid collapse" id="page-help">
-        <div class="help-header row ml-1 mr-1 py-2">
-            <div class="col-12">
-                <i id="btn-exit" class="fas fa-window-close float-right"></i>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-12 col-lg-6">
-                <h2 class="border-top border-bottom text-center">How to play</h2>
-                <ul class="info-panel">
-                    <li>Choose difficulty level (easy/medium/hard) and press START button. Click on the cards and match
-                        as many pairs in quickest amount of time with least number of flips</li>
-                    <li>For EASY, time limit is 70 seconds, you score a minimum of 10 points each pair. For MEDIUM, time
-                        : 60 seconds, points: 20. For HARD, time : 50 seconds, points: 30.</li>
-                    <li>BONUS points is given based on the amount of time that is currently remaining, so the quicker
-                        you pair up the cards the higher that BONUS is. For Example, if on the EASY level, you have just
-                        matched a pair while there is 50 seconds left, then you will score 10+(10*50) = 510 points </li>
-                    <li>WIN by matching all the cards before the clock runs out, your final score is deducted by the
-                        number of times you flipped cards over.</li>
-                </ul>
-            </div><br><br>
-
-            <div class="col-12 col-lg-6">
-                <h2 class="border-top border-bottom text-center">Top Scores!</h2>
-                <ol class="text-center  info-panel" id="scoreList">
-                    <li> Ruuuudy - 101</li>
-                    <li> Mario - 90</li>
-                    <li> Luigi - 50</li>
-                </ol>
-            </div><br><br>
-
-        </div>
-    </div> <!-- end of help info page -->
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
-    <script src="assets/js/leaderboard.js"></script>
+	<!-- home page -->
+	<div class="container-fluid" id="page-home">
+		<div class="row">
+			<div class="col-12">
+				<div class="d-flex flex-column justify-content-between home-menu">
+					<img alt="" class="m-auto d-block img-fluid" id="logo-home" src="assets/images/logo_purple_plain.png">
+					<form class="mx-auto mt-5" id="form-homePage" name="form-homePage">
+						<label for="theme">Select a theme:</label> <select class="custom-select custom-select-lg mb-3" id="theme">
+							<option selected value="colour">
+								Colourful mode
+							</option>
+							<option value="light">
+								Light mode
+							</option>
+							<option value="dark">
+								Dark mode
+							</option>
+						</select> <label for="level">Select a difficulty level:</label> <select class="custom-select custom-select-lg mb-3" id="level">
+							<option selected value="easy">
+								Easy
+							</option>
+							<option value="medium">
+								Medium
+							</option>
+							<option value="hard">
+								Hard
+							</option>
+						</select> <button class="btn btn-light btn-lg btn-block" id="btn-start" type="button">START</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="home-footer row border-top fixed-bottom ml-1 mr-1 py-2">
+			<div class="col-12">
+				<i class="fas fa-info-circle float-left" id="btn-info"></i>
+			</div>
+		</div>
+	</div><!-- end of home page -->
+	<!-- game page -->
+	<div class="container-fluid collapse" id="page-game">
+		<div class="game-header row border-bottom mx-3 py-2">
+			<div class="col-12">
+				<div class="d-flex justify-content-between">
+					<div>
+						<i class="fas fa-medal"></i> <span id="score">100</span>
+					</div>
+					<h2 class="heading-text text-center d-sm-inline-block d-none mx-auto">Tutti Frutti</h2>
+					<div>
+						<span id="time-remaining">100</span> <i class="fas fa-stopwatch"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<!-- Generic Game over modal [x]-->
+				<div aria-hidden="true" aria-labelledby="modal-title" class="modal fade" data-backdrop="static" data-keyboard="false" id="tutti-frutti-modal" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="modal-title">title text</h5>
+							</div>
+							<div class="modal-body" id="modal-body"></div>
+							<div class="modal-footer">
+								<button class="btn btn-secondary btn-exit-game" data-dismiss="modal" type="button">Exit</button> <button class="btn btn-primary" id="modal-button" type="button"><span id="modal-button-title"></span></button>
+							</div>
+						</div>
+					</div>
+				</div><!-- Modal - you win and leaderboard score submission  [3] -->
+				<div aria-hidden="true" aria-labelledby="staticBackdropLabel3" class="modal fade" data-backdrop="static" data-keyboard="false" id="modal-you-win-leaderboard" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel3">Wow, you did it!</h5>
+							</div>
+							<div class="modal-body">
+								Well done, you just scored <span id="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
+								<div class="alert">
+									Your score has been sent now.
+								</div>
+								<form id="form-leaderBoard" name="form-leaderBoard">
+									<div class="form-row">
+										<div class="col">
+											<input class="form-control" id="name" placeholder="Name" required="" type="text">
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-secondary btn-exit-game" data-dismiss="modal" type="button">Exit</button> <button class="btn btn-primary" id="btn-leaderBoardSubmit" type="submit">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="game-container">
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/banana_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/banana_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/cherry_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/cherry_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/peach_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/peach_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/lemon_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/lemon_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/pear_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/pear_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/apple_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/apple_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/strawberry_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/strawberry_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/orange_icon.png"></div>
+					</div>
+					<div class="card">
+						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
+						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/orange_icon.png"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="game-footer row border-top fixed-bottom mx-3 py-2">
+			<div class="col-12">
+				<i class="fas fa-arrow-left float-left btn-back" id="btn-back"></i>
+				<div class="float-right">
+					<span id="flips">0</span> <i class="fas fa-coins"></i>
+				</div>
+			</div>
+		</div>
+	</div><!-- end of game page -->
+	<!-- help info page -->
+	<div class="container-fluid collapse" id="page-help">
+		<div class="help-header row ml-1 mr-1 py-2">
+			<div class="col-12">
+				<i class="fas fa-window-close float-right" id="btn-exit"></i>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<h2 class="heading-text border-top border-bottom text-center">How to play</h2>
+				<ul class="info-panel">
+					<li>Choose difficulty level (easy/medium/hard) and press START button. Click on the cards and match as many pairs in quickest amount of time with least number of flips</li>
+					<li>For EASY, time limit is 70 seconds, you score a minimum of 10 points each pair. For MEDIUM, time : 60 seconds, points: 20. For HARD, time : 50 seconds, points: 30.</li>
+					<li>BONUS points is given based on the amount of time that is currently remaining, so the quicker you pair up the cards the higher that BONUS is. For Example, if on the EASY level, you have just matched a pair while there is 50 seconds left, then you will score 10+(10*50) = 510 points</li>
+					<li>WIN by matching all the cards before the clock runs out, your final score is deducted by the number of times you flipped cards over.</li>
+				</ul>
+			</div><br>
+			<br>
+			<div class="col-12 col-lg-6">
+				<h2 class="heading-text border-top border-bottom text-center">Top Scores!</h2>
+				<ol class="text-center info-panel" id="scoreList">
+					<li>Ruuuudy - 101</li>
+					<li>Mario - 90</li>
+					<li>Luigi - 50</li>
+				</ol>
+			</div><br>
+			<br>
+		</div>
+	</div><!-- end of help info page -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js">
+	</script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js">
+	</script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
+	</script> 
+	<script src="assets/js/script.js">
+	</script> 
+	<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js">
+	</script> 
+	<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js">
+	</script> 
+	<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js">
+	</script> 
+	<script src="assets/js/leaderboard.js">
+	</script>
 </body>
-
 </html>

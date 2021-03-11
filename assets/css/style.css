@@ -7,101 +7,100 @@
 
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; 
-} 
-
-body {
-font-family: 'VT323', monospace;
-font-size: 1.1rem;
+  box-sizing: border-box;
 }
 
-h1, h2, h3 {
-font-family: 'Jockey One', sans-serif;
+body {
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.heading-text {
+  font-family: "Jockey One", sans-serif;
 }
 
 /*        Home page section         */
 
-.home-menu{
-height: 80vh;
+.home-menu {
+  height: 80vh;
 }
 
 .theme-dark {
-background-color: black;
-color: white;
+  background-color: black;
+  color: white;
 }
 
 .theme-light {
-background-color: white;
-color: black;
+  background-color: white;
+  color: black;
 }
 
 .theme-colour {
-color: rgb(78, 3, 226);
-min-height: 100vh;
-background-image: linear-gradient( 
-  45deg,
-  #F82131,
-  #CFDE0A,
-  #FC8440,
-  #FF9300,	
-  #449C00	
-);
-background-size: 400%;
-animation: bg-animation 60s infinite alternate;
+  color: rgb(78, 3, 226);
+  min-height: 100vh;
+  background-image: linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
+  background-size: 400%;
+  animation: bg-animation 60s infinite alternate;
 } /* code inspired by https://youtu.be/f3mwKLXpOLk */
 
 @keyframes bg-animation {
-  0% {background-position: left}
-  100% {background-position: right;}
+  0% {
+      background-position: left;
+  }
+  100% {
+      background-position: right;
+  }
 }
 
-#btn-exit, #btn-back, #btn-info {
+#btn-exit,
+#btn-back,
+#btn-info {
   cursor: pointer;
 }
 
-#form-homePage{
-max-width: 33rem;
+#form-homePage {
+  max-width: 33rem;
 }
 
 /*            Game page              */
 
-.modal{
-color : #007BFF ;
+.modal {
+  color: #007bff;
 }
-.alert{
-display: none;
+.alert {
+  display: none;
 }
 
 /*  Some style components here are taken from the YouTube video "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  */
 
-.game-info-container{
+.game-info-container {
   grid-column: 1 /-1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
-.game-container{
-  margin: 30px auto;  
-  display: -ms-grid;  
+.game-container {
+  margin: 30px auto;
+  display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 10px auto 10px auto 10px auto;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-perspective: 500px;
-          perspective: 500px;
+  perspective: 500px;
 }
 
 .card {
   position: relative;
-  height: 5.469rem ;   /* originally 175 px   1/2  is 87.5 needed for small screen */
-  width: 3.906rem ;  /* 125 px  1/2 is 62.5 needed for small screen */
+  height: 5.469rem; /* originally 175 px   1/2  is 87.5 needed for small screen */
+  width: 3.906rem; /* 125 px  1/2 is 62.5 needed for small screen */
   background-color: transparent;
   cursor: pointer;
 }
@@ -112,11 +111,11 @@ display: none;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -126,64 +125,63 @@ display: none;
   transition: transform 500ms ease-in-out;
   transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .card.visible .card-back {
   -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 
 .card.visible .card-front {
   -webkit-transform: rotateY(0);
-          transform: rotateY(0);
+  transform: rotateY(0);
 }
 
 .card.matched .card-value {
   -webkit-animation: dance 1s linear infinite 500ms;
-          animation: dance 1s linear infinite 500ms;
+  animation: dance 1s linear infinite 500ms;
 }
 
 @-webkit-keyframes dance {
-  0%, 100% {
+  0%,
+  100% {
       -webkit-transform: rotate(0);
-              transform: rotate(0);
+      transform: rotate(0);
   }
   25% {
       -webkit-transform: rotate(-30deg);
-              transform: rotate(-30deg);
+      transform: rotate(-30deg);
   }
   75% {
       -webkit-transform: rotate(30deg);
-              transform: rotate(30deg);
+      transform: rotate(30deg);
   }
-
 }
 
 @keyframes dance {
-  0%, 100% {
+  0%,
+  100% {
       -webkit-transform: rotate(0);
-              transform: rotate(0);
+      transform: rotate(0);
   }
   25% {
       -webkit-transform: rotate(-30deg);
-              transform: rotate(-30deg);
+      transform: rotate(-30deg);
   }
   75% {
       -webkit-transform: rotate(30deg);
-              transform: rotate(30deg);
+      transform: rotate(30deg);
   }
-
 }
 
-
-.card-back{
+.card-back {
   -webkit-transform: rotateY(0);
-          transform: rotateY(0); 
+  transform: rotateY(0);
 }
 
-.cardback_img{
-width: 100% ;  /* this value ensures the card image resizes properly on smaller screens */
+.cardback_img {
+  width: 100%; /* this value ensures the card image resizes properly on smaller screens */
 }
 .card-value {
   position: relative;
@@ -192,54 +190,69 @@ width: 100% ;  /* this value ensures the card image resizes properly on smaller 
   -o-transition: transform 100ms ease-in-out;
   transition: transform 100ms ease-in-out;
   transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
-  -webkit-transform: scale(.9);
-      -ms-transform: scale(.9);
-          transform: scale(.9);
-  width: 100% ;  /* this value ensures the card image resizes properly on smaller screens */
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+  width: 100%; /* this value ensures the card image resizes properly on smaller screens */
 }
 
 .card-front:hover .card-value {
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 .card-front {
   -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-@media (min-width: 992px) {
-  .card {
-    position: relative;
-    height: 10rem;   /* originally 175 px   1/2  is 87.5 */
-    width: 7rem;  /* 125 px  1/2 is 62.5 */
+.game-header,
+.help-header {
+  height: 3rem;
 }
 
-#logo-home{
-  max-width: 33rem; 
-}
-
-/* Info page - leader board*/
-
-.info-panel {
-  max-width: 33rem;
-  }
-
-
-} /*              end of media query                         */
-
-.game-header, .help-header {
-height: 3rem;
-}
-
-
-.game-footer, .home-footer {
- height: 3.75rem;
+.game-footer,
+.home-footer {
+  height: 3.75rem;
 }
 
 .fas {
- font-size: 2rem;
+  font-size: 2rem;
 }
 
+/*              start of media query section                         */
 
+@media (min-width: 412px) {
+  .card {
+      position: relative;
+      height: 7rem; /* originally 175 px   1/2  is 87.5 needed for small screen */
+      width: 5rem; /* 125 px  1/2 is 62.5 needed for small screen */
+  }
+} /* oneplus 6 mobile phone screen width*/
+
+@media (min-width: 600px) {
+  .card {
+      position: relative;
+      height: 10rem; /* originally 175 px   1/2  is 87.5 needed for small screen */
+      width: 7rem; /* 125 px  1/2 is 62.5 needed for small screen */
+  }
+} /* Nexus 7 tablet screen width */
+
+@media (min-width: 992px) {
+  .card {
+      position: relative;
+      height: 10rem; /* originally 175 px   1/2  is 87.5 */
+      width: 7rem; /* 125 px  1/2 is 62.5 */
+  }
+
+  #logo-home {
+      max-width: 33rem;
+  }
+
+  /* Info page - leader board*/
+
+  .info-panel {
+      max-width: 33rem;
+  }
+} /*              end of media query section                         */

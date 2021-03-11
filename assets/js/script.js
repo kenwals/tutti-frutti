@@ -207,7 +207,7 @@ const modalContents = [
     { 
         modalTitle : "You Win!",
         buttonTitle : "Restart Game",
-        bodyText : "Well done!",
+        bodyText : "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
         modalId :  "youWin",
         btnClass : "btn-restart"
     }   /* Modal [2]  you win  */
