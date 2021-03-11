@@ -89,9 +89,9 @@ Colours are vibrant and fun by default . Three colour theme options.
 
 1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours below used on the fuit emojis.
 
-![Background colour gradient](\assets\readme-files\colours-used-for-background-gradient.PNG)
+    ![Background colour gradient](\assets\readme-files\colours-used-for-background-gradient.PNG)
 
-  #F82131 (strawberry ), #CFDE0A (lemon), #FC8440 (Orange), #FF9300 (Peach), #449C00 (Pear).
+    #F82131 (strawberry ), #CFDE0A (lemon), #FC8440 (Orange), #FF9300 (Peach), #449C00 (Pear).
   
 2. Light theme - Light background , Dark text
 3. Dark theme - Dark background, Light text
@@ -172,11 +172,9 @@ localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 
 In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
 
-DRY code conflict controversy , 
+DRY code conflict controversy ,
 
-Edge case - continue button and restart game event listeners are being called at the same time. possible caching issue as the code is updating correctly, it's just not acting correctly! . 
-
-
+Edge case - continue button and restart game event listeners are being called at the same time. possible caching issue as the code is updating correctly, it's just not acting correctly! .
 
 ### Project barriers and solutions
 
