@@ -198,13 +198,13 @@ For version control I used the UI on VS Code for making commits, and command lin
 
 no errors
 
-![CSS result](assets\readme-files\w3c_css_validation_result.PNG)
+![CSS result](assets/readme-files/w3c_css_validation_result.PNG)
 
 ### HTML5 validator
 
 no errors
 
-![HTML5 result](assets\readme-files\w3_html_validation_result.PNG)
+![HTML5 result](assets/readme-files/w3_html_validation_result.PNG)
 
 ### Usability Testing
 
