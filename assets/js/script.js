@@ -173,7 +173,7 @@ class TuttiFrutti {
     modalEventListners(){
         $(".btn-restart").click(()=> {
             // you clicked the restart button in one of the modal
-            this.exitGame;
+            this.exitGame();
             $(".btn-restart").removeClass("btn-restart");
             $(".modal").modal("hide");
             this.startGame();
