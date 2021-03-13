@@ -319,6 +319,8 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 
 - My mentor Maranatha Ilesanmi.
 
+- My class tutor Simen Daehlin.
+
 - Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
 
 - [Velo](https://velocoffee.ie/) Coffee Roasters and [Barry's Tea](https://www.barrystea.ie/).
