@@ -101,7 +101,7 @@ class TuttiFrutti {
                 this.timer.innerText = this.timeRemaining;
             } else if (this.timeRemaining === 0){
                 this.gameOver();
-                this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , then game is over
+                this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , when game is over
             }
 
         }, 1000);
