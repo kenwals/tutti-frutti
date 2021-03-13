@@ -19,9 +19,7 @@ class TuttiFrutti {
         this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
         setTimeout(() => {
             this.shuffleCards();
-            if (!this.countDown) {
-                this.countDown = this.startCountDown(); // this prevents the timer duplicating instances when player restarts game 
-            } 
+            this.countDown = this.startCountDown();
             this.busy = false;
         }, 500); // this is a half a second timeout 
         this.hideCards();
