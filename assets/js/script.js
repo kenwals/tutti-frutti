@@ -249,16 +249,6 @@ function ready() {
 
     $("#level").change(()=> populateStorage());
 
-    function modalEventListners(){
- 
-        $(".btn-continue").click(()=> {
-            // you clicked the continue button on the modal
-            $(".btn-continue").removeClass("btn-continue");
-            $(".modal").modal("hide");
-        });
-        
-    }
-
     $("#btn-start").click(()=> {
         // you clicked the start button
         $("#page-home").addClass("collapse");
