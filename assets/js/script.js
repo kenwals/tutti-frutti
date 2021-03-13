@@ -110,16 +110,19 @@ class TuttiFrutti {
     }
 
     gameOver() {
+        clearInterval(this.countDown);
         this.createModal("gameOver");
         this.hideCards();
     }
 
     exitGame() {
+        clearInterval(this.countDown);
         this.hideCards();
         console.log("exit game function has ran");
     }
 
     victory() {
+        clearInterval(this.countDown);
         console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
         this.totalScore = this.totalScore - this.totalClicks;
         console.log(this.totalScore);
