@@ -1,3 +1,9 @@
+
+/**
+ *  some code on this script is taken and customised from Youtube video 
+ * "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
+ * 
+ */
 function ready() {
 
     class TuttiFrutti {
@@ -7,7 +13,7 @@ function ready() {
             this.ticker = document.getElementById("flips");
             this.scorePanel = document.getElementById("score");
             this.finalScore = document.getElementById("finalScore");
-        } // some code on this script is taken and customised from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
+        } 
     
         startGame() {
             this.currentLevel = document.getElementById('level').value;
@@ -230,9 +236,6 @@ function ready() {
         $("#tutti-frutti-modal").modal("show");
         modalEventListners();
     }
-
-
-
 
 /**
  * this populates the local storage of the browser with the prefered 
