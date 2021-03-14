@@ -234,9 +234,36 @@ no errors
 
 ### JavaScript validator
 
-script.js
+script.js  - no issues , results below.
 
-leaderboard.js
+```
+Metrics
+There are 37 functions in this file.
+
+Function with the largest signature take 2 arguments, while the median is 0.
+
+Largest function has 15 statements in it, while the median is 3.
+
+The most complex function has a cyclomatic complexity value of 4 while the median is 1.
+```
+
+leaderboard.js - no issues , results below.
+
+```
+Metrics
+There are 8 functions in this file.
+
+Function with the largest signature take 2 arguments, while the median is 1.
+
+Largest function has 9 statements in it, while the median is 1.5.
+
+The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+
+One undefined variable
+37	firebase
+38	firebase
+39	firebase
+```
 
 ### Usability Testing
 
