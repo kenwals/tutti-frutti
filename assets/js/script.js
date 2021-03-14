@@ -16,6 +16,7 @@ function ready() {
         } 
     
         startGame() {
+            this.isPaused = false;
             this.currentLevel = document.getElementById('level').value;
             this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
             this.totalClicks = 0;
@@ -45,7 +46,7 @@ function ready() {
                 return 60;
             } else if (this.currentLevel === "hard") {
                 this.scoreUnit = 30;
-                return 5;
+                return 50;
             }
         }
     
@@ -104,7 +105,7 @@ function ready() {
     
         startCountDown() {
             return setInterval(() => {
-                if (this.timeRemaining > 0) {
+                if (this.timeRemaining > 0 && (!this.isPaused)) {
                     this.timeRemaining--;
                     this.timer.innerText = this.timeRemaining;
                 } else if (this.timeRemaining === 0){
@@ -113,6 +114,12 @@ function ready() {
                 }
     
             }, 1000);
+        }
+
+        toggleIsPaused() {
+            if (this.isPaused) 
+            {this.isPaused = false ; console.log("clock is stoped");}
+            else {this.isPaused = true; console.log("clock is on");};
         }
     
         gameOver() {
@@ -170,8 +177,8 @@ function ready() {
     
     }
     
-    let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new TuttiFrutti(cards);
+    const cards = Array.from(document.getElementsByClassName("card"));
+    const game = new TuttiFrutti(cards);
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
@@ -179,10 +186,6 @@ function ready() {
         setValues();
     }
 
-    function restartGame(){
-        let newGame = new TuttiFrutti(cards);
-        newGame.startGame();
-    }
 
     const modalContents = [ 
         { 
@@ -211,15 +214,16 @@ function ready() {
     function modalEventListners(){
         $(".btn-restart").click(()=> {
             // you clicked the restart button in one of the modal
-            game.exitGame();
+            //game.exitGame();
             $(".btn-restart").removeClass("btn-restart");
             $(".modal").modal("hide");
-            restartGame();
+            game.startGame();
         });
 
         $(".btn-continue").click(()=> {
             // you clicked go the continue button on the modal
             $(".btn-continue").removeClass("btn-continue");
+            game.toggleIsPaused();
             $(".modal").modal("hide");
         });
     }
@@ -288,6 +292,7 @@ function ready() {
 
     $(".btn-back").click(()=> {
         // you clicked go back button on the game page
+        game.toggleIsPaused();
         createModal("exit");
     });
 
