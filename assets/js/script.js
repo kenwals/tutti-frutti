@@ -45,7 +45,7 @@ function ready() {
                 return 60;
             } else if (this.currentLevel === "hard") {
                 this.scoreUnit = 30;
-                return 50;
+                return 5;
             }
         }
     
@@ -129,9 +129,9 @@ function ready() {
     
         victory() {
             clearInterval(this.countDown);
-            console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
+            //console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
             this.totalScore = this.totalScore - this.totalClicks;
-            console.log(this.totalScore);
+            //console.log(this.totalScore);
             this.finalScore.innerText = this.totalScore;
             // check if your Personal best score has been beaten?
             if (this.recordBreaker()) {
@@ -179,6 +179,11 @@ function ready() {
         setValues();
     }
 
+    function restartGame(){
+        let newGame = new TuttiFrutti(cards);
+        newGame.startGame();
+    }
+
     const modalContents = [ 
         { 
             modalTitle : "Game Over",
@@ -209,7 +214,7 @@ function ready() {
             game.exitGame();
             $(".btn-restart").removeClass("btn-restart");
             $(".modal").modal("hide");
-            game.startGame();
+            restartGame();
         });
 
         $(".btn-continue").click(()=> {
