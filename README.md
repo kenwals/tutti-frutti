@@ -198,22 +198,21 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 - Site does not responsive landscape mode on mobile devices.
 
-
 ### Project barriers and solutions
 
-**Firebase orderByChild not working as expected**
+#### Firebase orderByChild not working as expected
 
 As part of this project i learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data (Top 10 player scores on the leaderboard), just that i had to order the data myself in a separate process (array sort() method) for it to be stored and then displayed in an ordered fashion.
 
-**Passing scores as strings**
+#### Passing scores as strings
 
 Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database.
 
-**JavaScript syntax differances p5 JS verses node JS verses vanilla**
+#### JavaScript syntax differances p5 JS verses node JS verses vanilla
 
 While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
 
-**Timer problem**
+#### Timer problem
 
 A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
 
