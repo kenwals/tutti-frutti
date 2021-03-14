@@ -111,7 +111,7 @@ function ready() {
     
         gameOver() {
             clearInterval(this.countDown);
-            this.createModal("gameOver");
+            createModal("gameOver");
             this.hideCards();
         }
     
@@ -131,7 +131,7 @@ function ready() {
             if (this.recordBreaker()) {
                 $("#modal-you-win-leaderboard").modal("show");
             } else {
-                this.createModal("youWin");
+                createModal("youWin");
             }
             this.hideCards();
         }
@@ -162,33 +162,6 @@ function ready() {
             return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
         } // all these statements have to be false in order for it to be true, and user can flip the next card
     
-        createModal(modalId){
-            const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
-            console.log(modal , " =modal ");
-            $("#modal-title").text(modal.modalTitle);
-            $("#modal-button-title").text(modal.buttonTitle);
-            $("#modal-button").addClass(modal.btnClass);
-            $("#modal-body").text(modal.bodyText);
-            this.modalEventListners();
-            $("#tutti-frutti-modal").modal("show");
-        }
-    
-        modalEventListners(){
-            $(".btn-restart").click(()=> {
-                // you clicked the restart button in one of the modal
-                this.exitGame();
-                $(".btn-restart").removeClass("btn-restart");
-                $(".modal").modal("hide");
-                this.startGame();
-            });
-    
-            $(".btn-continue").click(()=> {
-                // you clicked go the continue button on the modal
-                $(".btn-continue").removeClass("btn-continue");
-                $(".modal").modal("hide");
-            });
-        }
-    
     }
     
     let cards = Array.from(document.getElementsByClassName("card"));
@@ -218,7 +191,32 @@ function ready() {
         }   /* Modal [2]  you win  */
     ] ;
 
- 
+    function modalEventListners(){
+        $(".btn-restart").click(()=> {
+            // you clicked the restart button in one of the modal
+            game.exitGame();
+            $(".btn-restart").removeClass("btn-restart");
+            $(".modal").modal("hide");
+            game.startGame();
+        });
+
+        $(".btn-continue").click(()=> {
+            // you clicked go the continue button on the modal
+            $(".btn-continue").removeClass("btn-continue");
+            $(".modal").modal("hide");
+        });
+    }
+
+    function createModal(modalId){
+        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+        console.log(modal , " =modal ");
+        $("#modal-title").text(modal.modalTitle);
+        $("#modal-button-title").text(modal.buttonTitle);
+        $("#modal-button").addClass(modal.btnClass);
+        $("#modal-body").text(modal.bodyText);
+        modalEventListners();
+        $("#tutti-frutti-modal").modal("show");
+    }
 
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
@@ -263,7 +261,7 @@ function ready() {
 
     $(".btn-back").click(()=> {
         // you clicked go back button on the game page
-        game.createModal("exit");
+        createModal("exit");
     });
 
     $(".btn-exit-game").click(()=> {
