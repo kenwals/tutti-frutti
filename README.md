@@ -192,9 +192,11 @@ In the firefox brower, some errors appear in the developer tool console in relat
 
 DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a javacript function and a object array. The other modal remained as is due to it's complexity.
 
-Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button. 
+Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
 
-If the restart game button is pressed several times from repeated play , the timer gets progressively faster. 
+If the restart game button is pressed several times from repeated play , the timer gets progressively faster.
+
+Site does not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
 
@@ -260,9 +262,9 @@ Largest function has 9 statements in it, while the median is 1.5.
 The most complex function has a cyclomatic complexity value of 2 while the median is 1.
 
 One undefined variable
-37	firebase
-38	firebase
-39	firebase
+37 firebase
+38 firebase
+39 firebase
 ```
 
 ### Usability Testing
