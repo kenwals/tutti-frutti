@@ -52,10 +52,10 @@ The site is three pages, it contains a menu page , a game page and an info page.
 
 ##### Visitor goals
 
-  1. As a visitor to this game site , I want to be able to play a fun game and test my memory.
-  2. As a visitor to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
-  3. As a visitor to this game site , I want the ability to select a difficulty level that suits me best .
-  4. As a visitor to this game site , I want to be able to submit my high score to the leaderboard.
+  1. As a user to this game site , I want to be able to play a fun game and test my memory.
+  2. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
+  3. As a user to this game site , I want the ability to select a difficulty level that suits me best .
+  4. As a user to this game site , I want to be able to submit my high score to the leaderboard.
 
 ##### Owner goals
 
@@ -127,16 +127,30 @@ back to [contents](#table-of-contents)
 
 ## Technologies Used
 
-- Languages : HTML, CSS , Bootstrap framework, JavaScript , and JQuery
-- NoSQL Realtime Database: [Firebase](https://firebase.google.com/)
+### Frontend
+
+#### Languages
+
+- HTML
+- CSS
+- JavaScript
+
+#### Libraries and Frameworks
+
+- Bootstrap
+- JQuery
+- [Firebase](https://firebase.google.com/)
+- Fonts : [Google Fonts](https://fonts.google.com/)
+- Icons : [Fontawesome](https://fontawesome.com/)
+
+#### Tools
+
 - IDE: Visual Studio Code (VS Code).
-- Version control: Git on VS Code terminal , [Github](https://github.com/) Desktop app and at repository web page.
+- Version control: Git
 - Wireframe: [Balsamiq](https://balsamiq.com/)
 - Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.logging everything.
 - Kanban planner : [Github projects](https://github.com/kenwals/tutti-frutti/projects/1).
 - Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, VS code editor was used for minor updates.
-- Fonts : [Google Fonts](https://fonts.google.com/)
-- Icons : [Fontawesome](https://fontawesome.com/)
 - File renaming utility : PowerRename from [PowerToys on Windows 10](https://www.windowscentral.com/how-bulk-rename-your-files-windows-10-powertoys)
 - Pomodoro timer : [Tomato Clock](https://chrome.google.com/webstore/detail/tomato-clock/enemipdanmallpjakiehedcgjmibjihj)
 - Overflow rescue tool : [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) was used for when a scroll left to right appeared on my site on smaller screens.
@@ -178,7 +192,9 @@ In the firefox brower, some errors appear in the developer tool console in relat
 
 DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a javacript function and a object array. The other modal remained as is due to it's complexity.
 
-Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
+Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button. 
+
+If the restart game button is pressed several times from repeated play , the timer gets progressively faster. 
 
 ### Project barriers and solutions
 
@@ -216,9 +232,24 @@ no errors
 
 ![HTML5 result](/wireframe/w3_html_validation_result.PNG)
 
+### JavaScript validator
+
+script.js
+
+leaderboard.js
+
 ### Usability Testing
 
+I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which i have since fixed. Such as repsonsiveness to device size , timer was going to minus figures.
+
 ### Compatibility Testing
+
+| Screen size\Browser                          | Chrome | Firefox | Edge |
+| -------------------------------------------- | ------ | ------- | ---- |
+| Android Mobile phone (Screen width 320px) xs | Pass | NA | NA |
+| Android Mobile phone (Screen width 412px) xs | Pass | Pass | Pass |
+| Android Tablet (Screen width 600px) sm       | Pass | Pass | Pass |
+| Windows laptop (Screen width 2560px)         |   Pass |  Pass |  Pass    |
 
 ### Testing User Stories
 
@@ -251,16 +282,16 @@ Once you have the completed site in your own repository, you can deploy to GitHu
 3. Under GitHub pages, Select the appropriate branch or folder the index.html is in.
 4. Click on save. A message should then appear advising the URL of your deployed site.
 
-### Cloning
+### Local Deployment
 
 If you prefer working on the repository locally, you can clone the repository to your desktop by the following steps.
 
 1. Go to [the Tutti Frutti github page](https://github.com/kenwals/tutti-frutti).
-2. Above the list of files, click on the code button.
+2. Above the list of files, click on the **code** button.
 3. To clone the repository using HTTPS, under "Clone with HTTPS", click the paste icon.
    To clone the repository using an SSH key, click Use SSH, then click the paste icon.
    To clone a repository using GitHub CLI, click Use GitHub CLI, then click the paste icon.
-4. Open Git Bash.
+4. Open your preferred terminal window.
 5. Change the current working directory to the location where you want the cloned directory.
 6. Type 'git clone', then paste the URL you copied earlier above.
 7. Press Enter to create your local clone.
