@@ -168,7 +168,7 @@ back to [contents](#table-of-contents)
 
 ## Testing
 
-I tested the site as I went along, manually testing or using automated online testing tools (listed below). I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly.
+I tested the site as I went along, manually testing or using automated online testing tools. I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly.
 
 I used JQuery commands below in developer tools console to give myself some shortcuts while testing the game.
 
@@ -179,6 +179,7 @@ $("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderb
 localStorage.clear() // this clears the local storage completely
 localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 ```
+I also set the countdown timer to 5 or 10 seconds to save time on testing the restart game functionality. 
 
 ### Performance Testing
 
