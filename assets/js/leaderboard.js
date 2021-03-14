@@ -1,6 +1,5 @@
- /* 
-
- Based partially on content from the following and then customised:
+/**
+ *  Based partially on content from the following and then customised:
 
  9.2: Firebase: Saving Data - Programming with Text
  https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)
@@ -14,7 +13,14 @@
  9.3: Firebase: Retrieving Data - Programming with Text
  https://youtu.be/NcewaPfFR6Y	(Channel : The coding Train)
 
- */ 
+"Connecting Firebase to a Contact Form" 
+https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
+
+16.9: Array Functions: sort() - Topics of JavaScript/ES6  
+https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
+
+ * 
+ */
  
  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
  const firebaseConfig = {
@@ -42,8 +48,6 @@ document.getElementById("form-leaderBoard").addEventListener("submit", submitfor
  * alerts user name and score has been sent
  * closes modal after 3 seconds 
  * 
- * partially based on code featured in "Connecting Firebase to a Contact Form"   
- *  https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
  * 
  * @param {e} (event) e 
  */
@@ -86,15 +90,10 @@ document.getElementById("form-leaderBoard").addEventListener("submit", submitfor
      });
  }
 
-
  /**
-  * Take query of player scores from the database
+  * Takes a query of player scores from the database
   * will sort the results in desending order 
   * displays the results on the leaderboard page
-  * 
-  * partially based on 16.9: Array Functions: sort() - 
-  * Topics of JavaScript/ES6  https://youtu.be/MWD-iKzR2c8	
-  * (Channel : The coding Train)
   * 
   * @param {data} (string) data from the Firebase database
   */
