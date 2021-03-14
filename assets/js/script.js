@@ -167,6 +167,12 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName("card"));
     let game = new TuttiFrutti(cards);
 
+    if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
+        populateStorage();
+    } else {
+        setValues();
+    }
+
     const modalContents = [ 
         { 
             modalTitle : "Game Over",
@@ -207,6 +213,13 @@ function ready() {
         });
     }
 
+/**
+ * this creates a modal from a value in the modalContents object array
+ * then starts the modal event listeners
+ * and then displays the modal
+ * 
+ * @param {mondalId} (string) modalId 
+ */
     function createModal(modalId){
         const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
         console.log(modal , " =modal ");
@@ -214,23 +227,29 @@ function ready() {
         $("#modal-button-title").text(modal.buttonTitle);
         $("#modal-button").addClass(modal.btnClass);
         $("#modal-body").text(modal.bodyText);
-        modalEventListners();
         $("#tutti-frutti-modal").modal("show");
+        modalEventListners();
     }
 
 
-    if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
-        populateStorage();
-    } else {
-        setValues();
-    }
 
+
+/**
+ * this populates the local storage of the browser with the prefered 
+ * colour theme and difficulty levels
+ * 
+ * then calls the setValues() Function
+ */
     function populateStorage() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
         setValues();
     }
 
+/**
+ * the default theme and difficulty level is retrieved from 
+ * local storage and selected in the setting form on the homepage
+ */
     function setValues() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
@@ -293,7 +312,10 @@ function ready() {
     });
 }
 
-
+/**
+ * This waits for document to be fully loaded 
+ * then runs the ready() function when it's completed
+ */
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", ready());
 } else {
