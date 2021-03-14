@@ -52,10 +52,10 @@ The site is three pages, it contains a menu page , a game page and an info page.
 
 ##### Visitor goals
 
-  1. As a visitor to this game site , I want to be able to play a fun game and test my memory.
-  2. As a visitor to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
-  3. As a visitor to this game site , I want the ability to select a difficulty level that suits me best .
-  4. As a visitor to this game site , I want to be able to submit my high score to the leaderboard.
+  1. As a user to this game site , I want to be able to play a fun game and test my memory.
+  2. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
+  3. As a user to this game site , I want the ability to select a difficulty level that suits me best .
+  4. As a user to this game site , I want to be able to submit my high score to the leaderboard.
 
 ##### Owner goals
 
@@ -79,7 +79,7 @@ Page 3 - How to play / Top Scores - Top scores on are display here .There some i
 
 Wireframe
 
-![wireframe image](assets/wireframe/tutti_trutti_wireframe.png)
+![wireframe image](/wireframe/tutti_trutti_wireframe.png)
 
 ### Surface
 
@@ -87,9 +87,9 @@ Wireframe
 
 Colours are vibrant and fun by default . Three colour theme options.
 
-1. Colourful theme (default). The backgound is a css gradient image done with a combination the colours below used on the fuit emojis.
+1. Colourful theme (default). The background is a css gradient image done with a combination the colours below used on the fruit emojis.
 
-    ![Background colour gradient](\assets\readme-files\colours-used-for-background-gradient.PNG)
+    ![Background colour gradient](/wireframe/colours-used-for-background-gradient.PNG)
 
     #F82131 (strawberry ), #CFDE0A (lemon), #FC8440 (Orange), #FF9300 (Peach), #449C00 (Pear).
   
@@ -107,7 +107,9 @@ Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https:/
 #### Fonts
 
 - **"Jockey One"** was used for Header (h1,h2 and h3) text elements
+![Font sample of Jockey One](/wireframe/font_jockey_one_sample.PNG)
 - **"VT323"** was used for all other text.
+![Font sample of VT323](/wireframe/font_VT323_sample.PNG)
 
 On slow connections, another font may be visible while the site is loading.
 
@@ -125,16 +127,30 @@ back to [contents](#table-of-contents)
 
 ## Technologies Used
 
-- Languages : HTML, CSS , Bootstrap framework, JavaScript , and JQuery
-- NoSQL Realtime Database: [Firebase](https://firebase.google.com/)
+### Frontend
+
+#### Languages
+
+- HTML
+- CSS
+- JavaScript
+
+#### Libraries and Frameworks
+
+- Bootstrap
+- JQuery
+- [Firebase](https://firebase.google.com/)
+- Fonts : [Google Fonts](https://fonts.google.com/)
+- Icons : [Fontawesome](https://fontawesome.com/)
+
+#### Tools
+
 - IDE: Visual Studio Code (VS Code).
-- Version control: Git on VS Code terminal , [Github](https://github.com/) Desktop app and at repository web page.
+- Version control: Git
 - Wireframe: [Balsamiq](https://balsamiq.com/)
 - Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.logging everything.
 - Kanban planner : [Github projects](https://github.com/kenwals/tutti-frutti/projects/1).
 - Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, VS code editor was used for minor updates.
-- Fonts : [Google Fonts](https://fonts.google.com/)
-- Icons : [Fontawesome](https://fontawesome.com/)
 - File renaming utility : PowerRename from [PowerToys on Windows 10](https://www.windowscentral.com/how-bulk-rename-your-files-windows-10-powertoys)
 - Pomodoro timer : [Tomato Clock](https://chrome.google.com/webstore/detail/tomato-clock/enemipdanmallpjakiehedcgjmibjihj)
 - Overflow rescue tool : [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) was used for when a scroll left to right appeared on my site on smaller screens.
@@ -166,27 +182,39 @@ localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 
 ### Performance Testing
 
-![lighthouse testing](assets/readme-files/20210302_lighthouse.PNG)
+![lighthouse testing](/wireframe/20210302_lighthouse.PNG)
+
+I used the lighthouse tool for performance testing , no major issues found.
 
 ### Known issues
 
-In the firefox browers some errors appear in the developer tool console in relation to mime / javascript.
+- In the Firefox browser, some errors appear in the developer tool console in relation to javascript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
 
-DRY code conflict controversy ,
+- DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a javacript function and a object array. The other modal remained as is due to it's complexity.
 
-Edge case - continue button and restart game event listeners are being called at the same time. possible caching issue as the code is updating correctly, it's just not acting correctly! .
+- Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
+
+- If the restart game button is pressed several times from repeated play , the timer gets progressively faster.
+
+- Site does not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
 
-modal setup mistake with ids
+#### Firebase orderByChild not working as expected
 
-Firebase orderByChild not working as expected
+As part of this project i learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data (Top 10 player scores on the leaderboard), just that i had to order the data myself in a separate process (array sort() method) for it to be stored and then displayed in an ordered fashion.
 
-passing scores as strings
+#### Passing scores as strings
 
-JavaScript syntax differances p5 JS verses node JS verses vanilla
+Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database.
 
-Peer review feedback
+#### JavaScript syntax differances p5 JS verses node JS verses vanilla
+
+While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
+
+#### Timer problem
+
+A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
 
 ### Version control
 
@@ -198,17 +226,59 @@ For version control I used the UI on VS Code for making commits, and command lin
 
 no errors
 
-![CSS result](assets/readme-files/w3c_css_validation_result.PNG)
+![CSS result](/wireframe/w3c_css_validation_result.PNG)
 
 ### HTML5 validator
 
 no errors
 
-![HTML5 result](assets/readme-files/w3_html_validation_result.PNG)
+![HTML5 result](/wireframe/w3_html_validation_result.PNG)
+
+### JavaScript validator
+
+script.js  - no issues , results below.
+
+```
+Metrics
+There are 37 functions in this file.
+
+Function with the largest signature take 2 arguments, while the median is 0.
+
+Largest function has 15 statements in it, while the median is 3.
+
+The most complex function has a cyclomatic complexity value of 4 while the median is 1.
+```
+
+leaderboard.js - no issues , results below.
+
+```
+Metrics
+There are 8 functions in this file.
+
+Function with the largest signature take 2 arguments, while the median is 1.
+
+Largest function has 9 statements in it, while the median is 1.5.
+
+The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+
+One undefined variable
+37 firebase
+38 firebase
+39 firebase
+```
 
 ### Usability Testing
 
+I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device size , timer was going to minus figures.
+
 ### Compatibility Testing
+
+| Screen size\Browser                          | Chrome | Firefox | Edge |
+| -------------------------------------------- | ------ | ------- | ---- |
+| Android Mobile phone (Screen width 320px) xs | Pass | NA | NA |
+| Android Mobile phone (Screen width 412px) xs | Pass | Pass | Pass |
+| Android Tablet (Screen width 600px) sm       | Pass | Pass | Pass |
+| Windows laptop (Screen width 2560px)         |   Pass |  Pass |  Pass    |
 
 ### Testing User Stories
 
@@ -237,22 +307,22 @@ Once you have the extension on your browser, a green Gitpod button will appear b
 Once you have the completed site in your own repository, you can deploy to GitHub pages by the following steps.
 
 1. On GitHub, go to the completed sites repository.
-2. Click on settings, on the settings page scroll down the the GitHub Pages section.
+2. Click on settings, on the settings page scroll down the the **GitHub Pages** section.
 3. Under GitHub pages, Select the appropriate branch or folder the index.html is in.
-4. Click on save. A message should then appear advising the URL of your deployed site.
+4. Click on **save.** A message should then appear advising the URL of your deployed site.
 
-### Cloning
+### Local Deployment
 
 If you prefer working on the repository locally, you can clone the repository to your desktop by the following steps.
 
 1. Go to [the Tutti Frutti github page](https://github.com/kenwals/tutti-frutti).
-2. Above the list of files, click on the code button.
-3. To clone the repository using HTTPS, under "Clone with HTTPS", click the paste icon.
-   To clone the repository using an SSH key, click Use SSH, then click the paste icon.
-   To clone a repository using GitHub CLI, click Use GitHub CLI, then click the paste icon.
-4. Open Git Bash.
+2. Above the list of files, click on the **code** button.
+3. To clone the repository using **HTTPS,** under "Clone with HTTPS", click the paste icon.
+   To clone the repository using an **SSH key**, click Use SSH, then click the paste icon.
+   To clone a repository using **GitHub CLI,** click Use GitHub CLI, then click the paste icon.
+4. Open your preferred terminal window.
 5. Change the current working directory to the location where you want the cloned directory.
-6. Type 'git clone', then paste the URL you copied earlier above.
+6. Type **'git clone'**, then paste the URL you copied earlier above.
 7. Press Enter to create your local clone.
 
 more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
@@ -263,9 +333,9 @@ You may wish to contribute to this website and have your contribution published,
 
 1. Go to the GitHub website and log in.
 2. Open <https://github.com/kenwals/tutti-frutti>
-3. In the top right-hand corner you will see a fork button, click on this fork button .
+3. In the top right-hand corner you will see a fork button, click on this **fork button** .
 4. This will create a copy the Tutti-Frutti repository in your github account.
-5. Once you're finished making changes you can locate the 'New Pull Request' button just above the file listing in the original repository(<https://github.com/kenwals/tutti-frutti>).
+5. Once you're finished making changes you can locate the **'New Pull Request**' button just above the file listing in the original repository(<https://github.com/kenwals/tutti-frutti>).
 6. If your pull request is approved, it will be merged into the master version of the Tutti-Frutti repository at a future date.
 
 more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
@@ -305,8 +375,14 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 
 ### Acknowledgements
 
-Game layout/structure is inspired by [PROXX](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
+- Game layout/structure is inspired by [PROXX](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
 
-My mentor Maranatha Ilesanmi.
+- My mentor Maranatha Ilesanmi.
 
-Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
+- My class tutor Simen Daehlin.
+
+- Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
+
+- [Velo](https://velocoffee.ie/) Coffee Roasters and [Barry's Tea](https://www.barrystea.ie/).
+
+back to [contents](#table-of-contents)

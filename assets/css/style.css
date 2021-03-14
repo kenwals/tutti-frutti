@@ -5,6 +5,8 @@
 * Browsers: last 4 version
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap');
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -12,7 +14,7 @@
 
 body {
   font-family: "VT323", monospace;
-  font-size: 1.1rem;
+  font-size: 1.6rem; 
 }
 
 .heading-text {
@@ -26,17 +28,17 @@ body {
 }
 
 .theme-dark {
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .theme-light {
-  background-color: white;
-  color: black;
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 .theme-colour {
-  color: rgb(78, 3, 226);
+  color: #4E03E2 ;
   min-height: 100vh;
   background-image: linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
   background-size: 400%;
