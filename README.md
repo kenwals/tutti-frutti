@@ -316,17 +316,25 @@ I shared the project on the peer-review channel on slack, and also with friends/
 
       ![user story 1 - visitor](/wireframe/user-story-1-visitor.PNG)
 
+     *Game is fun to play and a great test of memory skills for the user.*
+
   2. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
 
       ![user story 2 - visitor](/wireframe/user-story-2.PNG)
+
+      *The user can choose one of three theme options. Theme setting is saved and set in the browser as default for return visits.*
 
   3. As a user to this game site , I want the ability to select a difficulty level that suits me best .
 
       ![user story 3 - visitor](/wireframe/user-story-3.PNG)
 
+       *The user can choose one of three difficulty levels. This level setting is saved and set in the browser as default for return visits.*
+
   4. As a user to this game site , I want to be able to submit my high score to the leader board.
 
-      ![user story 4 - visitor](/wireframe/user-story-4.PNG)
+      ![user story 4 - visitor](/wireframe/user-story-4.PNG)  ![user story 4 - visitor](/wireframe/user-story-4b.PNG)
+
+      *On achieving a high score the user can submit their name and have their name appear on the leaderboard*
 
 #### Owner Story
 
