@@ -326,6 +326,8 @@ I shared the project on the peer-review channel on slack, and also with friends/
 
   4. As a user to this game site , I want to be able to submit my high score to the leader board.
 
+      ![user story 4 - visitor](/wireframe/user-story-4.PNG)
+
 #### Owner Story
 
   1. As the site owner, I want to be able to play a fun game and test my memory.
