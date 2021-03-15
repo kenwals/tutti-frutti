@@ -55,7 +55,7 @@ The site is three pages, it contains a menu page , a game page and an info page.
   1. As a user to this game site , I want to be able to play a fun game and test my memory.
   2. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
   3. As a user to this game site , I want the ability to select a difficulty level that suits me best .
-  4. As a user to this game site , I want to be able to submit my high score to the leaderboard.
+  4. As a user to this game site , I want to be able to submit my high score to the leader board.
 
 ##### Owner goals
 
@@ -63,7 +63,7 @@ The site is three pages, it contains a menu page , a game page and an info page.
 
 ### Structure
 
-This site will be put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leaderboard is connected to a Firebase realtime Database.
+This site will be put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leader board is connected to a Firebase real-time Database.
 
 ### Skeleton
 
@@ -87,14 +87,14 @@ Wireframe
 
 Colours are vibrant and fun by default . Three colour theme options.
 
-1. Colourful theme (default). The background is a css gradient image done with a combination the colours below used on the fruit emojis.
+1. Colourful theme (default). The background is a CSS gradient image done with a combination the colours below used on the fruit emojis.
 
     ![Background colour gradient](/wireframe/colours-used-for-background-gradient.PNG)
 
     #F82131 (strawberry ), #CFDE0A (lemon), #FC8440 (Orange), #FF9300 (Peach), #449C00 (Pear).
   
-2. Light theme - Light background , Dark text
-3. Dark theme - Dark background, Light text
+2. Light theme - Light background (#FFFFFF White), Dark text (#000000 Black).
+3. Dark theme - Dark background (#000000 Black) , Light text (#FFFFFF White).
 
 #### Icons
 
@@ -121,8 +121,8 @@ back to [contents](#table-of-contents)
 
 - There are three difficulty levels
 - There are three theme options
-- The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leaderboard.
-- There is top 10 leaderboard of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in realtime.
+- The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leader board.
+- There is top 10 leader board of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in real-time.
 - Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
 
 ## Technologies Used
@@ -168,7 +168,7 @@ back to [contents](#table-of-contents)
 
 ## Testing
 
-I tested the site as I went along, manually testing or using automated online testing tools. I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly.
+I tested the site as I went along, manually testing or using automated online testing tools. I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly. I also set the countdown timer to 5 or 10 seconds to save time on testing the restart game functionality. 
 
 I used JQuery commands below in developer tools console to give myself some shortcuts while testing the game.
 
@@ -179,7 +179,7 @@ $("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderb
 localStorage.clear() // this clears the local storage completely
 localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 ```
-I also set the countdown timer to 5 or 10 seconds to save time on testing the restart game functionality. 
+
 
 ### Performance Testing
 
@@ -189,27 +189,23 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 ### Known issues
 
-- In the Firefox browser, some errors appear in the developer tool console in relation to javascript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
-
-- DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a javacript function and a object array. The other modal remained as is due to it's complexity.
-
+- If the restart game button is pressed several times from repeated play , the timer gets progressively faster. this does not happen when play is started with button on home page.
+- In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
+- DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a JavaScript function and a object array. The other modal remained as is due to it's complexity.
 - Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
-
-- If the restart game button is pressed several times from repeated play , the timer gets progressively faster.
-
 - Site does not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
 
 #### Firebase orderByChild not working as expected
 
-As part of this project i learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data (Top 10 player scores on the leaderboard), just that i had to order the data myself in a separate process (array sort() method) for it to be stored and then displayed in an ordered fashion.
+As part of this project i learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data unsorted(Top 10 player scores on the leader board), just that i had to order the data myself in a separate process (array sort() method) for it to be stored and then displayed in an ordered fashion.
 
 #### Passing scores as strings
 
 Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database.
 
-#### JavaScript syntax differances p5 JS verses node JS verses vanilla
+#### JavaScript syntax differences p5 JS verses node JS verses vanilla
 
 While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
 
@@ -217,71 +213,125 @@ While learning and researching JavaScript, I did find it challenging at times wh
 
 A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
 
+#### Defensive design gap
+
+When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, i added the ability to pause the timer when the "Are you sure?" modal appears.
+
 ### Version control
 
 For version control I used the UI on VS Code for making commits, and command line for branches, Merging was done on the GitHub site. I used branches when I was working on new features or bundles of changes.
 
 ### Functionality Testing
 
+
+
+Page 1 - Homepage or Main Menu 
+
+- Theme and difficulty levels chosen are stored in the browser and are  defaulting to values to stored in browser on return visits.
+- When theme selection is changed the appropriate colour them is displayed.
+- When the difficulty selection has changed then the appropriate level is used when playing the card game.
+- For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button. 
+- Page is responsive to screen width in portrait mode
+
+Page 2 - Game page 
+
+- Timer displays correct time remaining as per difficulty level. See Known issue section for problem with repeated play via the restart game button.
+
+- Total Score value increments with appropriate score on play.
+
+- visitors current highest score (Personal best) is stored in the browser.
+
+- No of flips value increases each time a card is flipped over.
+
+- For clickable sections the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
+
+- Page is responsive to screen width in portrait mode.
+
+- Card are animating and displaying correctly .
+
+- 4 modals are behaving as expected:
+
+  ​		1.  Game over - triggered when time has run out. Visitor can Exit or Restart game. 
+
+  ​		2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing  correctly when this modal appears.
+
+  ​		3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game.
+
+  ​		4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game.
+
+Page 3 - How to play / Top Scores 
+
+- Game instructions are on display.
+- Top 10 user scores are showing in descending order. 
+- Scores are refreshing in real-time .
+- On a clickable section the mouse changes to a pointer: The X out button on top right hand corner.
+- Page is responsive to screen width in portrait mode.
+
 ### CSS3 validator
 
-no errors
+no errors.  Resource: https://jigsaw.w3.org/css-validator/
 
 ![CSS result](/wireframe/w3c_css_validation_result.PNG)
 
 ### HTML5 validator
 
-no errors
+no errors. Resource: https://validator.w3.org/ 
 
 ![HTML5 result](/wireframe/w3_html_validation_result.PNG)
 
 ### JavaScript validator
 
-script.js  - no issues , results below.
+no issues , results below. Resource:  https://jshint.com/
 
-```
+```js
 Metrics
-There are 37 functions in this file.
+There are 46 functions in this file.
 
 Function with the largest signature take 2 arguments, while the median is 0.
 
-Largest function has 15 statements in it, while the median is 3.
+Largest function has 32 statements in it, while the median is 2.5.
 
 The most complex function has a cyclomatic complexity value of 4 while the median is 1.
-```
-
-leaderboard.js - no issues , results below.
-
-```
-Metrics
-There are 8 functions in this file.
-
-Function with the largest signature take 2 arguments, while the median is 1.
-
-Largest function has 9 statements in it, while the median is 1.5.
-
-The most complex function has a cyclomatic complexity value of 2 while the median is 1.
 
 One undefined variable
-37 firebase
-38 firebase
-39 firebase
+360	firebase
+361	firebase
+362	firebase
 ```
+
+
 
 ### Usability Testing
 
-I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device size , timer was going to minus figures.
+I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device screen width size .
 
 ### Compatibility Testing
 
 | Screen size\Browser                          | Chrome | Firefox | Edge |
 | -------------------------------------------- | ------ | ------- | ---- |
-| Android Mobile phone (Screen width 320px) xs | Pass | NA | NA |
 | Android Mobile phone (Screen width 412px) xs | Pass | Pass | Pass |
 | Android Tablet (Screen width 600px) sm       | Pass | Pass | Pass |
 | Windows laptop (Screen width 2560px)         |   Pass |  Pass |  Pass    |
 
 ### Testing User Stories
+
+
+
+##### Visitor goals
+
+    1. As a user to this game site , I want to be able to play a fun game and test my memory.
+
+
+
+    1. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
+    2. As a user to this game site , I want the ability to select a difficulty level that suits me best .
+    3. As a user to this game site , I want to be able to submit my high score to the leader board.
+
+##### Owner goals
+
+    1. As the site owner, I want to be able to play a fun game and test my memory.
+
+
 
 back to [contents](#table-of-contents)
 
@@ -295,7 +345,7 @@ For easy deployment on GitHub pages you will need a GitHub user account and a po
 
 GitHub is a code hosting platform for version control and collaboration. It's free to enrol for a user account and I would recommend you have one if you wish to deploy this repository and make changes.
 
-When you have a GitHub account you can simple click on the Fork button on the top right corner. This is clone the Tutti-Frutti repository for your GitHub account, then you can make any changes you like.
+When you have a GitHub account you can simple click on the Fork button on the top right corner. This will clone the Tutti-Frutti repository for your GitHub account, then you can make any changes you like.
 
 ### Gitpod
 
@@ -321,7 +371,7 @@ If you prefer working on the repository locally, you can clone the repository to
 3. To clone the repository using **HTTPS,** under "Clone with HTTPS", click the paste icon.
    To clone the repository using an **SSH key**, click Use SSH, then click the paste icon.
    To clone a repository using **GitHub CLI,** click Use GitHub CLI, then click the paste icon.
-4. Open your preferred terminal window.
+4. Open your preferred Terminal interface.
 5. Change the current working directory to the location where you want the cloned directory.
 6. Type **'git clone'**, then paste the URL you copied earlier above.
 7. Press Enter to create your local clone.
@@ -334,9 +384,9 @@ You may wish to contribute to this website and have your contribution published,
 
 1. Go to the GitHub website and log in.
 2. Open <https://github.com/kenwals/tutti-frutti>
-3. In the top right-hand corner you will see a fork button, click on this **fork button** .
+3. In the top right-hand corner you will see a fork button, click on this **Fork button** .
 4. This will create a copy the Tutti-Frutti repository in your github account.
-5. Once you're finished making changes you can locate the **'New Pull Request**' button just above the file listing in the original repository(<https://github.com/kenwals/tutti-frutti>).
+5. Once you're finished making changes you can locate the **'New Pull Request**' button just above the file listing in the original repository (<https://github.com/kenwals/tutti-frutti>).
 6. If your pull request is approved, it will be merged into the master version of the Tutti-Frutti repository at a future date.
 
 more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
@@ -357,7 +407,7 @@ Graphics used are created by Artist and Graphic Designer [Rudy de Souza](https:/
 
 Local storage API handling was influenced by [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 
-Firebase realtime database code used for the Leaderboard.js script was based on (and later customised)code used in the following YouTube videos
+Firebase real-time database code used was based on (and later customised) in the following YouTube videos
 
 - [16.9: Array Functions: sort() - Topics of JavaScript/ES6](https://youtu.be/MWD-iKzR2c8)  (Channel : The coding Train)
 
