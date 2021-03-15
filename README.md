@@ -168,7 +168,7 @@ back to [contents](#table-of-contents)
 
 ## Testing
 
-I tested the site as I went along, manually testing or using automated online testing tools. I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly. I also set the countdown timer to 5 or 10 seconds to save time on testing the restart game functionality. 
+I tested the site as I went along, manually testing or using automated online testing tools. I focused on getting the site working on a small mobile phone screen first (iPhone 5 simulation on the Chrome Developer tools), and then subsequently all other screen sizes. In earlier versions of the code, the command console.log was used extensively to monitor if the JavaScript/JQuery was working correctly. I also set the countdown timer to 5 or 10 seconds to save time on testing the restart game functionality.
 
 I used JQuery commands below in developer tools console to give myself some shortcuts while testing the game.
 
@@ -179,7 +179,6 @@ $("#modal-you-win-leaderboard").modal("hide")  // this hides the you win leaderb
 localStorage.clear() // this clears the local storage completely
 localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 ```
-
 
 ### Performance Testing
 
@@ -223,17 +222,15 @@ For version control I used the UI on VS Code for making commits, and command lin
 
 ### Functionality Testing
 
-
-
-Page 1 - Homepage or Main Menu 
+Page 1 - Homepage or Main Menu
 
 - Theme and difficulty levels chosen are stored in the browser and are  defaulting to values to stored in browser on return visits.
 - When theme selection is changed the appropriate colour them is displayed.
 - When the difficulty selection has changed then the appropriate level is used when playing the card game.
-- For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button. 
+- For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button.
 - Page is responsive to screen width in portrait mode
 
-Page 2 - Game page 
+Page 2 - Game page
 
 - Timer displays correct time remaining as per difficulty level. See Known issue section for problem with repeated play via the restart game button.
 
@@ -251,37 +248,37 @@ Page 2 - Game page
 
 - 4 modals are behaving as expected:
 
-  ​		1.  Game over - triggered when time has run out. Visitor can Exit or Restart game. 
+  ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game.
 
-  ​		2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing  correctly when this modal appears.
+  ​  2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing  correctly when this modal appears.
 
-  ​		3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game.
+  ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game.
 
-  ​		4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game.
+  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game.
 
-Page 3 - How to play / Top Scores 
+Page 3 - How to play / Top Scores
 
 - Game instructions are on display.
-- Top 10 user scores are showing in descending order. 
+- Top 10 user scores are showing in descending order.
 - Scores are refreshing in real-time .
 - On a clickable section the mouse changes to a pointer: The X out button on top right hand corner.
 - Page is responsive to screen width in portrait mode.
 
 ### CSS3 validator
 
-no errors.  Resource: https://jigsaw.w3.org/css-validator/
+no errors.  Resource: <https://jigsaw.w3.org/css-validator/>
 
 ![CSS result](/wireframe/w3c_css_validation_result.PNG)
 
 ### HTML5 validator
 
-no errors. Resource: https://validator.w3.org/ 
+no errors. Resource: <https://validator.w3.org/>
 
 ![HTML5 result](/wireframe/w3_html_validation_result.PNG)
 
 ### JavaScript validator
 
-no issues , results below. Resource:  https://jshint.com/
+no issues , results below. Resource:  <https://jshint.com/>
 
 ```js
 Metrics
@@ -294,12 +291,10 @@ Largest function has 32 statements in it, while the median is 2.5.
 The most complex function has a cyclomatic complexity value of 4 while the median is 1.
 
 One undefined variable
-360	firebase
-361	firebase
-362	firebase
+360 firebase
+361 firebase
+362 firebase
 ```
-
-
 
 ### Usability Testing
 
@@ -315,23 +310,16 @@ I shared the project on the peer-review channel on slack, and also with friends/
 
 ### Testing User Stories
 
+#### Visitor Stories
 
+  1. As a user to this game site , I want to be able to play a fun game and test my memory.
+  2. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
+  3. As a user to this game site , I want the ability to select a difficulty level that suits me best .
+  4. As a user to this game site , I want to be able to submit my high score to the leader board.
 
-##### Visitor goals
+#### Owner Story
 
-    1. As a user to this game site , I want to be able to play a fun game and test my memory.
-
-
-
-    1. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
-    2. As a user to this game site , I want the ability to select a difficulty level that suits me best .
-    3. As a user to this game site , I want to be able to submit my high score to the leader board.
-
-##### Owner goals
-
-    1. As the site owner, I want to be able to play a fun game and test my memory.
-
-
+  1. As the site owner, I want to be able to play a fun game and test my memory.
 
 back to [contents](#table-of-contents)
 
