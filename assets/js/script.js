@@ -1,222 +1,177 @@
-class TuttiFrutti {
-    constructor(cards) {
-        this.cardsArray = cards;
-        this.timer = document.getElementById("time-remaining");
-        this.ticker = document.getElementById("flips");
-        this.scorePanel = document.getElementById("score");
-        this.finalScore = document.getElementById("finalScore");
-    } // some code on this script is taken and customised from Youtube video "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
+/**
+ *  some code on this script is taken and customised from Youtube video 
+ * "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
+ * 
+ */
+function ready() {
 
-    startGame() {
-        this.currentLevel = document.getElementById('level').value;
-        this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
-        this.totalClicks = 0;
-        this.totalScore = 0;
-        this.totalTime = this.getDifficultyLevel();
-        console.log(" level is :" + this.currentLevel + " time left is: " + this.totalTime + " unit of score is: " + this.scoreUnit);
-        this.timeRemaining = this.totalTime;
-        this.matchedCards = [];
-        this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
-        setTimeout(() => {
-            this.shuffleCards();
-            this.countDown = this.startCountDown();
-            this.busy = false;
-        }, 500); // this is a half a second timeout 
-        this.hideCards();
-        this.timer.innerText = this.timeRemaining;
-        this.ticker.innerText = this.totalClicks;
-        this.scorePanel.innerText = this.totalScore;
-    }
-
-    getDifficultyLevel() {
-        if (this.currentLevel === "easy") {
-            this.scoreUnit = 10;
-            return 70;
-        } else if (this.currentLevel === "medium") {
-            this.scoreUnit = 20;
-            return 60;
-        } else if (this.currentLevel === "hard") {
-            this.scoreUnit = 30;
-            return 50;
+    class TuttiFrutti {
+        constructor(cards) {
+            this.cardsArray = cards;
+            this.timer = document.getElementById("time-remaining");
+            this.ticker = document.getElementById("flips");
+            this.scorePanel = document.getElementById("score");
+            this.finalScore = document.getElementById("finalScore");
         }
-    }
 
-    hideCards() {
-        this.cardsArray.forEach(card => {
-            card.classList.remove("visible");
-            card.classList.remove("matched");
-        });
-    }
-
-    flipCard(card) {
-        if (this.canFlipCard(card)) {
-            this.totalClicks++;
+        startGame() {
+            this.isPaused = false;
+            this.currentLevel = document.getElementById('level').value;
+            this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
+            this.totalClicks = 0;
+            this.totalScore = 0;
+            this.totalTime = this.getDifficultyLevel();
+            console.log(" level is :" + this.currentLevel + " time left is: " + this.totalTime + " unit of score is: " + this.scoreUnit);
+            this.timeRemaining = this.totalTime;
+            this.matchedCards = [];
+            this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
+            setTimeout(() => {
+                this.shuffleCards();
+                this.countDown = this.startCountDown();
+                this.busy = false;
+            }, 500); // this is a half a second timeout 
+            this.hideCards();
+            this.timer.innerText = this.timeRemaining;
             this.ticker.innerText = this.totalClicks;
-            card.classList.add("visible");
-            if (this.cardToCheck)
-                this.checkForCardMatch(card);
-            else
-                this.cardToCheck = card;
+            this.scorePanel.innerText = this.totalScore;
         }
-    }
 
-    checkForCardMatch(card) {
-        if (this.getCardType(card) === this.getCardType(this.cardToCheck))
-            this.cardMatch(card, this.cardToCheck);
-        else
-            this.cardMisMatch(card, this.cardToCheck);
-        this.cardToCheck = null;
-    }
+        getDifficultyLevel() {
+            if (this.currentLevel === "easy") {
+                this.scoreUnit = 10;
+                return 70;
+            } else if (this.currentLevel === "medium") {
+                this.scoreUnit = 20;
+                return 60;
+            } else if (this.currentLevel === "hard") {
+                this.scoreUnit = 30;
+                return 50;
+            }
+        }
 
-    cardMatch(card1, card2) {
-        this.matchedCards.push(card1);
-        this.matchedCards.push(card2);
-        card1.classList.add("matched");
-        card2.classList.add("matched");
-        // score includes bonus given based on time remaining
-        this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
-        this.scorePanel.innerText = this.totalScore;
-        console.log("Your score is now :", this.totalScore, "time left :", this.timeRemaining);
-        localStorage.setItem('currentScore', this.totalScore);
-        if (this.matchedCards.length === this.cardsArray.length)
-            this.victory();
-    }
-    cardMisMatch(card1, card2) {
-        this.busy = true;
-        setTimeout(() => {
-            card1.classList.remove("visible");
-            card2.classList.remove("visible");
-            this.busy = false;
-        }, 1000);
-    }
+        hideCards() {
+            this.cardsArray.forEach(card => {
+                card.classList.remove("visible");
+                card.classList.remove("matched");
+            });
+        }
 
-    getCardType(card) {
-        return card.getElementsByClassName("card-value")[0].src;
-    }
+        flipCard(card) {
+            if (this.canFlipCard(card)) {
+                this.totalClicks++;
+                this.ticker.innerText = this.totalClicks;
+                card.classList.add("visible");
+                if (this.cardToCheck)
+                    this.checkForCardMatch(card);
+                else
+                    this.cardToCheck = card;
+            }
+        }
 
-    startCountDown() {
-        return setInterval(() => {
-            if (this.timeRemaining > 0) {
-                this.timeRemaining--;
-                this.timer.innerText = this.timeRemaining;
-            } else if (this.timeRemaining === 0){
-                this.gameOver();
-                this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , when game is over
+        checkForCardMatch(card) {
+            if (this.getCardType(card) === this.getCardType(this.cardToCheck))
+                this.cardMatch(card, this.cardToCheck);
+            else
+                this.cardMisMatch(card, this.cardToCheck);
+            this.cardToCheck = null;
+        }
+
+        cardMatch(card1, card2) {
+            this.matchedCards.push(card1);
+            this.matchedCards.push(card2);
+            card1.classList.add("matched");
+            card2.classList.add("matched");
+            // score includes bonus given based on time remaining
+            this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
+            this.scorePanel.innerText = this.totalScore;
+            localStorage.setItem('currentScore', this.totalScore);
+            if (this.matchedCards.length === this.cardsArray.length)
+                this.victory();
+        }
+        cardMisMatch(card1, card2) {
+            this.busy = true;
+            setTimeout(() => {
+                card1.classList.remove("visible");
+                card2.classList.remove("visible");
+                this.busy = false;
+            }, 1000);
+        }
+
+        getCardType(card) {
+            return card.getElementsByClassName("card-value")[0].src;
+        }
+
+        startCountDown() {
+            return setInterval(() => {
+                if (this.timeRemaining > 0 && (!this.isPaused)) {
+                    this.timeRemaining--;
+                    this.timer.innerText = this.timeRemaining;
+                } else if (this.timeRemaining === 0) {
+                    this.gameOver();
+                    this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , when game is over
+                }
+
+            }, 1000);
+        }
+
+        timerIsPaused(value) {
+            this.isPaused = value;
+        }
+
+        gameOver() {
+            clearInterval(this.countDown);
+            createModal("gameOver");
+            this.hideCards();
+        }
+
+        exitGame() {
+            clearInterval(this.countDown);
+            this.hideCards();
+        }
+
+        victory() {
+            clearInterval(this.countDown);
+            this.totalScore = this.totalScore - this.totalClicks;
+            this.finalScore.innerText = this.totalScore;
+            // checks if players Personal best score has been beaten?
+            if (this.recordBreaker()) {
+                $("#modal-you-win-leaderboard").modal("show");
+            } else {
+                createModal("youWin");
+            }
+            this.hideCards();
+        }
+
+        recordBreaker() {
+            if (!localStorage.getItem('topScore')) {
+                localStorage.setItem('topScore', this.totalScore);
+                return true;
+            } else if (localStorage.getItem('topScore') < this.totalScore) {
+                localStorage.setItem('topScore', this.totalScore);
+                return true;
+            } else {
+                return false;
             }
 
-        }, 1000);
-    }
-
-    gameOver() {
-        clearInterval(this.countDown);
-        this.createModal("gameOver");
-        this.hideCards();
-    }
-
-    exitGame() {
-        clearInterval(this.countDown);
-        this.hideCards();
-        console.log("exit game function has ran");
-    }
-
-    victory() {
-        clearInterval(this.countDown);
-        console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
-        this.totalScore = this.totalScore - this.totalClicks;
-        console.log(this.totalScore);
-        this.finalScore.innerText = this.totalScore;
-        // check if your Personal best score has been beaten?
-        if (this.recordBreaker()) {
-            $("#modal-you-win-leaderboard").modal("show");
-        } else {
-            this.createModal("youWin");
-        }
-        this.hideCards();
-    }
-
-    recordBreaker() {
-        if (!localStorage.getItem('topScore')) {
-            localStorage.setItem('topScore', this.totalScore);
-            return true;
-        } else if (localStorage.getItem('topScore') < this.totalScore) {
-            localStorage.setItem('topScore', this.totalScore);
-            return true;
-        } else {
-            return false;
         }
 
+        shuffleCards() {
+            for (let i = this.cardsArray.length - 1; i > 0; i--) {
+                let randomIndex = Math.floor(Math.random() * (i + 1));
+                this.cardsArray[randomIndex].style.order = i;
+                this.cardsArray[i].style.order = randomIndex;
+            }
+
+        } // Fisher and Yates shuffle  method
+
+        canFlipCard(card) {
+            return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
+        } // all these statements have to be false in order for it to be true, and user can flip the next card
+
     }
 
-    shuffleCards() {
-        for (let i = this.cardsArray.length - 1; i > 0; i--) {
-            let randomIndex = Math.floor(Math.random() * (i + 1));
-            this.cardsArray[randomIndex].style.order = i;
-            this.cardsArray[i].style.order = randomIndex;
-        }
-
-    } // Fisher and Yates shuffle  method
-
-    canFlipCard(card) {
-        return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
-    } // all these statements have to be false in order for it to be true, and user can flip the next card
-
-    createModal(modalId){
-        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
-        console.log(modal , " =modal ");
-        $("#modal-title").text(modal.modalTitle);
-        $("#modal-button-title").text(modal.buttonTitle);
-        $("#modal-button").addClass(modal.btnClass);
-        $("#modal-body").text(modal.bodyText);
-        this.modalEventListners();
-        $("#tutti-frutti-modal").modal("show");
-    }
-
-    modalEventListners(){
-        $(".btn-restart").click(()=> {
-            // you clicked the restart button in one of the modal
-            this.exitGame();
-            $(".btn-restart").removeClass("btn-restart");
-            $(".modal").modal("hide");
-            this.startGame();
-        });
-
-        $(".btn-continue").click(()=> {
-            // you clicked go the continue button on the modal
-            $(".btn-continue").removeClass("btn-continue");
-            $(".modal").modal("hide");
-        });
-    }
-
-}
-
-
-const modalContents = [ 
-    { 
-        modalTitle : "Game Over",
-        buttonTitle : "Restart Game",
-        bodyText : "Hard luck , your time has run out.",
-        modalId :  "gameOver",
-        btnClass : "btn-restart"
-    },   /* Modal [0] Game over  */
-    { 
-        modalTitle : "Tutti Frutti",
-        buttonTitle : "Continue",
-        bodyText : "Are you sure you want to EXIT this game or CONTINUE playing?",
-        modalId :  "exit",
-        btnClass : "btn-continue"
-    },  /* Modal [1] Are you sure you want to leave ? [1] */
-    { 
-        modalTitle : "You Win!",
-        buttonTitle : "Restart Game",
-        bodyText : "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
-        modalId :  "youWin",
-        btnClass : "btn-restart"
-    }   /* Modal [2]  you win  */
-] ;
-
-function ready() {
-    let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new TuttiFrutti(cards);
+    const cards = Array.from(document.getElementsByClassName("card"));
+    const game = new TuttiFrutti(cards);
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
@@ -224,12 +179,83 @@ function ready() {
         setValues();
     }
 
+
+    const modalContents = [{
+            modalTitle: "Game Over",
+            buttonTitle: "Restart Game",
+            bodyText: "Hard luck , your time has run out.",
+            modalId: "gameOver",
+            btnClass: "btn-restart"
+        }, /* Modal [0] Game over  */
+        {
+            modalTitle: "Tutti Frutti",
+            buttonTitle: "Continue",
+            bodyText: "Are you sure you want to EXIT this game or CONTINUE playing?",
+            modalId: "exit",
+            btnClass: "btn-continue"
+        }, /* Modal [1] Are you sure you want to leave ? [1] */
+        {
+            modalTitle: "You Win!",
+            buttonTitle: "Restart Game",
+            bodyText: "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
+            modalId: "youWin",
+            btnClass: "btn-restart"
+        } /* Modal [2]  you win  */
+    ];
+    /**
+     * this runs each time a modal is created in order for it's buttons to work
+     */
+    function modalEventListners() {
+        $(".btn-restart").click(() => {
+            // you clicked the restart button in one of the modal
+            //game.exitGame();
+            $(".btn-restart").removeClass("btn-restart");
+            $(".modal").modal("hide");
+            game.startGame();
+        });
+
+        $(".btn-continue").click(() => {
+            // you clicked go the continue button on the modal
+            $(".btn-continue").removeClass("btn-continue");
+            game.timerIsPaused(false);
+            $(".modal").modal("hide");
+        });
+    }
+
+    /**
+     * this creates a modal from a value in the modalContents object array
+     * then starts the modal event listeners
+     * and then displays the modal
+     * 
+     * @param {mondalId} (string) modalId 
+     */
+    function createModal(modalId) {
+        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+        console.log(modal, " =modal ");
+        $("#modal-title").text(modal.modalTitle);
+        $("#modal-button-title").text(modal.buttonTitle);
+        $("#modal-button").addClass(modal.btnClass);
+        $("#modal-body").text(modal.bodyText);
+        $("#tutti-frutti-modal").modal("show");
+        modalEventListners();
+    }
+
+    /**
+     * this populates the local storage of the browser with the prefered 
+     * colour theme and difficulty levels
+     * 
+     * then calls the setValues() Function
+     */
     function populateStorage() {
         localStorage.setItem('theme', document.getElementById('theme').value);
         localStorage.setItem('level', document.getElementById('level').value);
         setValues();
     }
 
+    /**
+     * the default theme and difficulty level is retrieved from 
+     * local storage and selected in the setting form on the homepage
+     */
     function setValues() {
         let currentTheme = localStorage.getItem('theme');
         let currentLevel = localStorage.getItem('level');
@@ -246,11 +272,11 @@ function ready() {
 
     /*                           event listeners section                          */
 
-    $("#theme").change(()=> populateStorage());
+    $("#theme").change(() => populateStorage());
 
-    $("#level").change(()=> populateStorage());
+    $("#level").change(() => populateStorage());
 
-    $("#btn-start").click(()=> {
+    $("#btn-start").click(() => {
         // you clicked the start button
         $("#page-home").addClass("collapse");
         $("#page-game").removeClass("collapse");
@@ -258,12 +284,13 @@ function ready() {
         game.startGame();
     });
 
-    $(".btn-back").click(()=> {
+    $(".btn-back").click(() => {
         // you clicked go back button on the game page
-        game.createModal("exit");
+        game.timerIsPaused(true);
+        createModal("exit");
     });
 
-    $(".btn-exit-game").click(()=> {
+    $(".btn-exit-game").click(() => {
         // you clicked go the exit game button on the modal
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -271,14 +298,14 @@ function ready() {
         // game page collapsed , home page is open
     });
 
-    $("#btn-info").click(()=> {
+    $("#btn-info").click(() => {
         // you clicked the info button on homepage
         $("#page-home").addClass("collapse");
         $("#page-help").removeClass("collapse");
         // home page collapsed , help page is open
     });
 
-    $("#btn-exit").click(()=> {
+    $("#btn-exit").click(() => {
         // you clicked the exit button on the info page
         $("#page-help").addClass("collapse");
         $("#page-home").removeClass("collapse");
@@ -290,9 +317,136 @@ function ready() {
             game.flipCard(card);
         });
     });
+
+    /*          the Leaderboard section        */
+
+    /**
+ *  Based partially on content from the following and then customised:
+
+ 9.2: Firebase: Saving Data - Programming with Text
+ https://youtu.be/7lEU1UEw3YI	(Channel : The coding Train)
+
+ Firebase Database Querying 101 - The Firebase Database For SQL Developers #3
+ https://youtu.be/3WTQZV5-roY	(Channel : FIREBASE )
+
+ Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4
+ https://youtu.be/sKFLI5FOOHs	(Channel : FIREBASE )
+
+ 9.3: Firebase: Retrieving Data - Programming with Text
+ https://youtu.be/NcewaPfFR6Y	(Channel : The coding Train)
+
+"Connecting Firebase to a Contact Form" 
+https://youtu.be/PP4Tr0l08NE	(Channel : Traversy Media)
+
+16.9: Array Functions: sort() - Topics of JavaScript/ES6  
+https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
+
+ * 
+ */
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyDhRCxPSNZrf4WjYQLssSEYmXbAKMFrZNw",
+        authDomain: "tutti-frutti-6a62e.firebaseapp.com",
+        databaseURL: "https://tutti-frutti-6a62e-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "tutti-frutti-6a62e",
+        storageBucket: "tutti-frutti-6a62e.appspot.com",
+        messagingSenderId: "602240536417",
+        appId: "1:602240536417:web:269a49b9f1b39d5046ff20",
+        measurementId: "G-WFN8X078TS"
+    };
+
+    firebase.initializeApp(firebaseConfig); // Initialize Firebase
+    firebase.analytics();
+    const database = firebase.database();
+    const leaderBoardRef = database.ref("leaderBoard"); // referance leaderboard collection
+    const query = leaderBoardRef.orderByChild("score").limitToLast(10); // these lines grabs data from firebase realtime database server
+    query.on("value", gotData, errData);
+    document.getElementById("form-leaderBoard").addEventListener("submit", submitform); // event listener on submit button
+
+    /**
+     * gets values from the form
+     * then clears the form value to prevent resubmit
+     * alerts user name and score has been sent
+     * closes modal after 3 seconds 
+     * 
+     * 
+     * @param {e} (event) e 
+     */
+    function submitform(e) {
+        e.preventDefault();
+        let name = getInputVal("name");
+        let score = parseInt(localStorage.getItem("currentScore"));
+        saveTopScore(name, score);
+        document.getElementById("form-leaderBoard").reset();
+        localStorage.removeItem("currentScore");
+        document.querySelector(".alert").style.display = "block";
+        setTimeout(function () {
+            $("#modal-you-win-leaderboard").modal("hide");
+            document.querySelector(".alert").style.display = "none";
+            $("#page-game").addClass("collapse");
+            $("#page-home").removeClass("collapse");
+        }, 3000);
+    }
+
+    /**
+     *  gets specific value from form field
+     * @param {id} (string) id 
+     * @returns  value from input field
+     */
+    function getInputVal(id) {
+        return document.getElementById(id).value;
+    }
+
+    /**
+     * saves scores to firebase realtime database 
+     * 
+     * @param {name} (string) name 
+     * @param {score} (integer) score 
+     */
+    function saveTopScore(name, score) {
+        let newLeaderBoardRef = leaderBoardRef.push();
+        newLeaderBoardRef.set({
+            name: name,
+            score: score
+        });
+    }
+
+    /**
+     * Takes a query of player scores from the database
+     * will sort the results in desending order 
+     * then displays the results on the leaderboard page
+     * 
+     * @param {data} (string) data from the Firebase database
+     */
+    function gotData(data) {
+        let scores = data.val(); // json object of the database snapshot
+        let scoreBoard = []; // empty array for sorting the scores in descending order later
+        let keys = Object.keys(scores); // makes an array of keys from the database
+        keys.forEach(k => scoreBoard.push(scores[k])); // adds the score results to an array 
+        scoreBoard.sort((a, b) => b.score - a.score); // this sorts the array by player scores by comparing scores
+        let leaderBoardOrderedList = ""; // empty string needed for outputing data to the webpage later
+        for (let i = 0; i < scoreBoard.length; i++) {
+            leaderBoardOrderedList += ("<li>  " + scoreBoard[i].name + " - " + scoreBoard[i].score + "  </li>");
+        }
+        $("#scoreList").html(leaderBoardOrderedList); // this outputs the ordered list body to the webpage
+    }
+
+    /**
+     * this outputs an error message to the console if there is a problem with the connection
+     * @param {err} (string) err 
+     */
+    function errData(err) {
+        console.log("Error!", err);
+    }
+    /*     end of the Leaderboard section        */
+
 }
 
-
+/**
+ * This waits for document to be fully loaded 
+ * then runs the ready() function when it's completed
+ */
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", ready());
 } else {
