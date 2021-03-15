@@ -133,7 +133,7 @@ function ready() {
             clearInterval(this.countDown);
             this.totalScore = this.totalScore - this.totalClicks;
             this.finalScore.innerText = this.totalScore;
-            // check if your Personal best score has been beaten?
+            // checks if players Personal best score has been beaten?
             if (this.recordBreaker()) {
                 $("#modal-you-win-leaderboard").modal("show");
             } else {
@@ -415,7 +415,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
     /**
      * Takes a query of player scores from the database
      * will sort the results in desending order 
-     * displays the results on the leaderboard page
+     * then displays the results on the leaderboard page
      * 
      * @param {data} (string) data from the Firebase database
      */
@@ -434,7 +434,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 
     /**
      * this outputs an error message to the console if there is a problem with the connection
-     * @param {err} strings err 
+     * @param {err} (string) err 
      */
     function errData(err) {
         console.log("Error!", err);
