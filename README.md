@@ -2,7 +2,7 @@
 
 ![Tutti Frutti logo](assets/images/logo_purple_3d.png)
 
-This is a colourful and interactive memory card game featuring fruit emojis.
+This is a colourful and interactive memory [card game](http:/kenwals.github.io/tutti-frutti/) featuring fruit emojis.
 
 :lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
 
