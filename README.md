@@ -313,13 +313,24 @@ I shared the project on the peer-review channel on slack, and also with friends/
 #### Visitor Stories
 
   1. As a user to this game site , I want to be able to play a fun game and test my memory.
+
+      ![user story 1 - visitor](/wireframe/user-story-1-visitor.PNG)
+
   2. As a user to this game site , I want the ability to change the colour theme of the game so it doesn't strain my eyes.
+
+      ![user story 2 - visitor](/wireframe/user-story-2.PNG)
+
   3. As a user to this game site , I want the ability to select a difficulty level that suits me best .
+
+      ![user story 3 - visitor](/wireframe/user-story-3.PNG)
+
   4. As a user to this game site , I want to be able to submit my high score to the leader board.
 
 #### Owner Story
 
   1. As the site owner, I want to be able to play a fun game and test my memory.
+
+      ![user story 1-owner ](/wireframe/user-story-1-visitor.PNG)
 
 back to [contents](#table-of-contents)
 
