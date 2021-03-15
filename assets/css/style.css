@@ -69,6 +69,11 @@ body {
 .modal {
   color: #007bff;
 }
+
+.modal-title {
+  font-size: 1.6rem; 
+}
+
 .alert {
   display: none;
 }
