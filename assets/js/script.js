@@ -119,7 +119,7 @@ function ready() {
         toggleIsPaused() {
             if (this.isPaused) 
             {this.isPaused = false ; console.log("clock is stoped");}
-            else {this.isPaused = true; console.log("clock is on");};
+            else {this.isPaused = true; console.log("clock is on");}
         }
     
         gameOver() {
