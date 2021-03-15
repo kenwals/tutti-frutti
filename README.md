@@ -10,54 +10,54 @@ This is a colourful and interactive memory card game featuring fruit emojis.
 
 ## Table of contents
 
-  * [UX](#ux)
-    + [Scope](#scope)
-      - [User stories](#user-stories)
-        * [Visitor goals](#visitor-goals)
-        * [Owner goals](#owner-goals)
-    + [Structure](#structure)
-    + [Skeleton](#skeleton)
-    + [Surface](#surface)
-      - [Colours](#colours)
-      - [Icons](#icons)
-      - [Images](#images)
-      - [Fonts](#fonts)
-  * [Features](#features)
-  * [Technologies Used](#technologies-used)
-    + [Frontend](#frontend)
-      - [Languages](#languages)
-      - [Libraries and Frameworks](#libraries-and-frameworks)
-      - [Tools](#tools)
-  * [Testing](#testing)
-    + [Performance Testing](#performance-testing)
-    + [Known issues](#known-issues)
-    + [Project barriers and solutions](#project-barriers-and-solutions)
-      - [Firebase orderByChild not working as expected](#firebase-orderbychild-not-working-as-expected)
-      - [Passing scores as strings](#passing-scores-as-strings)
-      - [JavaScript syntax differences p5 JS verses node JS verses vanilla](#javascript-syntax-differences-p5-js-verses-node-js-verses-vanilla)
-      - [Timer problem](#timer-problem)
-      - [Defensive design gap](#defensive-design-gap)
-    + [Version control](#version-control)
-    + [Functionality Testing](#functionality-testing)
-    + [CSS3 validator](#css3-validator)
-    + [HTML5 validator](#html5-validator)
-    + [JavaScript validator](#javascript-validator)
-    + [Usability Testing](#usability-testing)
-    + [Compatibility Testing](#compatibility-testing)
-    + [Testing User Stories](#testing-user-stories)
-      - [Visitor Stories](#visitor-stories)
-      - [Owner Story](#owner-story)
-  * [Deployment](#deployment)
-    + [GitHub](#github)
-    + [Gitpod](#gitpod)
-    + [GitHub Pages](#github-pages)
-    + [Local Deployment](#local-deployment)
-    + [Forking](#forking)
-  * [Credits](#credits)
-    + [Content](#content)
-    + [Resources](#resources)
-    + [Media](#media)
-    + [Acknowledgements](#acknowledgements)
+* [UX](#ux)
+  * [Scope](#scope)
+    * [User stories](#user-stories)
+      * [Visitor goals](#visitor-goals)
+      * [Owner goals](#owner-goals)
+  * [Structure](#structure)
+  * [Skeleton](#skeleton)
+  * [Surface](#surface)
+    * [Colours](#colours)
+    * [Icons](#icons)
+    * [Images](#images)
+    * [Fonts](#fonts)
+* [Features](#features)
+* [Technologies Used](#technologies-used)
+  * [Frontend](#frontend)
+    * [Languages](#languages)
+    * [Libraries and Frameworks](#libraries-and-frameworks)
+    * [Tools](#tools)
+* [Testing](#testing)
+  * [Performance Testing](#performance-testing)
+  * [Known issues](#known-issues)
+  * [Project barriers and solutions](#project-barriers-and-solutions)
+    * [Firebase orderByChild not working as expected](#firebase-orderbychild-not-working-as-expected)
+    * [Passing scores as strings](#passing-scores-as-strings)
+    * [JavaScript syntax differences p5 JS verses node JS verses vanilla](#javascript-syntax-differences-p5-js-verses-node-js-verses-vanilla)
+    * [Timer problem](#timer-problem)
+    * [Defensive design gap](#defensive-design-gap)
+  * [Version control](#version-control)
+  * [Functionality Testing](#functionality-testing)
+  * [CSS3 validator](#css3-validator)
+  * [HTML5 validator](#html5-validator)
+  * [JavaScript validator](#javascript-validator)
+  * [Usability Testing](#usability-testing)
+  * [Compatibility Testing](#compatibility-testing)
+  * [Testing User Stories](#testing-user-stories)
+    * [Visitor Stories](#visitor-stories)
+    * [Owner Story](#owner-story)
+* [Deployment](#deployment)
+  * [GitHub](#github)
+  * [Gitpod](#gitpod)
+  * [GitHub Pages](#github-pages)
+  * [Local Deployment](#local-deployment)
+  * [Forking](#forking)
+* [Credits](#credits)
+  * [Content](#content)
+  * [Resources](#resources)
+  * [Media](#media)
+  * [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -125,9 +125,9 @@ Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https:/
 
 #### Fonts
 
-- **"Jockey One"** was used for Header (h1,h2 and h3) text elements
+* **"Jockey One"** was used for Header (h1,h2 and h3) text elements
 ![Font sample of Jockey One](/wireframe/font-jockey-one-sample.PNG)
-- **"VT323"** was used for all other text.
+* **"VT323"** was used for all other text.
 ![Font sample of VT323](/wireframe/font-VT323-sample.PNG)
 
 On slow connections, another font may be visible while the site is loading.
@@ -138,11 +138,11 @@ back to [contents](#table-of-contents)
 
 ## Features
 
-- There are three difficulty levels
-- There are three theme options
-- The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leader board.
-- There is top 10 leader board of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in real-time.
-- Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
+* There are three difficulty levels
+* There are three theme options
+* The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leader board.
+* There is top 10 leader board of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in real-time.
+* Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
 
 ## Technologies Used
 
@@ -150,36 +150,36 @@ back to [contents](#table-of-contents)
 
 #### Languages
 
-- HTML
-- CSS
-- JavaScript
+* HTML
+* CSS
+* JavaScript
 
 #### Libraries and Frameworks
 
-- Bootstrap
-- JQuery
-- [Firebase](https://firebase.google.com/)
-- Fonts : [Google Fonts](https://fonts.google.com/)
-- Icons : [Fontawesome](https://fontawesome.com/)
+* Bootstrap
+* JQuery
+* [Firebase](https://firebase.google.com/)
+* Fonts : [Google Fonts](https://fonts.google.com/)
+* Icons : [Fontawesome](https://fontawesome.com/)
 
 #### Tools
 
-- IDE: Visual Studio Code (VS Code).
-- Version control: Git
-- Wireframe: [Balsamiq](https://balsamiq.com/)
-- Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.logging everything.
-- Kanban planner : [Github projects](https://github.com/kenwals/tutti-frutti/projects/1).
-- Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, VS code editor was used for minor updates.
-- File renaming utility : PowerRename from [PowerToys on Windows 10](https://www.windowscentral.com/how-bulk-rename-your-files-windows-10-powertoys)
-- Pomodoro timer : [Tomato Clock](https://chrome.google.com/webstore/detail/tomato-clock/enemipdanmallpjakiehedcgjmibjihj)
-- Overflow rescue tool : [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) was used for when a scroll left to right appeared on my site on smaller screens.
-- Colour contrast checking for Accessibility refinements : [WebAIM](https://webaim.org/resources/contrastchecker/) was used for when trying to decide what colours to use for text against which background colour.
-- Favicon creator : [favicon.io](https://favicon.io/favicon-generator/)
-- Autoprefixer CSS : [Autoprefixer](https://autoprefixer.github.io/)
-- Auto formatter for HTML and CSS : [dirtyMarkUp](https://www.10bestdesign.com/dirtymarkup/) and  [webformatter](https://webformatter.com/html)
-- px to rem convertor : [nekoCalc](https://nekocalc.com/px-to-rem-converter)
-- JavaScript linter : [jshint](https://jshint.com/)
-- markdown linter : markdownlint extension on VS Code.
+* IDE: Visual Studio Code (VS Code).
+* Version control: Git
+* Wireframe: [Balsamiq](https://balsamiq.com/)
+* Browser Developer tools : [Google Chrome](https://www.google.com/chrome) for console.logging everything.
+* Kanban planner : [Github projects](https://github.com/kenwals/tutti-frutti/projects/1).
+* Markdown editor: [Typora](https://typora.io/) was used when doing spellchecks and big changes to my README.md file, VS code editor was used for minor updates.
+* File renaming utility : PowerRename from [PowerToys on Windows 10](https://www.windowscentral.com/how-bulk-rename-your-files-windows-10-powertoys)
+* Pomodoro timer : [Tomato Clock](https://chrome.google.com/webstore/detail/tomato-clock/enemipdanmallpjakiehedcgjmibjihj)
+* Overflow rescue tool : [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) was used for when a scroll left to right appeared on my site on smaller screens.
+* Colour contrast checking for Accessibility refinements : [WebAIM](https://webaim.org/resources/contrastchecker/) was used for when trying to decide what colours to use for text against which background colour.
+* Favicon creator : [favicon.io](https://favicon.io/favicon-generator/)
+* Autoprefixer CSS : [Autoprefixer](https://autoprefixer.github.io/)
+* Auto formatter for HTML and CSS : [dirtyMarkUp](https://www.10bestdesign.com/dirtymarkup/) and  [webformatter](https://webformatter.com/html)
+* px to rem convertor : [nekoCalc](https://nekocalc.com/px-to-rem-converter)
+* JavaScript linter : [jshint](https://jshint.com/)
+* markdown linter : markdownlint extension on VS Code.
 
 back to [contents](#table-of-contents)
 
@@ -207,11 +207,11 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 ### Known issues
 
-- If the restart game button is pressed several times from repeated play , the timer gets progressively faster. this does not happen when play is started with button on home page.
-- In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
-- DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a JavaScript function and a object array. The other modal remained as is due to it's complexity.
-- Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
-- Site does not responsive landscape mode on mobile devices.
+* If the restart game button is pressed several times from repeated play , the timer gets progressively faster. this does not happen when play is started with button on home page.
+* In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
+* DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a JavaScript function and a object array. The other modal remained as is due to it's complexity.
+* Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
+* Site does not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
 
@@ -243,29 +243,29 @@ For version control I used the UI on VS Code for making commits, and command lin
 
 Page 1 - Homepage or Main Menu
 
-- Theme and difficulty levels chosen are stored in the browser and are  defaulting to values to stored in browser on return visits.
-- When theme selection is changed the appropriate colour them is displayed.
-- When the difficulty selection has changed then the appropriate level is used when playing the card game.
-- For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button.
-- Page is responsive to screen width in portrait mode
+* Theme and difficulty levels chosen are stored in the browser and are  defaulting to values to stored in browser on return visits.
+* When theme selection is changed the appropriate colour them is displayed.
+* When the difficulty selection has changed then the appropriate level is used when playing the card game.
+* For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button.
+* Page is responsive to screen width in portrait mode
 
 Page 2 - Game page
 
-- Timer displays correct time remaining as per difficulty level. See Known issue section for problem with repeated play via the restart game button.
+* Timer displays correct time remaining as per difficulty level. See Known issue section for problem with repeated play via the restart game button.
 
-- Total Score value increments with appropriate score on play.
+* Total Score value increments with appropriate score on play.
 
-- visitors current highest score (Personal best) is stored in the browser.
+* visitors current highest score (Personal best) is stored in the browser.
 
-- No of flips value increases each time a card is flipped over.
+* No of flips value increases each time a card is flipped over.
 
-- For clickable sections the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
+* For clickable sections the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
 
-- Page is responsive to screen width in portrait mode.
+* Page is responsive to screen width in portrait mode.
 
-- Card are animating and displaying correctly .
+* Card are animating and displaying correctly .
 
-- 4 modals are behaving as expected:
+* 4 modals are behaving as expected:
 
   ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game.
 
@@ -277,11 +277,11 @@ Page 2 - Game page
 
 Page 3 - How to play / Top Scores
 
-- Game instructions are on display.
-- Top 10 user scores are showing in descending order.
-- Scores are refreshing in real-time .
-- On a clickable section the mouse changes to a pointer: The X out button on top right hand corner.
-- Page is responsive to screen width in portrait mode.
+* Game instructions are on display.
+* Top 10 user scores are showing in descending order.
+* Scores are refreshing in real-time .
+* On a clickable section the mouse changes to a pointer: The X out button on top right hand corner.
+* Page is responsive to screen width in portrait mode.
 
 ### CSS3 validator
 
@@ -437,16 +437,16 @@ Local storage API handling was influenced by [this page on MDN](https://develope
 
 Firebase real-time database code used was based on (and later customised) in the following YouTube videos
 
-- [16.9: Array Functions: sort() - Topics of JavaScript/ES6](https://youtu.be/MWD-iKzR2c8)  (Channel : The coding Train)
+* [16.9: Array Functions: sort() - Topics of JavaScript/ES6](https://youtu.be/MWD-iKzR2c8)  (Channel : The coding Train)
 
-- [9.3: Firebase: Retrieving Data - Programming with Text](https://youtu.be/NcewaPfFR6Y)    (Channel : The coding Train)
+* [9.3: Firebase: Retrieving Data - Programming with Text](https://youtu.be/NcewaPfFR6Y)    (Channel : The coding Train)
 
-- [9.2: Firebase: Saving Data - Programming with Text](https://youtu.be/7lEU1UEw3YI)    (Channel : The coding Train)
+* [9.2: Firebase: Saving Data - Programming with Text](https://youtu.be/7lEU1UEw3YI)    (Channel : The coding Train)
 
-- [Firebase Database Querying 101 - The Firebase Database For SQL Developers #3](https://youtu.be/3WTQZV5-roY)  (Channel : FIREBASE )
+* [Firebase Database Querying 101 - The Firebase Database For SQL Developers #3](https://youtu.be/3WTQZV5-roY)  (Channel : FIREBASE )
 
-- [Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4](https://youtu.be/sKFLI5FOOHs)  (Channel : FIREBASE )
-- [Connecting Firebase to a Contact Form](https://youtu.be/PP4Tr0l08NE) (Channel : Traversy Media)
+* [Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4](https://youtu.be/sKFLI5FOOHs)  (Channel : FIREBASE )
+* [Connecting Firebase to a Contact Form](https://youtu.be/PP4Tr0l08NE) (Channel : Traversy Media)
 
 ### Media
 
@@ -454,14 +454,14 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 
 ### Acknowledgements
 
-- Game layout/structure is inspired by [PROXX](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
+* Game layout/structure is inspired by [PROXX](https://www.proxx.app/) , more interesting background [info here.](https://web.dev/proxx-announce/)
 
-- My mentor Maranatha Ilesanmi.
+* My mentor Maranatha Ilesanmi.
 
-- My class tutor Simen Daehlin.
+* My class tutor Simen Daehlin.
 
-- Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
+* Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
 
-- [Velo](https://velocoffee.ie/) Coffee Roasters and [Barry's Tea](https://www.barrystea.ie/).
+* [Velo](https://velocoffee.ie/) Coffee Roasters and [Barry's Tea](https://www.barrystea.ie/).
 
 back to [contents](#table-of-contents)
