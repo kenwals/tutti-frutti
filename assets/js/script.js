@@ -1,4 +1,3 @@
-
 /**
  *  some code on this script is taken and customised from Youtube video 
  * "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
@@ -85,7 +84,6 @@ function ready() {
             // score includes bonus given based on time remaining
             this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
             this.scorePanel.innerText = this.totalScore;
-            console.log("Your score is now :", this.totalScore, "time left :", this.timeRemaining);
             localStorage.setItem('currentScore', this.totalScore);
             if (this.matchedCards.length === this.cardsArray.length)
                 this.victory();
@@ -129,14 +127,11 @@ function ready() {
         exitGame() {
             clearInterval(this.countDown);
             this.hideCards();
-            console.log("exit game function has ran");
         }
     
         victory() {
             clearInterval(this.countDown);
-            //console.log(" total score is :", this.totalScore, " - total clicks ", this.totalClicks, " = ");
             this.totalScore = this.totalScore - this.totalClicks;
-            //console.log(this.totalScore);
             this.finalScore.innerText = this.totalScore;
             // check if your Personal best score has been beaten?
             if (this.recordBreaker()) {
@@ -208,7 +203,9 @@ function ready() {
             btnClass : "btn-restart"
         }   /* Modal [2]  you win  */
     ] ;
-
+/**
+ * this runs each time a modal is created in order for it's buttons to work
+ */
     function modalEventListners(){
         $(".btn-restart").click(()=> {
             // you clicked the restart button in one of the modal
