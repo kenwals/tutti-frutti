@@ -5,6 +5,7 @@
 * Browsers: last 4 version
 */
 
+
 @import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap');
 
 * {
@@ -40,10 +41,21 @@ body {
 .theme-colour {
   color: #4E03E2 ;
   min-height: 100vh;
+  background-image: -o-linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
   background-image: linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
   background-size: 400%;
-  animation: bg-animation 60s infinite alternate;
+  -webkit-animation: bg-animation 60s infinite alternate;
+          animation: bg-animation 60s infinite alternate;
 } /* code inspired by https://youtu.be/f3mwKLXpOLk */
+
+@-webkit-keyframes bg-animation {
+  0% {
+      background-position: left;
+  }
+  100% {
+      background-position: right;
+  }
+}
 
 @keyframes bg-animation {
   0% {
