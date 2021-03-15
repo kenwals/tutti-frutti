@@ -74,6 +74,10 @@ body {
   font-size: 1.6rem; 
 }
 
+.form-control {
+  font-size: 1.6rem;  /* this is the input field on the leaderboard modal */ 
+}
+
 .alert {
   display: none;
 }
