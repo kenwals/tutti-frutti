@@ -116,10 +116,8 @@ function ready() {
             }, 1000);
         }
 
-        toggleIsPaused() {
-            if (this.isPaused) 
-            {this.isPaused = false ; console.log("clock is stoped");}
-            else {this.isPaused = true; console.log("clock is on");}
+        timerIsPaused(value) {
+            this.isPaused = value ;
         }
     
         gameOver() {
@@ -223,7 +221,7 @@ function ready() {
         $(".btn-continue").click(()=> {
             // you clicked go the continue button on the modal
             $(".btn-continue").removeClass("btn-continue");
-            game.toggleIsPaused();
+            game.timerIsPaused(false);
             $(".modal").modal("hide");
         });
     }
@@ -292,7 +290,7 @@ function ready() {
 
     $(".btn-back").click(()=> {
         // you clicked go back button on the game page
-        game.toggleIsPaused();
+        game.timerIsPaused(true);
         createModal("exit");
     });
 
