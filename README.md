@@ -79,7 +79,7 @@ Page 3 - How to play / Top Scores - Top scores on are display here .There some i
 
 Wireframe
 
-![wireframe image](/wireframe/tutti_trutti_wireframe.png)
+![wireframe image](/wireframe/tutti-trutti-wireframe.png)
 
 ### Surface
 
@@ -107,9 +107,9 @@ Graphics (cards , logo and favicon ) used are created by [Rudy de Souza](https:/
 #### Fonts
 
 - **"Jockey One"** was used for Header (h1,h2 and h3) text elements
-![Font sample of Jockey One](/wireframe/font_jockey_one_sample.PNG)
+![Font sample of Jockey One](/wireframe/font-jockey-one-sample.PNG)
 - **"VT323"** was used for all other text.
-![Font sample of VT323](/wireframe/font_VT323_sample.PNG)
+![Font sample of VT323](/wireframe/font-VT323-sample.PNG)
 
 On slow connections, another font may be visible while the site is loading.
 
@@ -182,9 +182,9 @@ localStorage.setItem("topScore" , 0) // this resets your topScore to zero
 
 ### Performance Testing
 
-![lighthouse testing](/wireframe/20210302_lighthouse.PNG)
-
 I used the lighthouse tool for performance testing , no major issues found.
+
+![lighthouse testing](/wireframe/20210315-lighthouse.PNG)
 
 ### Known issues
 
@@ -268,13 +268,13 @@ Page 3 - How to play / Top Scores
 
 no errors.  Resource: <https://jigsaw.w3.org/css-validator/>
 
-![CSS result](/wireframe/w3c_css_validation_result.PNG)
+![CSS result](/wireframe/w3c-css-validation-result.PNG)
 
 ### HTML5 validator
 
 no errors. Resource: <https://validator.w3.org/>
 
-![HTML5 result](/wireframe/w3_html_validation_result.PNG)
+![HTML5 result](/wireframe/w3-html-validation-result.PNG)
 
 ### JavaScript validator
 
