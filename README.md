@@ -253,7 +253,7 @@ Page 1 - Homepage or Main Menu
 
 Page 2 - Game page
 
-* Timer displays correct time remaining as per difficulty level. See Known issue section for problem with repeated play via the restart game button.
+* Timer displays correct time remaining as per difficulty level. 
 
 * Total Score value increments with appropriate score on play.
 
