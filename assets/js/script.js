@@ -206,7 +206,7 @@ function ready() {
      * this runs each time a modal is created in order for it's buttons to work
      */
 
-        $(".btn-restart").click(() => {
+        $("#btn-restart").click(() => {
             // you clicked the restart button in one of the modal
             //game.exitGame();
             $("#btn-restart").addClass("d-none");
@@ -214,7 +214,7 @@ function ready() {
             game.startGame();
         });
 
-        $(".btn-continue").click(() => {
+        $("#btn-continue").click(() => {
             // you clicked go the continue button on the modal
             $("#btn-continue").addClass("d-none");
             game.timerIsPaused(false);
@@ -236,13 +236,13 @@ function ready() {
         //$("#modal-button-title").text(modal.buttonTitle);
         //$("#modal-button").addClass(modal.btnClass);
         $("#modal-body").text(modal.bodyText);
-        if (modal.btnId ="btn-restart") {
+        if (modal.btnId === "btn-restart") {
             $("#btn-restart").removeClass("d-none");
         } else {
             $("#btn-continue").removeClass("d-none");
         }
         $("#tutti-frutti-modal").modal("show");
-        modalEventListners();
+        //modalEventListners();
     }
 
     /**
