@@ -177,14 +177,13 @@ function ready() {
         const gamecontainer = document.getElementById("game-container");
         fruits.map((fruit)=> {
             const fruitCard = `<div class="card">
-                <div class="card-back card-face"><img alt="card back" class="cardback_img" src="assets/images/cardback_01.png"></div>
+                <div class="card-back card-face"><img alt="card back" class="cardback_img" src="assets/images/cardback_04.png"></div>
                 <div class="card-front card-face"><img alt="card front" class="card-value" src="assets/images/${fruit}_icon.png"></div>
             </div>`;
             cardsList += fruitCard;
             cardsList += fruitCard;
         } )
         gamecontainer.innerHTML = cardsList;
-
     }
 
 
