@@ -22,48 +22,52 @@ This is a colourful and interactive memory [card game](http:/kenwals.github.io/t
     * [Icons](#icons)
     * [Images](#images)
     * [Fonts](#fonts)
-* [Features](#features)
-* [Technologies Used](#technologies-used)
-  * [Frontend](#frontend)
-    * [Languages](#languages)
-    * [Libraries and Frameworks](#libraries-and-frameworks)
-    * [Tools](#tools)
-* [Testing](#testing)
-  * [Performance Testing](#performance-testing)
-  * [Known issues](#known-issues)
-  * [Project barriers and solutions](#project-barriers-and-solutions)
-    * [Firebase orderByChild not working as expected](#firebase-orderbychild-not-working-as-expected)
-    * [Passing scores as strings](#passing-scores-as-strings)
-    * [JavaScript syntax differences p5 JS verses node JS verses vanilla](#javascript-syntax-differences-p5-js-verses-node-js-verses-vanilla)
-    * [Timer problem](#timer-problem)
-    * [Defensive design gap](#defensive-design-gap)
-  * [Version control](#version-control)
-  * [Functionality Testing](#functionality-testing)
-  * [CSS3 validator](#css3-validator)
-  * [HTML5 validator](#html5-validator)
-  * [JavaScript validator](#javascript-validator)
-  * [Usability Testing](#usability-testing)
-  * [Compatibility Testing](#compatibility-testing)
-  * [Testing User Stories](#testing-user-stories)
-    * [Visitor Stories](#visitor-stories)
-    * [Owner Story](#owner-story)
-* [Deployment](#deployment)
-  * [GitHub](#github)
-  * [Gitpod](#gitpod)
-  * [GitHub Pages](#github-pages)
-  * [Local Deployment](#local-deployment)
-  * [Forking](#forking)
-* [Credits](#credits)
-  * [Content](#content)
-  * [Resources](#resources)
-  * [Media](#media)
-  * [Acknowledgements](#acknowledgements)
+  * [Features](#features)
+  * [Technologies Used](#technologies-used)
+    * [Frontend](#frontend)
+      * [Languages](#languages)
+      * [Libraries and Frameworks](#libraries-and-frameworks)
+      * [Tools](#tools)
+  * [Testing](#testing)
+    * [Performance Testing](#performance-testing)
+    * [Bugs encountered on the way](#bugs-encountered-on-the-way)
+      * [DRY code mistake on Modal](#dry-code-mistake-on-modal)
+      * [Timer problem](#timer-problem)
+    * [Known issues](#known-issues)
+    * [Project barriers and solutions](#project-barriers-and-solutions)
+      * [Firebase orderByChild not working as expected](#firebase-orderbychild-not-working-as-expected)
+      * [Passing scores as strings](#passing-scores-as-strings)
+      * [JavaScript syntax differences p5 JS verses node JS verses vanilla](#javascript-syntax-differences-p5-js-verses-node-js-verses-vanilla)
+      * [Defensive design gap](#defensive-design-gap)
+    * [Version control](#version-control)
+    * [Functionality Testing](#functionality-testing)
+    * [CSS3 validator](#css3-validator)
+    * [HTML5 validator](#html5-validator)
+    * [JavaScript validator](#javascript-validator)
+    * [Usability Testing](#usability-testing)
+    * [Compatibility Testing](#compatibility-testing)
+    * [Testing User Stories](#testing-user-stories)
+      * [Visitor Stories](#visitor-stories)
+      * [Owner Story](#owner-story)
+  * [Deployment](#deployment)
+    * [GitHub](#github)
+    * [Gitpod](#gitpod)
+    * [GitHub Pages](#github-pages)
+    * [Local Deployment](#local-deployment)
+    * [Forking](#forking)
+  * [Credits](#credits)
+    * [Content](#content)
+    * [Resources](#resources)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
 
 ---
 
 ## UX
 
 ### Scope
+
+![view of different devices](/wireframe/homepage-view.PNG)
 
 The site is three pages, it contains a menu page , a game page and an info page.  Its targeted at users of all ages and types.
 
@@ -180,6 +184,7 @@ back to [contents](#table-of-contents)
 * px to rem convertor : [nekoCalc](https://nekocalc.com/px-to-rem-converter)
 * JavaScript linter : [jshint](https://jshint.com/)
 * markdown linter : markdownlint extension on VS Code.
+* [markdown table of contents creator](https://ecotrust-canada.github.io/markdown-toc/)
 
 back to [contents](#table-of-contents)
 
@@ -205,13 +210,21 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 ![lighthouse testing](/wireframe/20210315-lighthouse.PNG)
 
+### Bugs encountered on the way
+
+#### DRY code mistake on Modal
+
+There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent modal buttons are only made visible when needed.
+
+#### Timer problem
+
+A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero just in case.
+
 ### Known issues
 
-* If the restart game button is pressed several times from repeated play , the timer gets progressively faster. this does not happen when play is started with button on home page.
 * In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
-* DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a JavaScript function and a object array. The other modal remained as is due to it's complexity.
-* Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
-* Site does not responsive landscape mode on mobile devices.
+
+* Site is not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
 
@@ -226,10 +239,6 @@ Initially the input form for receiving players top scores was sending the scores
 #### JavaScript syntax differences p5 JS verses node JS verses vanilla
 
 While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
-
-#### Timer problem
-
-A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
 
 #### Defensive design gap
 
@@ -251,7 +260,7 @@ Page 1 - Homepage or Main Menu
 
 Page 2 - Game page
 
-* Timer displays correct time remaining as per difficulty level. See Known issue section for problem with repeated play via the restart game button.
+* Timer displays correct time remaining as per difficulty level.
 
 * Total Score value increments with appropriate score on play.
 
@@ -301,18 +310,18 @@ no issues , results below. Resource:  <https://jshint.com/>
 
 ```js
 Metrics
-There are 46 functions in this file.
+There are 45 functions in this file.
 
 Function with the largest signature take 2 arguments, while the median is 0.
 
-Largest function has 32 statements in it, while the median is 2.5.
+Largest function has 33 statements in it, while the median is 3.
 
 The most complex function has a cyclomatic complexity value of 4 while the median is 1.
 
 One undefined variable
-360 firebase
-361 firebase
-362 firebase
+356 firebase
+357 firebase
+358 firebase
 ```
 
 ### Usability Testing
@@ -446,7 +455,18 @@ Firebase real-time database code used was based on (and later customised) in the
 * [Firebase Database Querying 101 - The Firebase Database For SQL Developers #3](https://youtu.be/3WTQZV5-roY)  (Channel : FIREBASE )
 
 * [Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4](https://youtu.be/sKFLI5FOOHs)  (Channel : FIREBASE )
+
 * [Connecting Firebase to a Contact Form](https://youtu.be/PP4Tr0l08NE) (Channel : Traversy Media)
+
+* [Bootstrap components](https://getbootstrap.com/)
+
+* [W3schools](https://www.w3schools.com/)
+
+* [Code institute's Slack workspace channels](https://slack.com)
+
+* [Stack Exchange](https://stackexchange.com/)
+
+* [MDN Web Docs](https://developer.mozilla.org/en-US/)
 
 ### Media
 

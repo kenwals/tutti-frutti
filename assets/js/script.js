@@ -21,7 +21,6 @@ function ready() {
             this.totalClicks = 0;
             this.totalScore = 0;
             this.totalTime = this.getDifficultyLevel();
-            console.log(" level is :" + this.currentLevel + " time left is: " + this.totalTime + " unit of score is: " + this.scoreUnit);
             this.timeRemaining = this.totalTime;
             this.matchedCards = [];
             this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
@@ -110,7 +109,6 @@ function ready() {
                     this.gameOver();
                     this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , when game is over
                 }
-
             }, 1000);
         }
 
@@ -152,7 +150,6 @@ function ready() {
             } else {
                 return false;
             }
-
         }
 
         shuffleCards() {
@@ -182,45 +179,26 @@ function ready() {
 
     const modalContents = [{
             modalTitle: "Game Over",
-            buttonTitle: "Restart Game",
             bodyText: "Hard luck , your time has run out.",
             modalId: "gameOver",
-            btnClass: "btn-restart"
+            btnId: "btn-restart"
         }, /* Modal [0] Game over  */
         {
             modalTitle: "Tutti Frutti",
-            buttonTitle: "Continue",
             bodyText: "Are you sure you want to EXIT this game or CONTINUE playing?",
             modalId: "exit",
-            btnClass: "btn-continue"
+            btnId: "btn-continue"
         }, /* Modal [1] Are you sure you want to leave ? [1] */
         {
             modalTitle: "You Win!",
-            buttonTitle: "Restart Game",
             bodyText: "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
             modalId: "youWin",
-            btnClass: "btn-restart"
+            btnId: "btn-restart"
         } /* Modal [2]  you win  */
     ];
     /**
      * this runs each time a modal is created in order for it's buttons to work
      */
-    function modalEventListners() {
-        $(".btn-restart").click(() => {
-            // you clicked the restart button in one of the modal
-            //game.exitGame();
-            $(".btn-restart").removeClass("btn-restart");
-            $(".modal").modal("hide");
-            game.startGame();
-        });
-
-        $(".btn-continue").click(() => {
-            // you clicked go the continue button on the modal
-            $(".btn-continue").removeClass("btn-continue");
-            game.timerIsPaused(false);
-            $(".modal").modal("hide");
-        });
-    }
 
     /**
      * this creates a modal from a value in the modalContents object array
@@ -231,13 +209,14 @@ function ready() {
      */
     function createModal(modalId) {
         const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
-        console.log(modal, " =modal ");
         $("#modal-title").text(modal.modalTitle);
-        $("#modal-button-title").text(modal.buttonTitle);
-        $("#modal-button").addClass(modal.btnClass);
         $("#modal-body").text(modal.bodyText);
+        if (modal.btnId === "btn-restart") {
+            $("#btn-restart").removeClass("d-none");
+        } else {
+            $("#btn-continue").removeClass("d-none");
+        }
         $("#tutti-frutti-modal").modal("show");
-        modalEventListners();
     }
 
     /**
@@ -276,6 +255,20 @@ function ready() {
 
     $("#level").change(() => populateStorage());
 
+    $("#btn-restart").click(() => {
+        // you clicked the restart button in one of the modal
+        $("#btn-restart").addClass("d-none");
+        $(".modal").modal("hide");
+        game.startGame();
+    });
+
+    $("#btn-continue").click(() => {
+        // you clicked go the continue button on the modal
+        $("#btn-continue").addClass("d-none");
+        game.timerIsPaused(false);
+        $(".modal").modal("hide");
+    });
+
     $("#btn-start").click(() => {
         // you clicked the start button
         $("#page-home").addClass("collapse");
@@ -294,6 +287,8 @@ function ready() {
         // you clicked go the exit game button on the modal
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
+        $("#btn-restart").addClass("d-none");
+        $("#btn-continue").addClass("d-none");
         game.exitGame();
         // game page collapsed , home page is open
     });
@@ -440,7 +435,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
         console.log("Error!", err);
     }
     /*     end of the Leaderboard section        */
-
 }
 
 /**
