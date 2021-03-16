@@ -182,45 +182,45 @@ function ready() {
 
     const modalContents = [{
             modalTitle: "Game Over",
-            buttonTitle: "Restart Game",
+           // buttonTitle: "Restart Game",
             bodyText: "Hard luck , your time has run out.",
             modalId: "gameOver",
-            btnClass: "btn-restart"
+           btnId: "btn-restart"
         }, /* Modal [0] Game over  */
         {
             modalTitle: "Tutti Frutti",
-            buttonTitle: "Continue",
+            //buttonTitle: "Continue",
             bodyText: "Are you sure you want to EXIT this game or CONTINUE playing?",
             modalId: "exit",
-            btnClass: "btn-continue"
+            btnId: "btn-continue"
         }, /* Modal [1] Are you sure you want to leave ? [1] */
         {
             modalTitle: "You Win!",
-            buttonTitle: "Restart Game",
+           // buttonTitle: "Restart Game",
             bodyText: "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
             modalId: "youWin",
-            btnClass: "btn-restart"
+            btnId: "btn-restart"
         } /* Modal [2]  you win  */
     ];
     /**
      * this runs each time a modal is created in order for it's buttons to work
      */
-    function modalEventListners() {
+
         $(".btn-restart").click(() => {
             // you clicked the restart button in one of the modal
             //game.exitGame();
-            $(".btn-restart").removeClass("btn-restart");
+            $("#btn-restart").addClass("d-none");
             $(".modal").modal("hide");
             game.startGame();
         });
 
         $(".btn-continue").click(() => {
             // you clicked go the continue button on the modal
-            $(".btn-continue").removeClass("btn-continue");
+            $("#btn-continue").addClass("d-none");
             game.timerIsPaused(false);
             $(".modal").modal("hide");
         });
-    }
+
 
     /**
      * this creates a modal from a value in the modalContents object array
@@ -233,9 +233,14 @@ function ready() {
         const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
         console.log(modal, " =modal ");
         $("#modal-title").text(modal.modalTitle);
-        $("#modal-button-title").text(modal.buttonTitle);
-        $("#modal-button").addClass(modal.btnClass);
+        //$("#modal-button-title").text(modal.buttonTitle);
+        //$("#modal-button").addClass(modal.btnClass);
         $("#modal-body").text(modal.bodyText);
+        if (modal.btnId ="btn-restart") {
+            $("#btn-restart").removeClass("d-none");
+        } else {
+            $("#btn-continue").removeClass("d-none");
+        }
         $("#tutti-frutti-modal").modal("show");
         modalEventListners();
     }
