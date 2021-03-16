@@ -253,7 +253,7 @@ Page 1 - Homepage or Main Menu
 
 Page 2 - Game page
 
-* Timer displays correct time remaining as per difficulty level. 
+* Timer displays correct time remaining as per difficulty level.
 
 * Total Score value increments with appropriate score on play.
 
