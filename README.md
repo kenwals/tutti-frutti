@@ -65,6 +65,8 @@ This is a colourful and interactive memory [card game](http:/kenwals.github.io/t
 
 ### Scope
 
+![view of different devices](/wireframe/homepage-view.PNG)
+
 The site is three pages, it contains a menu page , a game page and an info page.  Its targeted at users of all ages and types.
 
 #### User stories
