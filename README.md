@@ -207,6 +207,16 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 ![lighthouse testing](/wireframe/20210315-lighthouse.PNG)
 
+### Bugs encountered on the way
+
+#### Timer problem
+
+A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
+
+#### DRY code mistake on Modal
+
+There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent button was only made visible when needed.
+
 ### Known issues
 
 * In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
@@ -227,17 +237,9 @@ Initially the input form for receiving players top scores was sending the scores
 
 While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
 
-#### Timer problem
-
-A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
-
 #### Defensive design gap
 
 When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, i added the ability to pause the timer when the "Are you sure?" modal appears.
-
-#### DRY code mistake on Modal
-
-There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent button was only made visible when needed.
 
 ### Version control
 
