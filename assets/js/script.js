@@ -21,7 +21,6 @@ function ready() {
             this.totalClicks = 0;
             this.totalScore = 0;
             this.totalTime = this.getDifficultyLevel();
-            console.log(" level is :" + this.currentLevel + " time left is: " + this.totalTime + " unit of score is: " + this.scoreUnit);
             this.timeRemaining = this.totalTime;
             this.matchedCards = [];
             this.busy = true; // this ensures that no cards can be selected when something else like an animation is busy
@@ -258,7 +257,6 @@ function ready() {
 
     $("#btn-restart").click(() => {
         // you clicked the restart button in one of the modal
-        //game.exitGame();
         $("#btn-restart").addClass("d-none");
         $(".modal").modal("hide");
         game.startGame();
