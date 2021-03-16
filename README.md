@@ -209,13 +209,13 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 ### Bugs encountered on the way
 
-#### Timer problem
-
-A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero.
-
 #### DRY code mistake on Modal
 
 There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent button was only made visible when needed.
+
+#### Timer problem
+
+A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero just in case.
 
 ### Known issues
 
