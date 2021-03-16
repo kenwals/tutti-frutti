@@ -437,7 +437,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
         console.log("Error!", err);
     }
     /*     end of the Leaderboard section        */
-
 }
 
 /**
