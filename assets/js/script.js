@@ -291,6 +291,8 @@ function ready() {
         // you clicked go the exit game button on the modal
         $("#page-game").addClass("collapse");
         $("#page-home").removeClass("collapse");
+        $("#btn-restart").addClass("d-none");
+        $("#btn-continue").addClass("d-none");
         game.exitGame();
         // game page collapsed , home page is open
     });
