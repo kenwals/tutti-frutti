@@ -22,42 +22,44 @@ This is a colourful and interactive memory [card game](http:/kenwals.github.io/t
     * [Icons](#icons)
     * [Images](#images)
     * [Fonts](#fonts)
-* [Features](#features)
-* [Technologies Used](#technologies-used)
-  * [Frontend](#frontend)
-    * [Languages](#languages)
-    * [Libraries and Frameworks](#libraries-and-frameworks)
-    * [Tools](#tools)
-* [Testing](#testing)
-  * [Performance Testing](#performance-testing)
-  * [Known issues](#known-issues)
-  * [Project barriers and solutions](#project-barriers-and-solutions)
-    * [Firebase orderByChild not working as expected](#firebase-orderbychild-not-working-as-expected)
-    * [Passing scores as strings](#passing-scores-as-strings)
-    * [JavaScript syntax differences p5 JS verses node JS verses vanilla](#javascript-syntax-differences-p5-js-verses-node-js-verses-vanilla)
-    * [Timer problem](#timer-problem)
-    * [Defensive design gap](#defensive-design-gap)
-  * [Version control](#version-control)
-  * [Functionality Testing](#functionality-testing)
-  * [CSS3 validator](#css3-validator)
-  * [HTML5 validator](#html5-validator)
-  * [JavaScript validator](#javascript-validator)
-  * [Usability Testing](#usability-testing)
-  * [Compatibility Testing](#compatibility-testing)
-  * [Testing User Stories](#testing-user-stories)
-    * [Visitor Stories](#visitor-stories)
-    * [Owner Story](#owner-story)
-* [Deployment](#deployment)
-  * [GitHub](#github)
-  * [Gitpod](#gitpod)
-  * [GitHub Pages](#github-pages)
-  * [Local Deployment](#local-deployment)
-  * [Forking](#forking)
-* [Credits](#credits)
-  * [Content](#content)
-  * [Resources](#resources)
-  * [Media](#media)
-  * [Acknowledgements](#acknowledgements)
+  * [Features](#features)
+  * [Technologies Used](#technologies-used)
+    * [Frontend](#frontend)
+      * [Languages](#languages)
+      * [Libraries and Frameworks](#libraries-and-frameworks)
+      * [Tools](#tools)
+  * [Testing](#testing)
+    * [Performance Testing](#performance-testing)
+    * [Bugs encountered on the way](#bugs-encountered-on-the-way)
+      * [DRY code mistake on Modal](#dry-code-mistake-on-modal)
+      * [Timer problem](#timer-problem)
+    * [Known issues](#known-issues)
+    * [Project barriers and solutions](#project-barriers-and-solutions)
+      * [Firebase orderByChild not working as expected](#firebase-orderbychild-not-working-as-expected)
+      * [Passing scores as strings](#passing-scores-as-strings)
+      * [JavaScript syntax differences p5 JS verses node JS verses vanilla](#javascript-syntax-differences-p5-js-verses-node-js-verses-vanilla)
+      * [Defensive design gap](#defensive-design-gap)
+    * [Version control](#version-control)
+    * [Functionality Testing](#functionality-testing)
+    * [CSS3 validator](#css3-validator)
+    * [HTML5 validator](#html5-validator)
+    * [JavaScript validator](#javascript-validator)
+    * [Usability Testing](#usability-testing)
+    * [Compatibility Testing](#compatibility-testing)
+    * [Testing User Stories](#testing-user-stories)
+      * [Visitor Stories](#visitor-stories)
+      * [Owner Story](#owner-story)
+  * [Deployment](#deployment)
+    * [GitHub](#github)
+    * [Gitpod](#gitpod)
+    * [GitHub Pages](#github-pages)
+    * [Local Deployment](#local-deployment)
+    * [Forking](#forking)
+  * [Credits](#credits)
+    * [Content](#content)
+    * [Resources](#resources)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -211,7 +213,7 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 #### DRY code mistake on Modal
 
-There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent button was only made visible when needed.
+There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent modal buttons are only made visible when needed.
 
 #### Timer problem
 
@@ -452,7 +454,18 @@ Firebase real-time database code used was based on (and later customised) in the
 * [Firebase Database Querying 101 - The Firebase Database For SQL Developers #3](https://youtu.be/3WTQZV5-roY)  (Channel : FIREBASE )
 
 * [Common SQL Queries converted for the Firebase Database - The Firebase Database For SQL Developers #4](https://youtu.be/sKFLI5FOOHs)  (Channel : FIREBASE )
+
 * [Connecting Firebase to a Contact Form](https://youtu.be/PP4Tr0l08NE) (Channel : Traversy Media)
+
+* [Bootstrap components](https://getbootstrap.com/)
+
+* [W3schools](https://www.w3schools.com/)
+
+* [Code institute's Slack workspace channels](https://slack.com)
+
+* [Stack Exchange](https://stackexchange.com/)
+
+* [MDN Web Docs](https://developer.mozilla.org/en-US/)
 
 ### Media
 
