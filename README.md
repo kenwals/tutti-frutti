@@ -209,7 +209,7 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 * In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
 
-* Site does not responsive landscape mode on mobile devices.
+* Site is not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
 
