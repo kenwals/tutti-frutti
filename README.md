@@ -207,10 +207,8 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 ### Known issues
 
-* If the restart game button is pressed several times from repeated play , the timer gets progressively faster. this does not happen when play is started with button on home page.
 * In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
-* DRY code problem. Initially my code have 4 modals. After a review with my mentor, i was advised to reduce the amount of repeated code , so i refactored and reduced three of the modals down to 1 generic modal that is populated by a JavaScript function and a object array. The other modal remained as is due to it's complexity.
-* Edge case with modal buttons - as a consequence of the modal code refactor and reduction. A problem can happen where the continue button and restart game event listeners are being called at the same time. I believe this is a possible caching issue as the code is updating correctly, it's just not acting correctly! . This scenario only happens when the game has started and user has pressed the back button. If the modal is left open and the timer runs out, the game over modal appears. For the remainder of the session the continue button will behave as if it's a restart game button.
+
 * Site does not responsive landscape mode on mobile devices.
 
 ### Project barriers and solutions
@@ -234,6 +232,10 @@ A problem highlighted to me on the peer review channel on slack, on repeated pla
 #### Defensive design gap
 
 When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, i added the ability to pause the timer when the "Are you sure?" modal appears.
+
+#### DRY code mistake on Modal
+
+There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent button was only made visible when needed.
 
 ### Version control
 
