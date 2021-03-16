@@ -316,9 +316,9 @@ Largest function has 33 statements in it, while the median is 3.
 The most complex function has a cyclomatic complexity value of 4 while the median is 1.
 
 One undefined variable
-356	firebase
-357	firebase
-358	firebase
+356 firebase
+357 firebase
+358 firebase
 ```
 
 ### Usability Testing
