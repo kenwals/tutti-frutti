@@ -110,7 +110,6 @@ function ready() {
                     this.gameOver();
                     this.timeRemaining = "0"; // this prevents gameOver modal being repeatedly triggered , when game is over
                 }
-
             }, 1000);
         }
 
@@ -152,7 +151,6 @@ function ready() {
             } else {
                 return false;
             }
-
         }
 
         shuffleCards() {
