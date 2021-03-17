@@ -5,7 +5,6 @@
 * Browsers: last 4 version
 */
 
-
 @import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap');
 
 * {
@@ -72,7 +71,7 @@ body {
   cursor: pointer;
 }
 
-#form-homePage {
+#form-theme-difficulty {
   max-width: 33rem;
 }
 
@@ -122,8 +121,8 @@ body {
 
 .card {
   position: relative;
-  height: 5.469rem; /* originally 175 px   1/2  is 87.5 needed for small screen */
-  width: 3.906rem; /* 125 px  1/2 is 62.5 needed for small screen */
+  height: 5.469rem; 
+  width: 3.906rem; 
   background-color: transparent;
   cursor: pointer;
 }
