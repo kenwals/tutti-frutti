@@ -234,7 +234,7 @@ This problem was highlighted to me on the peer review channel on slack, on repea
 
 #### Firebase orderByChild not working as expected
 
-As part of this project i learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data unsorted(Top 10 player scores on the leader board), just that i had to order the data myself in a separate process (array sort() method) for it to be stored and then displayed in an ordered fashion.
+As part of this project I learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data unsorted(Top 10 player scores on the leader board), just that i had to order the data dump myself in a separate process (array sort() method) for it to be sorted properly and then displayed in an ordered Top  10 fashion.
 
 #### Passing scores as strings
 
