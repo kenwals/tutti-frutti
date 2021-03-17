@@ -87,6 +87,7 @@ function ready() {
             if (this.matchedCards.length === this.cardsArray.length)
                 this.victory();
         }
+
         cardMisMatch(card1, card2) {
             this.busy = true;
             setTimeout(() => {
@@ -96,6 +97,12 @@ function ready() {
             }, 1000);
         }
 
+        /**
+         * This returns the image filename of the card for identification purposes
+         * 
+         * @param {card} (object) card 
+         * @returns 
+         */
         getCardType(card) {
             return card.getElementsByClassName("card-value")[0].src;
         }
@@ -172,6 +179,9 @@ function ready() {
     const cards = Array.from(document.getElementsByClassName("card"));
     const game = new TuttiFrutti(cards);
 
+    /**
+     * here the card images are placed on the website using the fruits array
+     */
     function generateCards(){
         let cardsList = "";
         const gamecontainer = document.getElementById("game-container");
@@ -328,7 +338,11 @@ function ready() {
         card.addEventListener("click", () => {
             game.flipCard(card);
         });
-    });
+    });  
+    
+    document.getElementById("form-leaderBoard").addEventListener("submit", submitform); // event listener on submit button for the leaderboard modal
+    
+    /*           end of event listeners section                          */
 
     /*          the Leaderboard section        */
 
@@ -374,7 +388,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
     const leaderBoardRef = database.ref("leaderBoard"); // referance leaderboard collection
     const query = leaderBoardRef.orderByChild("score").limitToLast(10); // these lines grabs data from firebase realtime database server
     query.on("value", gotData, errData);
-    document.getElementById("form-leaderBoard").addEventListener("submit", submitform); // event listener on submit button
 
     /**
      * gets values from the form
