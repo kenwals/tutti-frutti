@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<meta content="colourful fruit emoji card memory game" name="Description">
+	<meta content="Colourful Fruit Emoji Card Memory Game" name="Description">
 	<link href="assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 	<link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
 	<link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
@@ -20,8 +20,8 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="d-flex flex-column justify-content-between home-menu">
-					<img alt="" class="m-auto d-block img-fluid" id="logo-home" src="assets/images/logo_purple_plain.png">
-					<form class="mx-auto mt-5" id="form-homePage" name="form-homePage">
+					<img alt="Tutti Frutti Game logo" class="m-auto d-block img-fluid" id="logo-home" src="assets/images/logo-purple-plain.png">
+					<form class="mx-auto mt-5" id="form-theme-difficulty" name="form-theme-difficulty">
 						<label for="theme">Select a theme:</label> <select class="custom-select custom-select-lg mb-3" id="theme">
 							<option selected value="colour">
 								Colourful mode
@@ -44,12 +44,14 @@
 							</option>
 						</select> <button class="btn btn-light btn-lg btn-block" id="btn-start" type="button">START</button>
 					</form>
+					
 				</div>
 			</div>
 		</div>
 		<div class="home-footer row border-top fixed-bottom ml-1 mr-1 py-2">
 			<div class="col-12">
-				<i class="fas fa-info-circle float-left" id="btn-info"></i>
+				<noscript>Error!, Please enable JavaScript on your browser!</noscript> 
+				<i class="fas fa-info-circle float-left" id="btn-info"  tabindex="0" ></i>
 			</div>
 		</div>
 	</div><!-- end of home page -->
@@ -90,16 +92,11 @@
 							<div class="modal-header">
 								<h5 class="modal-title" id="staticBackdropLabel3">Wow, you did it!</h5>
 							</div>
-							<div class="modal-body">
-								Well done, you just scored <span id="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
-								<div class="alert">
-									Your score has been sent now.
-								</div>
+							<div class="modal-body">Well done, you just scored <span id="finalScore">000</span>. This is your personal best, if you would like to appear on the leaderboard , please enter your name below to Register.
+								<div class="alert">Your score has been sent now.</div>
 								<form id="form-leaderBoard" name="form-leaderBoard">
 									<div class="form-row">
-										<div class="col">
-											<input class="form-control" id="name" placeholder="Name" required="" type="text">
-										</div>
+										<div class="col"><input class="form-control" id="name" placeholder="Name" required="" type="text"></div>
 									</div>
 									<div class="modal-footer">
 										<button class="btn btn-secondary btn-exit-game" data-dismiss="modal" type="button">Exit</button> <button class="btn btn-primary" id="btn-leaderBoardSubmit" type="submit">Submit</button>
@@ -109,77 +106,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="game-container">
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/banana_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/banana_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/cherry_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/cherry_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/peach_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/peach_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/lemon_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/lemon_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/pear_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/pear_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/apple_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/apple_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/strawberry_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/strawberry_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/orange_icon.png"></div>
-					</div>
-					<div class="card">
-						<div class="card-back card-face"><img alt="" class="cardback_img" src="assets/images/cardback_01.png"></div>
-						<div class="card-front card-face"><img alt="" class="card-value" src="assets/images/orange_icon.png"></div>
-					</div>
+				<div class="game-container" id="game-container">  <!-- this is where the cards are placed by the generateCards() function -->
 				</div>
 			</div>
 		</div>
 		<div class="game-footer row border-top fixed-bottom mx-3 py-2">
 			<div class="col-12">
-				<i class="fas fa-arrow-left float-left btn-back" id="btn-back"></i>
+				<i class="fas fa-arrow-left float-left btn-back" id="btn-back"  tabindex="0"></i>
 				<div class="float-right">
 					<span id="flips">0</span> <i class="fas fa-coins"></i>
 				</div>
@@ -190,7 +123,7 @@
 	<div class="container-fluid collapse" id="page-help">
 		<div class="help-header row ml-1 mr-1 py-2">
 			<div class="col-12">
-				<i class="fas fa-window-close float-right" id="btn-exit"></i>
+				<i class="fas fa-window-close float-right" id="btn-exit" tabindex="0"></i>
 			</div>
 		</div>
 		<div class="row">
@@ -201,9 +134,9 @@
 					<li>For EASY, time limit is 70 seconds, you score a minimum of 10 points each pair. For MEDIUM, time : 60 seconds, points: 20. For HARD, time : 50 seconds, points: 30.</li>
 					<li>BONUS points is given based on the amount of time that is currently remaining, so the quicker you pair up the cards the higher that BONUS is. For Example, if on the EASY level, you have just matched a pair while there is 50 seconds left, then you will score 10+(10*50) = 510 points</li>
 					<li>WIN by matching all the cards before the clock runs out, your final score is deducted by the number of times you flipped cards over.</li>
+					<li>If you have any queries or feedback, contact me at <a href="mailto:kenwals@gmail.com?subject=Tutti-Frutti%20Visitor%20Query">kenwals@gmail.com</a></li>
 				</ul>
-			</div><br>
-			<br>
+			</div>
 			<div class="col-12 col-lg-6">
 				<h2 class="heading-text border-top border-bottom text-center">Top Scores!</h2>
 				<ol class="text-center info-panel" id="scoreList">
@@ -211,8 +144,7 @@
 					<li>Mario - 90</li>
 					<li>Luigi - 50</li>
 				</ol>
-			</div><br>
-			<br>
+			</div>
 		</div>
 	</div><!-- end of help info page -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script> 

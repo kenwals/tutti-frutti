@@ -1,6 +1,6 @@
 # Tutti Frutti
 
-![Tutti Frutti logo](assets/images/logo_purple_3d.png)
+![Tutti Frutti logo](assets/images/logo-purple-3d.png)
 
 This is a colourful and interactive memory [card game](http:/kenwals.github.io/tutti-frutti/) featuring fruit emojis.
 
@@ -86,17 +86,20 @@ The site is three pages, it contains a menu page , a game page and an info page.
 
 ### Structure
 
-This site will be put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leader board is connected to a Firebase real-time Database.
+This site is put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leader board is connected to a Firebase real-time Database.
 
 ### Skeleton
 
-The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed using bootstraps collapse component.
+The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed using bootstraps collapse component. Game layout/structure is inspired by [PROXX](https://www.proxx.app/).
 
 Page 1 - Homepage or Main Menu - Game title, Theme and Difficulty settings , Start button.
+          This page links to Page 2 by start button, and to page 3 by an info Icon button.
 
 Page 2 - Game page - Card game page with timer, score ,flips gauge and modals.
+          This page links to Page 1 by a go back Icon button in lower left hand corner or an exit button on any of the modals.
 
 Page 3 - How to play / Top Scores - Top scores on are display here .There some info on how to play the game and on how the score is calculated.
+          This page links to Page 1 by a X out icon button in the upper right hand corner.
 
 8 card pairs - Fruit emojis used  are :lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
 
@@ -147,6 +150,7 @@ back to [contents](#table-of-contents)
 * The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leader board.
 * There is top 10 leader board of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in real-time.
 * Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
+* Game can be paused whilst playing by clickon on the go back icon in the lower left hand corner. Continue button resumes play.
 
 ## Technologies Used
 
@@ -160,8 +164,8 @@ back to [contents](#table-of-contents)
 
 #### Libraries and Frameworks
 
-* Bootstrap
-* JQuery
+* [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* [JQuery](https://jquery.com/)
 * [Firebase](https://firebase.google.com/)
 * Fonts : [Google Fonts](https://fonts.google.com/)
 * Icons : [Fontawesome](https://fontawesome.com/)
@@ -214,15 +218,15 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 #### DRY code mistake on Modal
 
-There is a generic modal which is displayed differently for three scenarios. Initally this refactored code had a design flaw in it , that lead to the continue button and restart game button being mixed up . Also the restart button would make the game go faster. This problem was fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent modal buttons are only made visible when needed.
+There is a generic modal which is displayed differently for three scenarios. Initally this refactored DRY code had a design flaw in it, that lead to the continue button and restart game button being mixed up. Also the restart button would make the game go faster (first flagged to me on the peer review channel on slack). This problem was only fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent modal buttons are only made visible when needed.
 
 #### Timer problem
 
-A problem highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures . I since put in a block to stop the timer going less then zero just in case.
+This problem was highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. It would get so bad it was showing minus figures. I since put in a block to stop the timer going less then zero just in case.
 
 ### Known issues
 
-* In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
+* In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript script imported from Google firebase. These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
 
 * Site is not responsive landscape mode on mobile devices.
 
@@ -230,19 +234,19 @@ A problem highlighted to me on the peer review channel on slack, on repeated pla
 
 #### Firebase orderByChild not working as expected
 
-As part of this project i learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data unsorted(Top 10 player scores on the leader board), just that i had to order the data myself in a separate process (array sort() method) for it to be stored and then displayed in an ordered fashion.
+As part of this project I learned how to use Firebase. I did have a problem getting the orderByChild query command working as i presumed this command ordered the data ascending or descending order. But it wasn't appearing to work. Eventually i realised, it was working for querying or filtering the relevant data unsorted(Top 10 player scores on the leader board), just that i had to order the data dump myself in a separate process (array sort() method) for it to be sorted properly and then displayed in an ordered Top  10 fashion.
 
 #### Passing scores as strings
 
-Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database.
+Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with sort ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database, this way scores are stored as integers.
 
 #### JavaScript syntax differences p5 JS verses node JS verses vanilla
 
-While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
+While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to learn  and use a JavaScript framework like p5 or nodeJS. I plan on researching more on JavaScript frameworks more before deciding which framework to learn next.
 
 #### Defensive design gap
 
-When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, i added the ability to pause the timer when the "Are you sure?" modal appears.
+When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, I added the ability to pause the timer when the "Are you sure?" modal appears.
 
 ### Version control
 
@@ -255,41 +259,36 @@ Page 1 - Homepage or Main Menu
 * Theme and difficulty levels chosen are stored in the browser and are  defaulting to values to stored in browser on return visits.
 * When theme selection is changed the appropriate colour them is displayed.
 * When the difficulty selection has changed then the appropriate level is used when playing the card game.
-* For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button.
+* For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the dropdown menus, the Start button and Info Page Button.
+* If Javascript is disabled on the browser an Error message appears.
 * Page is responsive to screen width in portrait mode
 
 Page 2 - Game page
 
 * Timer displays correct time remaining as per difficulty level.
-
-* Total Score value increments with appropriate score on play.
-
-* visitors current highest score (Personal best) is stored in the browser.
-
+* Total Score value increments with appropriate score on play, it's also stored in the brower.
+* Visitors current highest score (Personal best) is stored in the browser.
 * No of flips value increases each time a card is flipped over.
-
 * For clickable sections the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
-
 * Page is responsive to screen width in portrait mode.
-
-* Card are animating and displaying correctly .
-
+* Cards are animating and displaying correctly.
 * 4 modals are behaving as expected:
 
-  ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game.
+  ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game. Buttons functioning correctly.
 
-  ​  2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing  correctly when this modal appears.
+  ​  2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing correctly when this modal appears. Timer resumes when the continue button is pressed. Buttons functioning correctly.
 
-  ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game.
+  ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game. Buttons functioning correctly.
 
-  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game.
+  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game. Buttons functioning correctly.
 
 Page 3 - How to play / Top Scores
 
 * Game instructions are on display.
+* Contact details on display for queries or feedback.
 * Top 10 user scores are showing in descending order.
-* Scores are refreshing in real-time .
-* On a clickable section the mouse changes to a pointer: The X out button on top right hand corner.
+* Scores are refreshing in real-time, dependency on uptime from Google FireBase.
+* On the clickable sections the mouse changes to a pointer: The X out button on top right hand corner and the email address link.
 * Page is responsive to screen width in portrait mode.
 
 ### CSS3 validator
@@ -310,23 +309,20 @@ no issues , results below. Resource:  <https://jshint.com/>
 
 ```js
 Metrics
-There are 45 functions in this file.
+There are 47 functions in this file.
 
 Function with the largest signature take 2 arguments, while the median is 0.
 
-Largest function has 33 statements in it, while the median is 3.
+Largest function has 36 statements in it, while the median is 3.
 
 The most complex function has a cyclomatic complexity value of 4 while the median is 1.
-
-One undefined variable
-356 firebase
-357 firebase
-358 firebase
 ```
 
 ### Usability Testing
 
-I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device screen width size .
+I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device screen width size.
+
+I tested and improved assesibility with lighthouse and Firefox developer tools.
 
 ### Compatibility Testing
 
@@ -362,13 +358,15 @@ I shared the project on the peer-review channel on slack, and also with friends/
 
       ![user story 4 - visitor](/wireframe/user-story-4.PNG)  ![user story 4 - visitor](/wireframe/user-story-4b.PNG)
 
-      *On achieving a high score the user can submit their name and have their name appear on the leaderboard*
+      *On achieving a high score the user can submit their name and have their name appear on the leaderboard.*
 
 #### Owner Story
 
   1. As the site owner, I want to be able to play a fun game and test my memory.
 
       ![user story 1-owner ](/wireframe/user-story-1-visitor.PNG)
+
+      *Game is fun to play and a great test of memory skills for the owner.*
 
 back to [contents](#table-of-contents)
 
@@ -401,7 +399,7 @@ Once you have the completed site in your own repository, you can deploy to GitHu
 
 ### Local Deployment
 
-If you prefer working on the repository locally, you can clone the repository to your desktop by the following steps.
+If you prefer working on the repository locally on your preferred Desktop IDE, you can clone the repository to your desktop by the following steps.
 
 1. Go to [the Tutti Frutti github page](https://github.com/kenwals/tutti-frutti).
 2. Above the list of files, click on the **code** button.
@@ -482,6 +480,6 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 
 * Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
 
-* [Velo](https://velocoffee.ie/) Coffee Roasters and [Barry's Tea](https://www.barrystea.ie/).
+* [Velo](https://velocoffee.ie/) Coffee Roasters , [Barry's Tea](https://www.barrystea.ie/) and the Radio stations Nova, RTE Gold, BBC2 and BBC6 .
 
 back to [contents](#table-of-contents)

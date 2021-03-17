@@ -35,6 +35,10 @@ function ready() {
             this.scorePanel.innerText = this.totalScore;
         }
 
+        /**
+         * check is made on what difficulty level player has selected, appropriate score unit and time limit is set
+         * @returns (integer) total game time
+         */
         getDifficultyLevel() {
             if (this.currentLevel === "easy") {
                 this.scoreUnit = 10;
@@ -48,6 +52,9 @@ function ready() {
             }
         }
 
+        /**
+         * this resets all the cards to be turned over
+         */
         hideCards() {
             this.cardsArray.forEach(card => {
                 card.classList.remove("visible");
@@ -55,6 +62,10 @@ function ready() {
             });
         }
 
+        /**
+         * card has been clicked on , check is made if card can flipped , if so then number flips increased, card made visible and checked for match
+         * @param {object} card 
+         */
         flipCard(card) {
             if (this.canFlipCard(card)) {
                 this.totalClicks++;
@@ -67,6 +78,10 @@ function ready() {
             }
         }
 
+        /**
+         * check if the second selected card is matching the first one
+         * @param {object} card 
+         */
         checkForCardMatch(card) {
             if (this.getCardType(card) === this.getCardType(this.cardToCheck))
                 this.cardMatch(card, this.cardToCheck);
@@ -75,6 +90,11 @@ function ready() {
             this.cardToCheck = null;
         }
 
+        /**
+         * cards are matched , they are added to a matched array , given a matched class, score is updated , if array is full then game is won
+         * @param {object} card1 
+         * @param {object} card2 
+         */
         cardMatch(card1, card2) {
             this.matchedCards.push(card1);
             this.matchedCards.push(card2);
@@ -87,6 +107,12 @@ function ready() {
             if (this.matchedCards.length === this.cardsArray.length)
                 this.victory();
         }
+
+        /**
+         * mismatched cards are turned over
+         * @param {object} card1 
+         * @param {object} card2 
+         */
         cardMisMatch(card1, card2) {
             this.busy = true;
             setTimeout(() => {
@@ -96,10 +122,19 @@ function ready() {
             }, 1000);
         }
 
+        /**
+         * This returns the image filename of the card for identification purposes
+         * @param {card} (object) card 
+         * @returns (string) image filename of card
+         */
         getCardType(card) {
             return card.getElementsByClassName("card-value")[0].src;
         }
 
+        /**
+         * this is a setinterval function that reduces the timer every second, when timer reaches zero gameover is called
+         * @returns (function) 
+         */
         startCountDown() {
             return setInterval(() => {
                 if (this.timeRemaining > 0 && (!this.isPaused)) {
@@ -112,21 +147,34 @@ function ready() {
             }, 1000);
         }
 
+        /**
+         * this pauses the timer from descending
+         * @param {boolean} value 
+         */
         timerIsPaused(value) {
             this.isPaused = value;
         }
 
+         /**
+         * clock is stopped , cards are turned over and game over modal called
+         */
         gameOver() {
             clearInterval(this.countDown);
             createModal("gameOver");
             this.hideCards();
         }
 
+        /**
+         * clock is stopped and cards are turned over
+         */
         exitGame() {
             clearInterval(this.countDown);
             this.hideCards();
         }
 
+        /**
+         * player has won the game , final score calculated and appropriate modal is displayed
+         */
         victory() {
             clearInterval(this.countDown);
             this.totalScore = this.totalScore - this.totalClicks;
@@ -140,6 +188,10 @@ function ready() {
             this.hideCards();
         }
 
+        /**
+         * checks if the player has beated their best score if a returning player, first time player always returns a true value
+         * @returns (boolean)
+         */
         recordBreaker() {
             if (!localStorage.getItem('topScore')) {
                 localStorage.setItem('topScore', this.totalScore);
@@ -152,6 +204,9 @@ function ready() {
             }
         }
 
+        /**
+         * shuffles the cards by changing the CSS display order
+         */
         shuffleCards() {
             for (let i = this.cardsArray.length - 1; i > 0; i--) {
                 let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -161,14 +216,41 @@ function ready() {
 
         } // Fisher and Yates shuffle  method
 
+        /**
+         * this ensures player cannot flip a card if game is busy or 2 cards are already selected
+         * @param {card} (object) card 
+         * @returns (boolean)
+         */
         canFlipCard(card) {
             return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
         } // all these statements have to be false in order for it to be true, and user can flip the next card
 
     }
-
+    
+    const fruits = ["lemon", "apple", "strawberry", "banana", "cherry","peach","pear", "orange"];
+    generateCards();
     const cards = Array.from(document.getElementsByClassName("card"));
     const game = new TuttiFrutti(cards);
+
+    /**
+     * here the card images are placed on the website using the fruits array
+     * mmy mentor assisted with part of this code  
+     *
+     */
+    function generateCards(){
+        let cardsList = "";
+        const gamecontainer = document.getElementById("game-container");
+        fruits.map((fruit)=> {
+            const fruitCard = `<div class="card">
+                <div class="card-back card-face"><img alt="card back" class="cardback_img" src="assets/images/cardback-04.png"></div>
+                <div class="card-front card-face"><img alt="card front - ${fruit}" class="card-value" src="assets/images/${fruit}-icon.png"></div>
+            </div>`;
+            cardsList += fruitCard;
+            cardsList += fruitCard;
+        } );
+        gamecontainer.innerHTML = cardsList;
+    }
+
 
     if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
         populateStorage();
@@ -204,7 +286,7 @@ function ready() {
      * this creates a modal from a value in the modalContents object array
      * then starts the modal event listeners
      * and then displays the modal
-     * 
+     *  my mentor assisted with part of this code  
      * @param {mondalId} (string) modalId 
      */
     function createModal(modalId) {
@@ -222,7 +304,6 @@ function ready() {
     /**
      * this populates the local storage of the browser with the prefered 
      * colour theme and difficulty levels
-     * 
      * then calls the setValues() Function
      */
     function populateStorage() {
@@ -311,7 +392,11 @@ function ready() {
         card.addEventListener("click", () => {
             game.flipCard(card);
         });
-    });
+    });  
+    
+    document.getElementById("form-leaderBoard").addEventListener("submit", submitform); // event listener on submit button for the leaderboard modal
+    
+    /*           end of event listeners section                          */
 
     /*          the Leaderboard section        */
 
@@ -357,15 +442,9 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
     const leaderBoardRef = database.ref("leaderBoard"); // referance leaderboard collection
     const query = leaderBoardRef.orderByChild("score").limitToLast(10); // these lines grabs data from firebase realtime database server
     query.on("value", gotData, errData);
-    document.getElementById("form-leaderBoard").addEventListener("submit", submitform); // event listener on submit button
 
     /**
-     * gets values from the form
-     * then clears the form value to prevent resubmit
-     * alerts user name and score has been sent
-     * closes modal after 3 seconds 
-     * 
-     * 
+     * gets values from the form, then clears the form value to prevent a resubmit, alerts user name and score has been sent, then closes modal after 3 seconds 
      * @param {e} (event) e 
      */
     function submitform(e) {
@@ -395,7 +474,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 
     /**
      * saves scores to firebase realtime database 
-     * 
      * @param {name} (string) name 
      * @param {score} (integer) score 
      */
@@ -411,7 +489,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
      * Takes a query of player scores from the database
      * will sort the results in desending order 
      * then displays the results on the leaderboard page
-     * 
      * @param {data} (string) data from the Firebase database
      */
     function gotData(data) {
