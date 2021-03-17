@@ -234,6 +234,8 @@ function ready() {
 
     /**
      * here the card images are placed on the website using the fruits array
+     * mmy mentor assisted with part of this code  
+     *
      */
     function generateCards(){
         let cardsList = "";
@@ -284,6 +286,7 @@ function ready() {
      * this creates a modal from a value in the modalContents object array
      * then starts the modal event listeners
      * and then displays the modal
+     *  my mentor assisted with part of this code  
      * @param {mondalId} (string) modalId 
      */
     function createModal(modalId) {
