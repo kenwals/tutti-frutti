@@ -238,7 +238,7 @@ As part of this project I learned how to use Firebase. I did have a problem gett
 
 #### Passing scores as strings
 
-Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database.
+Initially the input form for receiving players top scores was sending the scores as strings to the firebase database. This lead to a problem with sort ordering the scores in Firebase. I rectified this problem by using parseInt() on the string before it was submitted to the database, this way scores are stored as integers.
 
 #### JavaScript syntax differences p5 JS verses node JS verses vanilla
 
