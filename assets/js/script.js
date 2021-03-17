@@ -247,7 +247,7 @@ function ready() {
             </div>`;
             cardsList += fruitCard;
             cardsList += fruitCard;
-        } )
+        } );
         gamecontainer.innerHTML = cardsList;
     }
 
