@@ -266,35 +266,26 @@ Page 1 - Homepage or Main Menu
 Page 2 - Game page
 
 * Timer displays correct time remaining as per difficulty level.
-
-* Total Score value increments with appropriate score on play.
-
-* visitors current highest score (Personal best) is stored in the browser.
-
+* Total Score value increments with appropriate score on play, it's also stored in the brower.
+* Visitors current highest score (Personal best) is stored in the browser.
 * No of flips value increases each time a card is flipped over.
-
 * For clickable sections the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
-
 * Page is responsive to screen width in portrait mode.
-
-* Card are animating and displaying correctly .
-
+* Cards are animating and displaying correctly.
 * 4 modals are behaving as expected:
 
-  ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game.
-
-  ​  2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing  correctly when this modal appears.
-
-  ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game.
-
-  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game.
+  ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game. Buttons functioning correctly.
+  ​  2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing correctly when this modal appears. Timer resumes when the continue button is pressed. Buttons functioning correctly.
+  ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game. Buttons functioning correctly.
+  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game. Buttons functioning correctly.
 
 Page 3 - How to play / Top Scores
 
 * Game instructions are on display.
+* Contact details on display for queries or feedback.
 * Top 10 user scores are showing in descending order.
-* Scores are refreshing in real-time .
-* On a clickable section the mouse changes to a pointer: The X out button on top right hand corner.
+* Scores are refreshing in real-time, dependency on uptime from Google FireBase.
+* On the clickable sections the mouse changes to a pointer: The X out button on top right hand corner and the email address link.
 * Page is responsive to screen width in portrait mode.
 
 ### CSS3 validator
