@@ -275,8 +275,11 @@ Page 2 - Game page
 * 4 modals are behaving as expected:
 
   ​  1.  Game over - triggered when time has run out. Visitor can Exit or Restart game. Buttons functioning correctly.
+
   ​  2.  Are you sure you want to EXIT ? - triggered when go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing correctly when this modal appears. Timer resumes when the continue button is pressed. Buttons functioning correctly.
+
   ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game. Buttons functioning correctly.
+
   ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game. Buttons functioning correctly.
 
 Page 3 - How to play / Top Scores
@@ -322,7 +325,9 @@ One undefined variable
 
 ### Usability Testing
 
-I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device screen width size .
+I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device screen width size.
+
+I tested and improved assesibility with lighthouse and Firefox developer tools.
 
 ### Compatibility Testing
 
