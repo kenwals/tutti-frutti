@@ -485,6 +485,6 @@ Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoj
 
 * Various people at the [code institute](https://codeinstitute.net/) and on the code institute Slack channel.
 
-* [Velo](https://velocoffee.ie/) Coffee Roasters and [Barry's Tea](https://www.barrystea.ie/).
+* [Velo](https://velocoffee.ie/) Coffee Roasters , [Barry's Tea](https://www.barrystea.ie/) and the Radio stations Nova, RTE Gold, BBC2 and BBC6 .
 
 back to [contents](#table-of-contents)
