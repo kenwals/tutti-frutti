@@ -150,6 +150,7 @@ back to [contents](#table-of-contents)
 * The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leader board.
 * There is top 10 leader board of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in real-time.
 * Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
+* Game can be paused whilst playing by clickon on the go back icon in the lower left hand corner. Continue button resumes play.
 
 ## Technologies Used
 
@@ -163,8 +164,8 @@ back to [contents](#table-of-contents)
 
 #### Libraries and Frameworks
 
-* Bootstrap
-* JQuery
+* [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* [JQuery](https://jquery.com/)
 * [Firebase](https://firebase.google.com/)
 * Fonts : [Google Fonts](https://fonts.google.com/)
 * Icons : [Fontawesome](https://fontawesome.com/)
