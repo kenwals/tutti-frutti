@@ -161,8 +161,8 @@ body {
 }
 
 .card.matched .card-value {
-  -webkit-animation: dance 1s linear infinite 500ms;
-  animation: dance 1s linear infinite 500ms;
+  -webkit-animation: dance 1s linear infinite 250ms;
+  animation: dance 1s linear infinite 250ms;
 }
 
 @-webkit-keyframes dance {
