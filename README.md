@@ -242,11 +242,11 @@ Initially the input form for receiving players top scores was sending the scores
 
 #### JavaScript syntax differences p5 JS verses node JS verses vanilla
 
-While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to use a JavaScript framework like p5 or nodeJS.
+While learning and researching JavaScript, I did find it challenging at times when i was looking at super interesting JavaScript commands that turned out to be not compatible with the web browser alone and i would need to learn  and use a JavaScript framework like p5 or nodeJS. I plan on researching more on JavaScript frameworks more before deciding which framework to learn next.
 
 #### Defensive design gap
 
-When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, i added the ability to pause the timer when the "Are you sure?" modal appears.
+When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this happening, I added the ability to pause the timer when the "Are you sure?" modal appears.
 
 ### Version control
 
@@ -259,7 +259,8 @@ Page 1 - Homepage or Main Menu
 * Theme and difficulty levels chosen are stored in the browser and are  defaulting to values to stored in browser on return visits.
 * When theme selection is changed the appropriate colour them is displayed.
 * When the difficulty selection has changed then the appropriate level is used when playing the card game.
-* For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the Start button and Info Page Button.
+* For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the dropdown menus, the Start button and Info Page Button.
+* If Javascript is disabled on the browser an Error message appears.
 * Page is responsive to screen width in portrait mode
 
 Page 2 - Game page
