@@ -363,13 +363,15 @@ I tested and improved assesibility with lighthouse and Firefox developer tools.
 
       ![user story 4 - visitor](/wireframe/user-story-4.PNG)  ![user story 4 - visitor](/wireframe/user-story-4b.PNG)
 
-      *On achieving a high score the user can submit their name and have their name appear on the leaderboard*
+      *On achieving a high score the user can submit their name and have their name appear on the leaderboard.*
 
 #### Owner Story
 
   1. As the site owner, I want to be able to play a fun game and test my memory.
 
       ![user story 1-owner ](/wireframe/user-story-1-visitor.PNG)
+
+      *Game is fun to play and a great test of memory skills for the owner.*
 
 back to [contents](#table-of-contents)
 
