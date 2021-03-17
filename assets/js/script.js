@@ -88,6 +88,11 @@ function ready() {
                 this.victory();
         }
 
+        /**
+         * if cards are mismatched then they are turned over
+         * @param {string} card1 
+         * @param {string} card2 
+         */
         cardMisMatch(card1, card2) {
             this.busy = true;
             setTimeout(() => {
@@ -101,12 +106,16 @@ function ready() {
          * This returns the image filename of the card for identification purposes
          * 
          * @param {card} (object) card 
-         * @returns 
+         * @returns (string) image filename of card
          */
         getCardType(card) {
             return card.getElementsByClassName("card-value")[0].src;
         }
 
+        /**
+         * this is a setinterval function that reduces the timer every second, when timer reaches zero gameover is called
+         * @returns (function) 
+         */
         startCountDown() {
             return setInterval(() => {
                 if (this.timeRemaining > 0 && (!this.isPaused)) {
@@ -119,21 +128,34 @@ function ready() {
             }, 1000);
         }
 
+        /**
+         * this pauses the timer from descending
+         * @param {boolean} value 
+         */
         timerIsPaused(value) {
             this.isPaused = value;
         }
 
+         /**
+         * clock is stopped , cards are turned over and game over modal called
+         */
         gameOver() {
             clearInterval(this.countDown);
             createModal("gameOver");
             this.hideCards();
         }
 
+        /**
+         * clock is stopped and cards are turned over
+         */
         exitGame() {
             clearInterval(this.countDown);
             this.hideCards();
         }
 
+        /**
+         * player has won the game , final score calculated and appropriate modal is displayed
+         */
         victory() {
             clearInterval(this.countDown);
             this.totalScore = this.totalScore - this.totalClicks;
@@ -147,6 +169,10 @@ function ready() {
             this.hideCards();
         }
 
+        /**
+         * checks if the player has beated their best score if a returning player, first time player always returns a true value
+         * @returns (boolean)
+         */
         recordBreaker() {
             if (!localStorage.getItem('topScore')) {
                 localStorage.setItem('topScore', this.totalScore);
@@ -159,6 +185,9 @@ function ready() {
             }
         }
 
+        /**
+         * shuffles the cards by changing the CSS display order
+         */
         shuffleCards() {
             for (let i = this.cardsArray.length - 1; i > 0; i--) {
                 let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -168,6 +197,11 @@ function ready() {
 
         } // Fisher and Yates shuffle  method
 
+        /**
+         * this ensures player cannot flip a card if game is busy or 2 cards are already selected
+         * @param {card} (object) card 
+         * @returns (boolean)
+         */
         canFlipCard(card) {
             return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
         } // all these statements have to be false in order for it to be true, and user can flip the next card
