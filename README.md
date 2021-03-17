@@ -309,18 +309,13 @@ no issues , results below. Resource:  <https://jshint.com/>
 
 ```js
 Metrics
-There are 45 functions in this file.
+There are 47 functions in this file.
 
 Function with the largest signature take 2 arguments, while the median is 0.
 
-Largest function has 33 statements in it, while the median is 3.
+Largest function has 36 statements in it, while the median is 3.
 
 The most complex function has a cyclomatic complexity value of 4 while the median is 1.
-
-One undefined variable
-356 firebase
-357 firebase
-358 firebase
 ```
 
 ### Usability Testing
