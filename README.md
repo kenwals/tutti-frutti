@@ -90,7 +90,7 @@ This site is put together with HTML, using the bootstrap framework along with CS
 
 ### Skeleton
 
-The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed using bootstraps collapse component.
+The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed using bootstraps collapse component. Game layout/structure is inspired by [PROXX](https://www.proxx.app/).
 
 Page 1 - Homepage or Main Menu - Game title, Theme and Difficulty settings , Start button.
           This page links to Page 2 by start button, and to page 3 by an info Icon button.
