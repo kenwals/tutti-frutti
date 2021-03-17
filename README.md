@@ -1,6 +1,6 @@
 # Tutti Frutti
 
-![Tutti Frutti logo](assets/images/logo_purple_3d.png)
+![Tutti Frutti logo](assets/images/logo-purple-3d.png)
 
 This is a colourful and interactive memory [card game](http:/kenwals.github.io/tutti-frutti/) featuring fruit emojis.
 
