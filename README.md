@@ -86,17 +86,20 @@ The site is three pages, it contains a menu page , a game page and an info page.
 
 ### Structure
 
-This site will be put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leader board is connected to a Firebase real-time Database.
+This site is put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery . The Leader board is connected to a Firebase real-time Database.
 
 ### Skeleton
 
 The site appears as three pages to the user, technically it's really one page with three sections that collapse away when not needed using bootstraps collapse component.
 
 Page 1 - Homepage or Main Menu - Game title, Theme and Difficulty settings , Start button.
+          This page links to Page 2 by start button, and to page 3 by an info Icon button.
 
 Page 2 - Game page - Card game page with timer, score ,flips gauge and modals.
+          This page links to Page 1 by a go back Icon button in lower left hand corner or an exit button on any of the modals.
 
 Page 3 - How to play / Top Scores - Top scores on are display here .There some info on how to play the game and on how the score is calculated.
+          This page links to Page 1 by a X out icon button in the upper right hand corner.
 
 8 card pairs - Fruit emojis used  are :lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
 
