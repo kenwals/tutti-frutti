@@ -124,7 +124,6 @@ function ready() {
 
         /**
          * This returns the image filename of the card for identification purposes
-         * 
          * @param {card} (object) card 
          * @returns (string) image filename of card
          */
@@ -285,7 +284,6 @@ function ready() {
      * this creates a modal from a value in the modalContents object array
      * then starts the modal event listeners
      * and then displays the modal
-     * 
      * @param {mondalId} (string) modalId 
      */
     function createModal(modalId) {
@@ -303,7 +301,6 @@ function ready() {
     /**
      * this populates the local storage of the browser with the prefered 
      * colour theme and difficulty levels
-     * 
      * then calls the setValues() Function
      */
     function populateStorage() {
@@ -444,12 +441,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
     query.on("value", gotData, errData);
 
     /**
-     * gets values from the form
-     * then clears the form value to prevent resubmit
-     * alerts user name and score has been sent
-     * closes modal after 3 seconds 
-     * 
-     * 
+     * gets values from the form, then clears the form value to prevent a resubmit, alerts user name and score has been sent, then closes modal after 3 seconds 
      * @param {e} (event) e 
      */
     function submitform(e) {
@@ -479,7 +471,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 
     /**
      * saves scores to firebase realtime database 
-     * 
      * @param {name} (string) name 
      * @param {score} (integer) score 
      */
@@ -495,7 +486,6 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
      * Takes a query of player scores from the database
      * will sort the results in desending order 
      * then displays the results on the leaderboard page
-     * 
      * @param {data} (string) data from the Firebase database
      */
     function gotData(data) {
