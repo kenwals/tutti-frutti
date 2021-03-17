@@ -222,7 +222,7 @@ There is a generic modal which is displayed differently for three scenarios. Ini
 
 #### Timer problem
 
-This problem highlighted was me on the peer review channel on slack, on repeated play the timer would speed up. it would get so bad it was showing minus figures. I since put in a block to stop the timer going less then zero just in case.
+This problem was highlighted to me on the peer review channel on slack, on repeated play the timer would speed up. It would get so bad it was showing minus figures. I since put in a block to stop the timer going less then zero just in case.
 
 ### Known issues
 
