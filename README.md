@@ -226,7 +226,7 @@ This problem highlighted was me on the peer review channel on slack, on repeated
 
 ### Known issues
 
-* In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript imported from from Google firebase . These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
+* In the Firefox browser, some errors appear in the developer tool console in relation to JavaScript script imported from Google firebase. These can be safely ignored as it's [a known issue within Google](https://support.google.com/analytics/thread/55824181?hl=en).
 
 * Site is not responsive landscape mode on mobile devices.
 
