@@ -404,7 +404,7 @@ Once you have the completed site in your own repository, you can deploy to GitHu
 
 ### Local Deployment
 
-If you prefer working on the repository locally, you can clone the repository to your desktop by the following steps.
+If you prefer working on the repository locally on your preferred Desktop IDE, you can clone the repository to your desktop by the following steps.
 
 1. Go to [the Tutti Frutti github page](https://github.com/kenwals/tutti-frutti).
 2. Above the list of files, click on the **code** button.
