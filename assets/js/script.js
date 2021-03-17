@@ -35,6 +35,10 @@ function ready() {
             this.scorePanel.innerText = this.totalScore;
         }
 
+        /**
+         * check is made on what difficulty level player has selected, appropriate score unit and time limit is set
+         * @returns (integer) total game time
+         */
         getDifficultyLevel() {
             if (this.currentLevel === "easy") {
                 this.scoreUnit = 10;
@@ -48,6 +52,9 @@ function ready() {
             }
         }
 
+        /**
+         * this resets all the cards to be turned over
+         */
         hideCards() {
             this.cardsArray.forEach(card => {
                 card.classList.remove("visible");
@@ -55,6 +62,10 @@ function ready() {
             });
         }
 
+        /**
+         * card has been clicked on , check is made if card can flipped , if so then number flips increased, card made visible and checked for match
+         * @param {object} card 
+         */
         flipCard(card) {
             if (this.canFlipCard(card)) {
                 this.totalClicks++;
@@ -67,6 +78,10 @@ function ready() {
             }
         }
 
+        /**
+         * check if the second selected card is matching the first one
+         * @param {object} card 
+         */
         checkForCardMatch(card) {
             if (this.getCardType(card) === this.getCardType(this.cardToCheck))
                 this.cardMatch(card, this.cardToCheck);
@@ -75,6 +90,11 @@ function ready() {
             this.cardToCheck = null;
         }
 
+        /**
+         * cards are matched , they are added to a matched array , given a matched class, score is updated , if array is full then game is won
+         * @param {object} card1 
+         * @param {object} card2 
+         */
         cardMatch(card1, card2) {
             this.matchedCards.push(card1);
             this.matchedCards.push(card2);
@@ -89,9 +109,9 @@ function ready() {
         }
 
         /**
-         * if cards are mismatched then they are turned over
-         * @param {string} card1 
-         * @param {string} card2 
+         * mismatched cards are turned over
+         * @param {object} card1 
+         * @param {object} card2 
          */
         cardMisMatch(card1, card2) {
             this.busy = true;
