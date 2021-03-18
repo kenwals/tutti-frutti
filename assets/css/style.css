@@ -253,13 +253,13 @@ body {
   }
 } /* oneplus 6 mobile phone screen width*/
 
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-height: 768px) {
   .card {
       position: relative;
       height: 10rem; 
       width: 7rem; 
   }
-} /* Nexus 7 tablet screen width */
+} /* Nexus 7 tablet screen width and  1366 x 768 Desktop/Laptop */
 
 @media (min-width: 992px) {
   .card {
@@ -267,9 +267,5 @@ body {
       height: 10rem; 
       width: 7rem; 
   }
-
-  #logo-home {
-      max-width: 33rem;
-  }
-
+  
 } /*              end of media query section                         */
