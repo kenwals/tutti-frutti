@@ -87,7 +87,7 @@ The site has three pages, it contains a menu page, a game page and an info page.
 
 ### Structure
 
-This site is put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and leaderboard are done using JavaScript and jQuery. The Leader board is connected to a Firebase real-time database.
+This site is put together with HTML, using the bootstrap framework along with CSS. The game, Interactive elements and Top score leader board are done using JavaScript and jQuery. The leader board is connected to a Firebase real-time database.
 
 ### Skeleton
 
@@ -254,7 +254,7 @@ While learning and researching JavaScript, I did find it challenging at times wh
 
 #### Defensive design gap
 
-When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this from happening, I added the ability to pause the timer when the "Are you sure?" modal appears.
+When clicking the back button while the game is running, the user is prompted to confirm if they want to Exit or Continue playing. A problem would happen if the timer ran out and the Game over modal appeared at the same time as the Are you sure? modal. To prevent this from happening, I added the ability to pause the timer automatically when the "Are you sure?" modal appears.
 
 ### Version control
 
@@ -264,7 +264,7 @@ For version control, I used the UI on VS Code for making git commits, and comman
 
 Page 1 - Homepage or Main Menu
 
-- Theme and difficulty levels chosen are stored in the browser and are defaulting to values to stored in the browser on return visits.
+- Theme and difficulty levels chosen are stored in the browser and are defaulting to values stored in the browser on return visits.
 - When theme selection is changed, the appropriate colour theme is displayed.
 - When the difficulty selection has changed then the appropriate level is used when playing the card game.
 - For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the dropdown menus, the Start button and Info Page Button.
@@ -286,14 +286,14 @@ Page 2 - Game page
 
   ​  2.  Are you sure you want to EXIT? - triggered when the go back button is pressed. Visitor can Exit or Continue playing. The timer is pausing correctly when this modal appears. The timer resumes when the continue button is pressed. Buttons functioning correctly.
 
-  ​  3.  You Win! - triggered when the visitor completes the game but the score is not higher than the high score stored in the browser.  Visitor can Exit or Restart the game. Buttons functioning correctly.
+  ​  3.  You Win! - triggered when the visitor completes the game but the score is not higher than the current high score stored in the browser.  Visitor can Exit or Restart the game. Buttons functioning correctly.
 
-  ​  4.  Leader board modal - triggered when the visitor completes the game for the first time or beats a top score they achieved before in their current browser. visitor can submit their name for the leaderboard, name cannot be blank. Also, they cannot submit more than once. Visitor can Exit or Restart the game. Buttons functioning correctly.
+  ​  4.  Leader board modal - triggered when the visitor completes the game for the first time or beats a top score they achieved before in their current browser. Visitor can submit their name for the leader board, name cannot be blank. Also, they cannot submit more than once. Visitor can Exit or Restart the game. Buttons functioning correctly.
 
 Page 3 - How to play / Top Scores
 
 - Game instructions are on display.
-- Contact details on display for queries or feedback.
+- Contact details on display and clickable for queries or feedback.
 - Top 10 user scores are showing in descending order.
 - Scores are refreshing in real-time, dependency on uptime from Google FireBase.
 - On the clickable sections the mouse changes to a pointer: The X out button on the top right-hand corner and the email address link.
@@ -390,7 +390,7 @@ I tested and improved accessibility with lighthouse and Firefox developer tools.
 
       ![user story 4 - visitor](/wireframe/user-story-4.PNG)  ![user story 4 - visitor](/wireframe/user-story-4b.PNG)
 
-      *On achieving a high score the user can submit their name and have their name appear on the leaderboard.*
+      *On achieving a high score the user can submit their name and have their name appear on the leader board.*
 
 #### Owner Story
 
@@ -453,7 +453,7 @@ You may wish to contribute to this website and have your contribution published,
 2. Open <https://github.com/kenwals/tutti-frutti>
 3. In the top right-hand corner you will see a fork button, click on this **Fork button**.
 4. This will create a copy of the Tutti-Frutti repository in your Github account.
-5. Once you're finished making changes you can locate the **New Pull Request**' button just above the file listing in the original repository (<https://github.com/kenwals/tutti-frutti>).
+5. Once you're finished making changes you can locate the **New Pull Request** button just above the file listing in the original repository (<https://github.com/kenwals/tutti-frutti>).
 6. If your pull request is approved, it will be merged into the master version of the Tutti-Frutti repository at a future date.
 
 more detailed instructions available [here](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
