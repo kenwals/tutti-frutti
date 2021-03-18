@@ -286,7 +286,7 @@ Page 2 - Game page
 
   ​  3.  You Win! - triggered when visitor completes game but score is not higher then high score stored in browser.  Visitor can Exit or Restart game. Buttons functioning correctly.
 
-  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. Visitor can Exit or Restart game. Buttons functioning correctly.
+  ​  4.  Leader board modal - triggered when visitor completes game for the first time or beats a top score they achieved before in their current browser. visitor can submit their name for the leaderboard, name cannot be blank. Also they cannot submit more then once. Visitor can Exit or Restart game. Buttons functioning correctly.
 
 Page 3 - How to play / Top Scores
 
