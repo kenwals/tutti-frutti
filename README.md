@@ -150,7 +150,7 @@ back to [contents](#table-of-contents)
 * The game stores your current highest score (Personal Best) in your browser, when you beat that score you can submit your new score to the leader board.
 * There is top 10 leader board of highest scores by all users. This uses the Firebase Realtime Database API , player names and scores are saved in this NoSQL database, scoreboard is updated on the site in real-time.
 * Local Storage API is used for storing and remembering the preferred difficulty level and theme setting when the user returns to the game.
-* Game can be paused whilst playing by clickon on the go back icon in the lower left hand corner. Continue button resumes play.
+* Game can be paused whilst playing by clicking on the go back icon button in the lower left hand corner. Continue button resumes play.
 
 ## Technologies Used
 
@@ -219,7 +219,7 @@ I used the lighthouse tool for performance testing , no major issues found.
 
 #### DRY code mistake on Modal
 
-There is a generic modal which is displayed differently for three scenarios. Initally this refactored DRY code had a design flaw in it, that lead to the continue button and restart game button being mixed up. Also the restart button would make the game go faster (first flagged to me on the peer review channel on slack). This problem was only fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevent modal buttons are only made visible when needed.
+There is a generic modal which is displayed differently for three scenarios. Initially this refactored DRY code had a design flaw in it, that lead to the continue button and restart game button being mixed up. Also the restart button would make the game go faster (first flagged to me on the peer review channel on slack). This problem was only fully resolved when i made sure the event listeners were only ran once and i added an extra button on the modal. So relevant modal buttons are only made visible when needed.
 
 #### Timer problem
 
@@ -267,7 +267,7 @@ Page 1 - Homepage or Main Menu
 Page 2 - Game page
 
 * Timer displays correct time remaining as per difficulty level.
-* Total Score value increments with appropriate score on play, it's also stored in the brower.
+* Total Score value increments with appropriate score on play, it's also stored in the browser.
 * Visitors current highest score (Personal best) is stored in the browser.
 * No of flips value increases each time a card is flipped over.
 * For clickable sections the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
@@ -330,7 +330,7 @@ no errors. Resource: <https://validator.w3.org/>
 
 ### JavaScript validator
 
-no issues , results below. Resource:  <https://jshint.com/>
+no issues, results below. Resource:  <https://jshint.com/>
 
 ```js
 Metrics
@@ -347,7 +347,7 @@ The most complex function has a cyclomatic complexity value of 4 while the media
 
 I shared the project on the peer-review channel on slack, and also with friends/family. There was several problems highlighted to me which I have since fixed. Such as responsiveness to device screen width size.
 
-I tested and improved assesibility with lighthouse and Firefox developer tools.
+I tested and improved accessibility with lighthouse and Firefox developer tools.
 
 ### Compatibility Testing
 
