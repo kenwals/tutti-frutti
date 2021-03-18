@@ -291,6 +291,30 @@ Page 3 - How to play / Top Scores
 * On the clickable sections the mouse changes to a pointer: The X out button on top right hand corner and the email address link.
 * Page is responsive to screen width in portrait mode.
 
+### Responsiveness Testing
+
+For this test I got a list of [15 most common screen sizes](https://www.designrush.com/trends/website-dimensions), and used [http://responsivetesttool.com/](http://responsivetesttool.com/) to check responsiveness for each screen size.
+
+Results are below . 14 Passes and 1 Fail. 
+
+| Device category | Model                 | Size (%popularity) | Result |
+| --------------- | --------------------- | ------------------ | ------ |
+| Desktop/Laptop  | NA                    | 1366x768 (22.98%)  | Pass   |
+| Desktop/Laptop  | NA                    | 1920x1080 (20.7%)  | Pass   |
+| Desktop/Laptop  | NA                    | 1536x864 (7.92%)   | Pass   |
+| Desktop/Laptop  | NA                    | 1440x900 (7.23%)   | Pass   |
+| Desktop/Laptop  | NA                    | 1280x720 (4.46%)   | Pass   |
+| Mobile Phone    | Samsung Galaxy Note 4 | 360x640 (18.7%)    | Pass   |
+| Mobile Phone    | Apple iPhone 6        | 375x667 (7.34%)    | Pass   |
+| Mobile Phone    | Apple iPhone XR       | 414x896 (6.76%)    | Pass   |
+| Mobile Phone    | Samsung Galaxy S8     | 360x780 (5.31%)    | Pass   |
+| Mobile Phone    | Apple iPhone X        | 375x812 (5.01%)    | Pass   |
+| Tablet          | Apple iPad            | 768x1024 (51.43%)  | Pass   |
+| Tablet          | unknown               | 1280x800 (7.28%)   | Pass   |
+| Tablet          | Samsung Galaxy Tab    | 800x1280 (5.26%)   | Pass   |
+| Tablet          | Google Nexus 7        | 601x962 (4.32%)    | Pass   |
+| Tablet          | unknown               | 962x601 (2.99%)    | Fail   |
+
 ### CSS3 validator
 
 no errors.  Resource: <https://jigsaw.w3.org/css-validator/>
