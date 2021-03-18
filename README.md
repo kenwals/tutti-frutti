@@ -498,6 +498,8 @@ Firebase real-time database code used was based on (and later customised) in the
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 
+- Aukje's MS02 preparation guide
+
 ### Media
 
 Emojis used on playing cards are from [Joypixels](https://www.joypixels.com/emoji)
