@@ -272,9 +272,4 @@ body {
       max-width: 33rem;
   }
 
-  /* Info page - leader board*/
-
-  .info-panel {
-      max-width: 33rem;
-  }
 } /*              end of media query section                         */
