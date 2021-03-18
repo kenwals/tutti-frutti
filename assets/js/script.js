@@ -234,7 +234,7 @@ function ready() {
 
     /**
      * here the card images are placed on the website using the fruits array
-     * mmy mentor assisted with part of this code  
+     * my mentor assisted with part of this code  
      *
      */
     function generateCards(){
@@ -273,7 +273,7 @@ function ready() {
         }, /* Modal [1] Are you sure you want to leave ? [1] */
         {
             modalTitle: "You Win!",
-            bodyText: "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
+            bodyText: "Well done! On this occasion you didn't beat your personal best score , better luck next time !",
             modalId: "youWin",
             btnId: "btn-restart"
         } /* Modal [2]  you win  */
@@ -302,7 +302,7 @@ function ready() {
     }
 
     /**
-     * this populates the local storage of the browser with the prefered 
+     * this populates the local storage of the browser with the preferred 
      * colour theme and difficulty levels
      * then calls the setValues() Function
      */
@@ -439,7 +439,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
     firebase.initializeApp(firebaseConfig); // Initialize Firebase
     firebase.analytics();
     const database = firebase.database();
-    const leaderBoardRef = database.ref("leaderBoard"); // referance leaderboard collection
+    const leaderBoardRef = database.ref("leaderBoard"); // reference leaderboard collection
     const query = leaderBoardRef.orderByChild("score").limitToLast(10); // these lines grabs data from firebase realtime database server
     query.on("value", gotData, errData);
 
@@ -487,7 +487,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 
     /**
      * Takes a query of player scores from the database
-     * will sort the results in desending order 
+     * will sort the results in descending order 
      * then displays the results on the leaderboard page
      * @param {data} (string) data from the Firebase database
      */
@@ -497,7 +497,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
         let keys = Object.keys(scores); // makes an array of keys from the database
         keys.forEach(k => scoreBoard.push(scores[k])); // adds the score results to an array 
         scoreBoard.sort((a, b) => b.score - a.score); // this sorts the array by player scores by comparing scores
-        let leaderBoardOrderedList = ""; // empty string needed for outputing data to the webpage later
+        let leaderBoardOrderedList = ""; // empty string needed for outputting data to the webpage later
         for (let i = 0; i < scoreBoard.length; i++) {
             leaderBoardOrderedList += ("<li>  " + scoreBoard[i].name + " - " + scoreBoard[i].score + "  </li>");
         }
