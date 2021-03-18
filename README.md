@@ -113,10 +113,10 @@ Wireframe
 
 Colours are vibrant and fun by default . Three colour theme options.
 
-1. Colourful theme (default). 
+1. Colourful theme (default).
 
-    Text colour : #4e03e2  (Electric Violet or Ultra Marine) 
-    
+    Text colour : #4e03e2  (Electric Violet or Ultra Marine)
+
     ![Colour swatch for Electric Violet ](/wireframe/colour-electric-violet.PNG)
 
     The background is a CSS gradient image done with a combination the colours below used on the fruit emojis.
