@@ -295,7 +295,7 @@ Page 3 - How to play / Top Scores
 
 For this test I got a list of [15 most common screen sizes](https://www.designrush.com/trends/website-dimensions), and used [http://responsivetesttool.com/](http://responsivetesttool.com/) to check responsiveness for each screen size.
 
-Results are below . 14 Passes and 1 Fail. 
+Results are below . 14 Passes and 1 Fail.
 
 | Device category | Model                 | Size Px (%popularity) | Result |
 | --------------- | --------------------- | ------------------ | ------ |
