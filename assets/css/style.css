@@ -5,276 +5,276 @@
 * Browsers: last 4 version
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jockey+One&family=VT323&display=swap");
 
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "VT323", monospace;
-  font-size: 1.6rem; 
+    font-family: "VT323", monospace;
+    font-size: 1.6rem;
 }
 
 .heading-text {
-  font-family: "Jockey One", sans-serif;
+    font-family: "Jockey One", sans-serif;
 }
 
 /*        Home page section         */
 
 .home-menu {
-  height: 80vh;
+    height: 80vh;
 }
 
 .theme-dark {
-  background-color: #000000;
-  color: #FFFFFF;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .theme-light {
-  background-color: #FFFFFF;
-  color: #000000;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .theme-colour {
-  color: #4E03E2 ;
-  min-height: 100vh;
-  background-image: -o-linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
-  background-image: linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
-  background-size: 400%;
-  -webkit-animation: bg-animation 60s infinite alternate;
-          animation: bg-animation 60s infinite alternate;
+    color: #4e03e2;
+    min-height: 100vh;
+    background-image: -o-linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
+    background-image: linear-gradient(45deg, #f82131, #cfde0a, #fc8440, #ff9300, #449c00);
+    background-size: 400%;
+    -webkit-animation: bg-animation 60s infinite alternate;
+    animation: bg-animation 60s infinite alternate;
 } /* code inspired by https://youtu.be/f3mwKLXpOLk */
 
 @-webkit-keyframes bg-animation {
-  0% {
-      background-position: left;
-  }
-  100% {
-      background-position: right;
-  }
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
 }
 
 @keyframes bg-animation {
-  0% {
-      background-position: left;
-  }
-  100% {
-      background-position: right;
-  }
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
 }
 
 #btn-exit,
 #btn-back,
 #btn-info {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #form-theme-difficulty {
-  max-width: 33rem;
+    max-width: 33rem;
 }
 
 /*            Game page              */
 
 .modal {
-  color: #007bff;
+    color: #007bff;
 }
 
 .modal-title {
-  font-size: 1.6rem; 
+    font-size: 1.6rem;
 }
 
 .form-control {
-  font-size: 1.6rem;  /* this is the input field on the leaderboard modal */ 
+    font-size: 1.6rem; /* this is the input field on the leaderboard modal */
 }
 
 .alert {
-  display: none;
+    display: none;
 }
 
 /*  Some style components here are taken from the YouTube video "How to Code a Card Matching Game" published by [Web Dev Simplified](https://youtu.be/28VfzEiJgy4)  */
 
 .game-info-container {
-  grid-column: 1 /-1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+    grid-column: 1 /-1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 .game-container {
-  margin: 30px auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto 10px auto 10px auto 10px auto;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-perspective: 500px;
-  perspective: 500px;
+    margin: 30px auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 10px auto 10px auto 10px auto;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-perspective: 500px;
+    perspective: 500px;
 }
 
 .card {
-  position: relative;
-  height: 5.469rem; 
-  width: 3.906rem; 
-  background-color: transparent;
-  cursor: pointer;
+    position: relative;
+    height: 5.469rem;
+    width: 3.906rem;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .card-face {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-transition: -webkit-transform 500ms ease-in-out;
-  transition: -webkit-transform 500ms ease-in-out;
-  -o-transition: transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    transition: -webkit-transform 500ms ease-in-out;
+    -o-transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .card.visible .card-back {
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
 }
 
 .card.visible .card-front {
-  -webkit-transform: rotateY(0);
-  transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
 }
 
 .card.matched .card-value {
-  -webkit-animation: dance 1s linear infinite 250ms;
-  animation: dance 1s linear infinite 250ms;
+    -webkit-animation: dance 1s linear infinite 250ms;
+    animation: dance 1s linear infinite 250ms;
 }
 
 @-webkit-keyframes dance {
-  0%,
-  100% {
-      -webkit-transform: rotate(0);
-      transform: rotate(0);
-  }
-  25% {
-      -webkit-transform: rotate(-30deg);
-      transform: rotate(-30deg);
-  }
-  75% {
-      -webkit-transform: rotate(30deg);
-      transform: rotate(30deg);
-  }
+    0%,
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    25% {
+        -webkit-transform: rotate(-30deg);
+        transform: rotate(-30deg);
+    }
+    75% {
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
 }
 
 @keyframes dance {
-  0%,
-  100% {
-      -webkit-transform: rotate(0);
-      transform: rotate(0);
-  }
-  25% {
-      -webkit-transform: rotate(-30deg);
-      transform: rotate(-30deg);
-  }
-  75% {
-      -webkit-transform: rotate(30deg);
-      transform: rotate(30deg);
-  }
+    0%,
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    25% {
+        -webkit-transform: rotate(-30deg);
+        transform: rotate(-30deg);
+    }
+    75% {
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
 }
 
 .card-back {
-  -webkit-transform: rotateY(0);
-  transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
 }
 
 .cardback_img {
-  width: 100%; /* this value ensures the card image resizes properly on smaller screens */
+    width: 100%; /* this value ensures the card image resizes properly on smaller screens */
 }
 .card-value {
-  position: relative;
-  -webkit-transition: -webkit-transform 100ms ease-in-out;
-  transition: -webkit-transform 100ms ease-in-out;
-  -o-transition: transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
-  width: 100%; /* this value ensures the card image resizes properly on smaller screens */
+    position: relative;
+    -webkit-transition: -webkit-transform 100ms ease-in-out;
+    transition: -webkit-transform 100ms ease-in-out;
+    -o-transition: transform 100ms ease-in-out;
+    transition: transform 100ms ease-in-out;
+    transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    width: 100%; /* this value ensures the card image resizes properly on smaller screens */
 }
 
 .card-front:hover .card-value {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
 }
 
 .card-front {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .game-header,
 .help-header {
-  height: 3rem;
+    height: 3rem;
 }
 
 .game-footer,
 .home-footer {
-  height: 3rem;
+    height: 3rem;
 }
 
 .fas {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 /*              start of media query section                         */
 
 @media (min-width: 412px) {
-  .card {
-      position: relative;
-      height: 7rem;
-      width: 5rem;
-  }
+    .card {
+        position: relative;
+        height: 7rem;
+        width: 5rem;
+    }
 } /* oneplus 6 mobile phone screen width*/
 
 @media (min-width: 600px) {
-  .card {
-      position: relative;
-      height: 10rem; 
-      width: 7rem; 
-  }
-} /* Nexus 7 tablet screen width */
+    .card {
+        position: relative;
+        height: 9rem;
+        width: 6rem;
+    }
+} /* Nexus 7 tablet screen width  */
 
-@media (min-width: 992px) {
-  .card {
-      position: relative;
-      height: 10rem; 
-      width: 7rem; 
-  }
+@media (min-width: 962px) and (min-height: 768px) {
+    .card {
+        position: relative;
+        height: 10rem;
+        width: 7rem;
+    }
+} 
 
-  #logo-home {
-      max-width: 33rem;
-  }
+@media (min-width: 1680px) {
+    .card {
+        position: relative;
+        height: 14rem;
+        width: 9.8rem;
+    }
+} 
 
-  /* Info page - leader board*/
-
-  .info-panel {
-      max-width: 33rem;
-  }
-} /*              end of media query section                         */
+/*              end of media query section                         */

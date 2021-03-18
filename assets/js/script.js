@@ -1,10 +1,9 @@
 /**
- *  some code on this script is taken and customised from Youtube video 
+ *  some code on this script is taken and customised from Youtube video
  * "How to Code a Card Matching Game" published by [PortEXE](https://youtu.be/3uuQ3g92oPQ)
- * 
+ *
  */
-function ready() {
-
+ function ready() {
     class TuttiFrutti {
         constructor(cards) {
             this.cardsArray = cards;
@@ -16,8 +15,8 @@ function ready() {
 
         startGame() {
             this.isPaused = false;
-            this.currentLevel = document.getElementById('level').value;
-            this.cardToCheck = null; // this ensures only up to 2 cards are being checked 
+            this.currentLevel = document.getElementById("level").value;
+            this.cardToCheck = null; // this ensures only up to 2 cards are being checked
             this.totalClicks = 0;
             this.totalScore = 0;
             this.totalTime = this.getDifficultyLevel();
@@ -28,7 +27,7 @@ function ready() {
                 this.shuffleCards();
                 this.countDown = this.startCountDown();
                 this.busy = false;
-            }, 500); // this is a half a second timeout 
+            }, 500); // this is a half a second timeout
             this.hideCards();
             this.timer.innerText = this.timeRemaining;
             this.ticker.innerText = this.totalClicks;
@@ -56,7 +55,7 @@ function ready() {
          * this resets all the cards to be turned over
          */
         hideCards() {
-            this.cardsArray.forEach(card => {
+            this.cardsArray.forEach((card) => {
                 card.classList.remove("visible");
                 card.classList.remove("matched");
             });
@@ -64,36 +63,32 @@ function ready() {
 
         /**
          * card has been clicked on , check is made if card can flipped , if so then number flips increased, card made visible and checked for match
-         * @param {object} card 
+         * @param {object} card
          */
         flipCard(card) {
             if (this.canFlipCard(card)) {
                 this.totalClicks++;
                 this.ticker.innerText = this.totalClicks;
                 card.classList.add("visible");
-                if (this.cardToCheck)
-                    this.checkForCardMatch(card);
-                else
-                    this.cardToCheck = card;
+                if (this.cardToCheck) this.checkForCardMatch(card);
+                else this.cardToCheck = card;
             }
         }
 
         /**
          * check if the second selected card is matching the first one
-         * @param {object} card 
+         * @param {object} card
          */
         checkForCardMatch(card) {
-            if (this.getCardType(card) === this.getCardType(this.cardToCheck))
-                this.cardMatch(card, this.cardToCheck);
-            else
-                this.cardMisMatch(card, this.cardToCheck);
+            if (this.getCardType(card) === this.getCardType(this.cardToCheck)) this.cardMatch(card, this.cardToCheck);
+            else this.cardMisMatch(card, this.cardToCheck);
             this.cardToCheck = null;
         }
 
         /**
          * cards are matched , they are added to a matched array , given a matched class, score is updated , if array is full then game is won
-         * @param {object} card1 
-         * @param {object} card2 
+         * @param {object} card1
+         * @param {object} card2
          */
         cardMatch(card1, card2) {
             this.matchedCards.push(card1);
@@ -101,17 +96,16 @@ function ready() {
             card1.classList.add("matched");
             card2.classList.add("matched");
             // score includes bonus given based on time remaining
-            this.totalScore += this.scoreUnit + (this.scoreUnit * this.timeRemaining);
+            this.totalScore += this.scoreUnit + this.scoreUnit * this.timeRemaining;
             this.scorePanel.innerText = this.totalScore;
-            localStorage.setItem('currentScore', this.totalScore);
-            if (this.matchedCards.length === this.cardsArray.length)
-                this.victory();
+            localStorage.setItem("currentScore", this.totalScore);
+            if (this.matchedCards.length === this.cardsArray.length) this.victory();
         }
 
         /**
          * mismatched cards are turned over
-         * @param {object} card1 
-         * @param {object} card2 
+         * @param {object} card1
+         * @param {object} card2
          */
         cardMisMatch(card1, card2) {
             this.busy = true;
@@ -124,7 +118,7 @@ function ready() {
 
         /**
          * This returns the image filename of the card for identification purposes
-         * @param {card} (object) card 
+         * @param {card} (object) card
          * @returns (string) image filename of card
          */
         getCardType(card) {
@@ -132,12 +126,12 @@ function ready() {
         }
 
         /**
-         * this is a setinterval function that reduces the timer every second, when timer reaches zero gameover is called
-         * @returns (function) 
+         * this is a setInterval function that reduces the timer every second, when timer reaches zero gameOver is called
+         * @returns (function)
          */
         startCountDown() {
             return setInterval(() => {
-                if (this.timeRemaining > 0 && (!this.isPaused)) {
+                if (this.timeRemaining > 0 && !this.isPaused) {
                     this.timeRemaining--;
                     this.timer.innerText = this.timeRemaining;
                 } else if (this.timeRemaining === 0) {
@@ -149,14 +143,14 @@ function ready() {
 
         /**
          * this pauses the timer from descending
-         * @param {boolean} value 
+         * @param {boolean} value
          */
         timerIsPaused(value) {
             this.isPaused = value;
         }
 
-         /**
-         * clock is stopped , cards are turned over and game over modal called
+        /**
+         * clock is stopped , cards are turned over and gameOver modal called
          */
         gameOver() {
             clearInterval(this.countDown);
@@ -189,15 +183,15 @@ function ready() {
         }
 
         /**
-         * checks if the player has beated their best score if a returning player, first time player always returns a true value
+         * checks if the player has beaten their best score if a returning player, first time player always returns a true value
          * @returns (boolean)
          */
         recordBreaker() {
-            if (!localStorage.getItem('topScore')) {
-                localStorage.setItem('topScore', this.totalScore);
+            if (!localStorage.getItem("topScore")) {
+                localStorage.setItem("topScore", this.totalScore);
                 return true;
-            } else if (localStorage.getItem('topScore') < this.totalScore) {
-                localStorage.setItem('topScore', this.totalScore);
+            } else if (localStorage.getItem("topScore") < this.totalScore) {
+                localStorage.setItem("topScore", this.totalScore);
                 return true;
             } else {
                 return false;
@@ -213,70 +207,65 @@ function ready() {
                 this.cardsArray[randomIndex].style.order = i;
                 this.cardsArray[i].style.order = randomIndex;
             }
-
         } // Fisher and Yates shuffle  method
 
         /**
          * this ensures player cannot flip a card if game is busy or 2 cards are already selected
-         * @param {card} (object) card 
+         * @param {card} (object) card
          * @returns (boolean)
          */
         canFlipCard(card) {
-            return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
+            return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
         } // all these statements have to be false in order for it to be true, and user can flip the next card
-
     }
-    
-    const fruits = ["lemon", "apple", "strawberry", "banana", "cherry","peach","pear", "orange"];
+
+    const fruits = ["lemon", "apple", "strawberry", "banana", "cherry", "peach", "pear", "orange"];
     generateCards();
     const cards = Array.from(document.getElementsByClassName("card"));
     const game = new TuttiFrutti(cards);
 
     /**
-     * here the card images are placed on the website using the fruits array
-     * mmy mentor assisted with part of this code  
-     *
+     * here the card images are placed on the website using the fruits array.
      */
-    function generateCards(){
+    function generateCards() {
         let cardsList = "";
         const gamecontainer = document.getElementById("game-container");
-        fruits.map((fruit)=> {
+        fruits.map((fruit) => {
             const fruitCard = `<div class="card">
                 <div class="card-back card-face"><img alt="card back" class="cardback_img" src="assets/images/cardback-04.png"></div>
                 <div class="card-front card-face"><img alt="card front - ${fruit}" class="card-value" src="assets/images/${fruit}-icon.png"></div>
             </div>`;
             cardsList += fruitCard;
             cardsList += fruitCard;
-        } );
+        }); //my mentor assisted with part of this code
         gamecontainer.innerHTML = cardsList;
     }
 
-
-    if (!localStorage.getItem('theme') && !localStorage.getItem('level')) {
+    if (!localStorage.getItem("theme") && !localStorage.getItem("level")) {
         populateStorage();
     } else {
         setValues();
     }
 
-
-    const modalContents = [{
+    const modalContents = [
+        {
             modalTitle: "Game Over",
             bodyText: "Hard luck , your time has run out.",
             modalId: "gameOver",
-            btnId: "btn-restart"
-        }, /* Modal [0] Game over  */
+            btnId: "btn-restart",
+        } /* Modal [0] Game over  */,
         {
             modalTitle: "Tutti Frutti",
             bodyText: "Are you sure you want to EXIT this game or CONTINUE playing?",
             modalId: "exit",
-            btnId: "btn-continue"
-        }, /* Modal [1] Are you sure you want to leave ? [1] */
+            btnId: "btn-continue",
+        } /* Modal [1] Are you sure you want to leave ? [1] */,
         {
             modalTitle: "You Win!",
-            bodyText: "Well done! On this occassion you didn't beat your personal best score , better luck next time !",
+            bodyText: "Well done! On this occasion you didn't beat your personal best score , better luck next time !",
             modalId: "youWin",
-            btnId: "btn-restart"
-        } /* Modal [2]  you win  */
+            btnId: "btn-restart",
+        } /* Modal [2]  you win  */,
     ];
     /**
      * this runs each time a modal is created in order for it's buttons to work
@@ -286,11 +275,10 @@ function ready() {
      * this creates a modal from a value in the modalContents object array
      * then starts the modal event listeners
      * and then displays the modal
-     *  my mentor assisted with part of this code  
-     * @param {mondalId} (string) modalId 
+     * @param {mondalId} (string) modalId
      */
     function createModal(modalId) {
-        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0]; // my mentor assisted with part of this code
         $("#modal-title").text(modal.modalTitle);
         $("#modal-body").text(modal.bodyText);
         if (modal.btnId === "btn-restart") {
@@ -302,25 +290,25 @@ function ready() {
     }
 
     /**
-     * this populates the local storage of the browser with the prefered 
+     * this populates the local storage of the browser with the preferred
      * colour theme and difficulty levels
      * then calls the setValues() Function
      */
     function populateStorage() {
-        localStorage.setItem('theme', document.getElementById('theme').value);
-        localStorage.setItem('level', document.getElementById('level').value);
+        localStorage.setItem("theme", document.getElementById("theme").value);
+        localStorage.setItem("level", document.getElementById("level").value);
         setValues();
     }
 
     /**
-     * the default theme and difficulty level is retrieved from 
+     * the default theme and difficulty level is retrieved from
      * local storage and selected in the setting form on the homepage
      */
     function setValues() {
-        let currentTheme = localStorage.getItem('theme');
-        let currentLevel = localStorage.getItem('level');
-        document.getElementById('theme').value = currentTheme;
-        document.getElementById('level').value = currentLevel;
+        let currentTheme = localStorage.getItem("theme");
+        let currentLevel = localStorage.getItem("level");
+        document.getElementById("theme").value = currentTheme;
+        document.getElementById("level").value = currentLevel;
         if (currentTheme === "dark") {
             $("body").removeClass("theme-colour").removeClass("theme-light").addClass("theme-dark");
         } else if (currentTheme === "light") {
@@ -388,17 +376,17 @@ function ready() {
         // help page collapsed , home page is open
     });
 
-    cards.forEach(card => {
+    cards.forEach((card) => {
         card.addEventListener("click", () => {
             game.flipCard(card);
         });
-    });  
-    
+    });
+
     document.getElementById("form-leaderBoard").addEventListener("submit", submitform); // event listener on submit button for the leaderboard modal
-    
+
     /*           end of event listeners section                          */
 
-    /*          the Leaderboard section        */
+    /*          the Leader board section        */
 
     /**
  *  Based partially on content from the following and then customised:
@@ -433,19 +421,19 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
         storageBucket: "tutti-frutti-6a62e.appspot.com",
         messagingSenderId: "602240536417",
         appId: "1:602240536417:web:269a49b9f1b39d5046ff20",
-        measurementId: "G-WFN8X078TS"
+        measurementId: "G-WFN8X078TS",
     };
 
     firebase.initializeApp(firebaseConfig); // Initialize Firebase
     firebase.analytics();
     const database = firebase.database();
-    const leaderBoardRef = database.ref("leaderBoard"); // referance leaderboard collection
+    const leaderBoardRef = database.ref("leaderBoard"); // reference leaderboard collection
     const query = leaderBoardRef.orderByChild("score").limitToLast(10); // these lines grabs data from firebase realtime database server
     query.on("value", gotData, errData);
 
     /**
-     * gets values from the form, then clears the form value to prevent a resubmit, alerts user name and score has been sent, then closes modal after 3 seconds 
-     * @param {e} (event) e 
+     * gets values from the form, then clears the form value to prevent a resubmit, alerts user name and score has been sent, then closes modal after 3 seconds
+     * @param {e} (event) e
      */
     function submitform(e) {
         e.preventDefault();
@@ -465,7 +453,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 
     /**
      *  gets specific value from form field
-     * @param {id} (string) id 
+     * @param {id} (string) id
      * @returns  value from input field
      */
     function getInputVal(id) {
@@ -473,21 +461,21 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
     }
 
     /**
-     * saves scores to firebase realtime database 
-     * @param {name} (string) name 
-     * @param {score} (integer) score 
+     * saves scores to firebase realtime database
+     * @param {name} (string) name
+     * @param {score} (integer) score
      */
     function saveTopScore(name, score) {
         let newLeaderBoardRef = leaderBoardRef.push();
         newLeaderBoardRef.set({
             name: name,
-            score: score
+            score: score,
         });
     }
 
     /**
      * Takes a query of player scores from the database
-     * will sort the results in desending order 
+     * will sort the results in descending order
      * then displays the results on the leaderboard page
      * @param {data} (string) data from the Firebase database
      */
@@ -495,18 +483,18 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
         let scores = data.val(); // json object of the database snapshot
         let scoreBoard = []; // empty array for sorting the scores in descending order later
         let keys = Object.keys(scores); // makes an array of keys from the database
-        keys.forEach(k => scoreBoard.push(scores[k])); // adds the score results to an array 
+        keys.forEach((k) => scoreBoard.push(scores[k])); // adds the score results to an array
         scoreBoard.sort((a, b) => b.score - a.score); // this sorts the array by player scores by comparing scores
-        let leaderBoardOrderedList = ""; // empty string needed for outputing data to the webpage later
+        let leaderBoardOrderedList = ""; // empty string needed for outputting data to the webpage later
         for (let i = 0; i < scoreBoard.length; i++) {
-            leaderBoardOrderedList += ("<li>  " + scoreBoard[i].name + " - " + scoreBoard[i].score + "  </li>");
+            leaderBoardOrderedList += "<li>  " + scoreBoard[i].name + " - " + scoreBoard[i].score + "  </li>";
         }
         $("#scoreList").html(leaderBoardOrderedList); // this outputs the ordered list body to the webpage
     }
 
     /**
      * this outputs an error message to the console if there is a problem with the connection
-     * @param {err} (string) err 
+     * @param {err} (string) err
      */
     function errData(err) {
         console.log("Error!", err);
@@ -515,8 +503,8 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 }
 
 /**
- * This waits for document to be fully loaded 
- * then runs the ready() function when it's completed
+ * This waits for document to be fully loaded
+ * then runs the ready() function when loading is completed
  */
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", ready());
