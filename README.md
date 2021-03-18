@@ -189,6 +189,7 @@ back to [contents](#table-of-contents)
 * JavaScript linter : [jshint](https://jshint.com/)
 * markdown linter : markdownlint extension on VS Code.
 * [markdown table of contents creator](https://ecotrust-canada.github.io/markdown-toc/)
+* [site preview tool](http://ami.responsivedesign.is/)
 
 back to [contents](#table-of-contents)
 
