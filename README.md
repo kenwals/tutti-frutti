@@ -297,7 +297,7 @@ For this test I got a list of [15 most common screen sizes](https://www.designru
 
 Results are below . 14 Passes and 1 Fail. 
 
-| Device category | Model                 | Size (%popularity) | Result |
+| Device category | Model                 | Size Px (%popularity) | Result |
 | --------------- | --------------------- | ------------------ | ------ |
 | Desktop/Laptop  | NA                    | 1366x768 (22.98%)  | Pass   |
 | Desktop/Laptop  | NA                    | 1920x1080 (20.7%)  | Pass   |
