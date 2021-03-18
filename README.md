@@ -10,8 +10,6 @@ This is a colourful and interactive memory [card game](http:/kenwals.github.io/t
 
 ## Table of contents
 
-- [Tutti Frutti](#tutti-frutti)
-  - [Table of contents](#table-of-contents)
   - [UX](#ux)
     - [Scope](#scope)
       - [User stories](#user-stories)
@@ -107,6 +105,8 @@ Page 3 - How to play / Top Scores - Top scores are on display here. There some i
 8 card pairs - Fruit emojis used  are :lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
 
 Wireframe
+
+Game layout was sketched on pen and paper a few times first before it was prepared in balsamic. 
 
 ![wireframe image](/wireframe/tutti-trutti-wireframe.png)
 
@@ -265,7 +265,7 @@ For version control, I used the UI on VS Code for making git commits, and comman
 Page 1 - Homepage or Main Menu
 
 - Theme and difficulty levels chosen are stored in the browser and are defaulting to values to stored in the browser on return visits.
-- When theme selection is changed the appropriate colour theme is displayed.
+- When theme selection is changed, the appropriate colour theme is displayed.
 - When the difficulty selection has changed then the appropriate level is used when playing the card game.
 - For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the dropdown menus, the Start button and Info Page Button.
 - If Javascript is disabled on the browser an Error message appears.
@@ -275,7 +275,7 @@ Page 2 - Game page
 
 - Timer displays the correct time remaining as per difficulty level.
 - Total Score value increments with the appropriate score on the current play, it's also stored in the browser.
-- Visitors current highest score (Personal best) is stored in the browser.
+- The Visitor's current highest score (Personal best) is stored in the browser.
 - No of flips value increases each time a card is flipped over.
 - For clickable sections, the desktop mouse changes to a pointer. Seen here on the back button and each playing card.
 - Page is responsive to screen width in portrait mode.
