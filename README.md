@@ -113,8 +113,13 @@ Wireframe
 
 Colours are vibrant and fun by default . Three colour theme options.
 
-1. Colourful theme (default). The background is a CSS gradient image done with a combination the colours below used on the fruit emojis.
+1. Colourful theme (default). 
 
+    Text colour : #4e03e2  (Electric Violet or Ultra Marine) 
+    
+    ![Colour swatch for Electric Violet ](/wireframe/colour-electric-violet.PNG)
+
+    The background is a CSS gradient image done with a combination the colours below used on the fruit emojis.
     ![Background colour gradient](/wireframe/colours-used-for-background-gradient.PNG)
 
     #F82131 (strawberry ), #CFDE0A (lemon), #FC8440 (Orange), #FF9300 (Peach), #449C00 (Pear).
@@ -184,7 +189,7 @@ back to [contents](#table-of-contents)
 * Colour contrast checking for Accessibility refinements : [WebAIM](https://webaim.org/resources/contrastchecker/) was used for when trying to decide what colours to use for text against which background colour.
 * Favicon creator : [favicon.io](https://favicon.io/favicon-generator/)
 * Autoprefixer CSS : [Autoprefixer](https://autoprefixer.github.io/)
-* Auto formatter for HTML and CSS : [dirtyMarkUp](https://www.10bestdesign.com/dirtymarkup/) and  [webformatter](https://webformatter.com/html)
+* Auto formatter for HTML, CSS and JS:  [webformatter](https://webformatter.com/html)
 * px to rem convertor : [nekoCalc](https://nekocalc.com/px-to-rem-converter)
 * JavaScript linter : [jshint](https://jshint.com/)
 * markdown linter : markdownlint extension on VS Code.
