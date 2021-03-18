@@ -270,6 +270,7 @@ Page 1 - Homepage or Main Menu
 - For all clickable sections the mouse changes to a pointer on desktop viewing. Sections here is the dropdown menus, the Start button and Info Page Button.
 - If Javascript is disabled on the browser an Error message appears.
 - Page is responsive to screen width in portrait mode
+- If you type a invalid webpage address, a 404 error page shows up.
 
 Page 2 - Game page
 
@@ -331,7 +332,7 @@ no errors.  Resource: <https://jigsaw.w3.org/css-validator/>
 
 ### HTML5 validator
 
-no errors. Resource: <https://validator.w3.org/>
+no errors in index.html and 404.html . Resource: <https://validator.w3.org/>
 
 ![HTML5 result](/wireframe/w3-html-validation-result.PNG)
 
