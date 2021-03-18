@@ -99,14 +99,14 @@ Page 1 - Homepage or Main Menu - Game title, Theme and Difficulty settings, Star
 Page 2 - Game page - Card game page with timer, score, flips gauge and modals.
           This page links to Page 1 by a go back Icon button in the lower left-hand corner or an exit button on any of the modals.
 
-Page 3 - How to play / Top Scores - Top scores are on display here. There some info on how to play the game and on how the score is calculated.
+Page 3 - How to play / Top Scores - Top scores are on display here. Here is some info on how to play the game and on how the score is calculated.
           This page links to Page 1 by an X out icon button in the upper right-hand corner.
 
 8 card pairs - Fruit emojis used  are :lemon: :cherries: :pear: :orange: :peach: :strawberry: :apple: :banana:
 
 Wireframe
 
-Game layout was sketched on pen and paper a few times first before it was prepared in balsamic. 
+The game layout was sketched on pen and paper a few times first before it got prepared in balsamic.
 
 ![wireframe image](/wireframe/tutti-trutti-wireframe.png)
 
