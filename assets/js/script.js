@@ -126,7 +126,7 @@
         }
 
         /**
-         * this is a setinterval function that reduces the timer every second, when timer reaches zero gameover is called
+         * this is a setInterval function that reduces the timer every second, when timer reaches zero gameOver is called
          * @returns (function)
          */
         startCountDown() {
@@ -150,7 +150,7 @@
         }
 
         /**
-         * clock is stopped , cards are turned over and game over modal called
+         * clock is stopped , cards are turned over and gameOver modal called
          */
         gameOver() {
             clearInterval(this.countDown);
@@ -225,9 +225,7 @@
     const game = new TuttiFrutti(cards);
 
     /**
-     * here the card images are placed on the website using the fruits array
-     * my mentor assisted with part of this code
-     *
+     * here the card images are placed on the website using the fruits array.
      */
     function generateCards() {
         let cardsList = "";
@@ -239,7 +237,7 @@
             </div>`;
             cardsList += fruitCard;
             cardsList += fruitCard;
-        });
+        }); //my mentor assisted with part of this code
         gamecontainer.innerHTML = cardsList;
     }
 
@@ -277,11 +275,10 @@
      * this creates a modal from a value in the modalContents object array
      * then starts the modal event listeners
      * and then displays the modal
-     *  my mentor assisted with part of this code
      * @param {mondalId} (string) modalId
      */
     function createModal(modalId) {
-        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0];
+        const modal = modalContents.filter((modal) => modal.modalId === modalId)[0]; // my mentor assisted with part of this code
         $("#modal-title").text(modal.modalTitle);
         $("#modal-body").text(modal.bodyText);
         if (modal.btnId === "btn-restart") {
@@ -389,7 +386,7 @@
 
     /*           end of event listeners section                          */
 
-    /*          the Leaderboard section        */
+    /*          the Leader board section        */
 
     /**
  *  Based partially on content from the following and then customised:
@@ -507,7 +504,7 @@ https://youtu.be/MWD-iKzR2c8    (Channel : The coding Train)
 
 /**
  * This waits for document to be fully loaded
- * then runs the ready() function when it's completed
+ * then runs the ready() function when loading is completed
  */
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", ready());
