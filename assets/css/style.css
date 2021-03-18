@@ -267,4 +267,14 @@ body {
         height: 10rem;
         width: 7rem;
     }
-} /*              end of media query section                         */
+} 
+
+@media (min-width: 1680px) {
+    .card {
+        position: relative;
+        height: 14rem;
+        width: 9.8rem;
+    }
+} 
+
+/*              end of media query section                         */
