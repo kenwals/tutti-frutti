@@ -183,7 +183,7 @@
         }
 
         /**
-         * checks if the player has beated their best score if a returning player, first time player always returns a true value
+         * checks if the player has beaten their best score if a returning player, first time player always returns a true value
          * @returns (boolean)
          */
         recordBreaker() {
